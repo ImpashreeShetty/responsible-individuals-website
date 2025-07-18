@@ -15,7 +15,7 @@ header img {
   width: 120px; /* or use max-width */
   height: auto; /* maintains aspect ratio */
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 20px; /* use right: 20px; for top-right corner */
 }
 nav a {
