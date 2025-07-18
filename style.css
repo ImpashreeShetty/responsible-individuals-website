@@ -12,9 +12,11 @@ header {
     align-items: center;
 }
 header img {
-    height: 60px;
-    display: block;
-    margin: 0 auto;
+  width: 120px; /* or use max-width */
+  height: auto; /* maintains aspect ratio */
+  position: absolute;
+  top: 20px;
+  left: 20px; /* use right: 20px; for top-right corner */
 }
 nav a {
     margin: 0 10px;
