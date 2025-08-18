@@ -11,9 +11,9 @@
     --bg: #ffffff;
     --surface: #f7faf8;
     --border: #e6e9e7;
-    --brand-size: clamp(28px, 3.2vw, 44px);
+    /* Larger logo */
+    --brand-size: clamp(40px, 4.5vw, 72px);
     --header-height: calc(var(--brand-size) + 24px);
-    --footer-height: 64px;
 }
 
 /* Reset and base */
@@ -25,21 +25,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f3fafc;
-    position: relative;
-}
-html, body { height: 100%; }
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url('RESPONSIBLE.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: min(70vmin, 900px);
-    filter: blur(30px) brightness(0.7);
-    transform: none;
-    z-index: -1;
+    background-color: #ffffff;
+    color: var(--text-color);
 }
 img {
     max-width: 100%;
@@ -73,7 +60,8 @@ header {
     flex-shrink: 0;
 }
 header h1 {
-    font-size: var(--brand-size);
+    /* Keep title readable while logo is larger */
+    font-size: clamp(22px, 2.4vw, 34px);
     margin: 0;
 }
 header nav {
@@ -91,21 +79,10 @@ nav a.active, nav a:hover {
     box-shadow: 0 0 0 1px var(--border) inset;
 }
 
-.nav-toggle {
-    display: none;
-    background: var(--brand-blue);
-    border: none;
-    color: #ffffff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
 /* Content */
 main {
     padding: 24px 20px;
     padding-top: calc(var(--header-height) + 16px);
-    padding-bottom: calc(var(--footer-height) + 16px);
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -123,18 +100,16 @@ main {
     background: linear-gradient(135deg, var(--brand-blue-100), var(--brand-green-100));
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 32px 24px;
+    padding: 24px 20px;
     margin-top: 8px;
 }
-.hero h1 {
-    font-size: 40px;
-    margin: 0 0 8px 0;
-}
 .hero p {
-    margin: 0 0 16px 0;
+    margin: 0;
     font-size: 18px;
     color: var(--muted-text);
 }
+
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 10px 16px;
@@ -157,10 +132,10 @@ main {
 
 /* Inauguration event card */
 .event-card {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.92);
     border: 1px solid var(--border);
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     overflow: hidden;
     max-width: 960px;
     margin: 16px auto;
@@ -238,21 +213,12 @@ textarea {
     resize: vertical;
 }
 
-/* Footer */
+/* Footer (scrolls with page) */
 footer {
     padding: 16px 20px;
     border-top: 1px solid var(--border);
     background: linear-gradient(90deg, var(--brand-green-100), var(--brand-blue-100));
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    height: var(--footer-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Responsive navigation */
