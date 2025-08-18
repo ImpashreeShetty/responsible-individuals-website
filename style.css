@@ -54,8 +54,8 @@ header {
 }
 header h1 {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 400;
-    font-size: clamp(18px, 0.6vw, 25px);
+    font-weight: 800;
+    font-size: clamp(36px, 1.2vw, 50px);
     margin: 0;
 }
 /* Mobile menu toggle button and hamburger icon */
@@ -144,11 +144,7 @@ main {
     margin: 0 auto;
 }
 .section { margin: 32px 0; }
-/* Standardize main H1 font family to match header */
-h1 {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 800;
-}
+/* Removed global h1 styling to avoid conflicts; header h1 controls the site title */
 /* Standardize subsection heading styles */
 h2 {
     font-family: 'Montserrat', Arial, sans-serif;
