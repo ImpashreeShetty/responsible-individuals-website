@@ -53,6 +53,38 @@ header h1 {
     font-size: clamp(26px, 3.2vw, 46px); /* reduced ~2px overall */
     margin: 0;
 }
+/* Mobile menu toggle button and hamburger icon */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.hamburger {
+    display: inline-block;
+    width: 24px;
+    height: 18px;
+    position: relative;
+}
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+header.nav-open .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+header.nav-open .hamburger span:nth-child(2) { opacity: 0; }
+header.nav-open .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 header nav { margin-left: auto; }
 nav a {
     padding: 8px 10px;
