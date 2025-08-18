@@ -19,6 +19,12 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background-color: #ffffff;
+    background-image: url('RESPONSIBLE.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 img {
     max-width: 100%;
@@ -38,7 +44,21 @@ header {
     padding: 12px 20px;
     display: flex;
     align-items: center;
->>>>>> main
+    gap: 12px;
+    --brand-size: clamp(24px, 2.8vw, 40px);
+}
+.logo {
+    height: var(--brand-size);
+    width: auto;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+header h1 {
+    font-size: var(--brand-size);
+    margin: 0;
+}
+header nav {
+    margin-left: auto;
 }
 nav a {
     padding: 8px 10px;
