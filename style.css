@@ -18,6 +18,10 @@
 
 /* Reset and base */
 * { box-sizing: border-box; }
+html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+}
 body {
     font-family: 'Lato', Arial, sans-serif;
     margin: 0;
@@ -25,6 +29,7 @@ body {
     line-height: 1.6; /* between 1.5 and 1.7 */
     background-color: var(--bg);
     color: var(--text-color);
+    font-synthesis: none;
 }
 img { max-width: 100%; display: block; }
 a { color: var(--brand-blue); text-decoration: none; }
