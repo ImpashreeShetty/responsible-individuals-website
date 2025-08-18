@@ -138,6 +138,11 @@ main {
     margin: 0 auto;
 }
 .section { margin: 32px 0; }
+/* Standardize main H1 font family to match header */
+h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+}
 /* Standardize subsection heading styles */
 h2 {
     font-family: 'Montserrat', Arial, sans-serif;
