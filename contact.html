@@ -1,1 +1,69 @@
-<html><head><title>Contact</title><link rel='stylesheet' href='style.css'></head><body><h1>Contact Us</h1><p>Email: contact@responsibleindividuals.org</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsible Individuals - Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
+        
+        <h1>Responsible Individuals</h1>
+        <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mission.html">Mission</a>
+            <a href="events.html">Events</a>
+            <a href="projects.html">Projects</a>
+            <a href="involved.html">Get Involved</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1>Contact Us</h1>
+            <p class="muted">We'd love to hear from you.</p>
+        </section>
+
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:contact@responsibleindividuals.org">contact@responsibleindividuals.org</a></p>
+                </div>
+                <div class="card">
+                    <h3>Social</h3>
+                    <p class="muted">Handles coming soon.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Send a Message</h2>
+            <div class="card">
+                <form action="mailto:contact@responsibleindividuals.org" method="post" enctype="text/plain">
+                    <label for="c-name">Full Name</label>
+                    <input id="c-name" name="name" type="text" required>
+                    <label for="c-email">Email</label>
+                    <input id="c-email" name="email" type="email" required>
+                    <label for="c-subject">Subject</label>
+                    <input id="c-subject" name="subject" type="text">
+                    <label for="c-message">Message</label>
+                    <textarea id="c-message" name="message" required></textarea>
+                    <button class="btn primary" type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Responsible Individuals</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
