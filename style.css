@@ -1,13 +1,19 @@
 /* Theme variables */
 :root {
-    --brand-green: #2e7d32;
-    --brand-green-100: #e0f7e9;
+    --brand-green: #2ca58d;
+    --brand-green-100: #dff5ef;
     --brand-green-700: #1b5e20;
+    --brand-blue: #1f7a8c;
+    --brand-blue-100: #e6f2f6;
+    --brand-blue-700: #0f4c5c;
     --text-color: #333333;
     --muted-text: #5f6b6b;
     --bg: #ffffff;
     --surface: #f7faf8;
     --border: #e6e9e7;
+    --brand-size: clamp(28px, 3.2vw, 44px);
+    --header-height: calc(var(--brand-size) + 24px);
+    --footer-height: 64px;
 }
 
 /* Reset and base */
@@ -19,7 +25,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: #f3fafc;
     position: relative;
 }
 html, body { height: 100%; }
@@ -30,9 +36,9 @@ body::before {
     background-image: url('RESPONSIBLE.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
-    filter: blur(6px) brightness(0.85);
-    transform: scale(1.06);
+    background-size: min(70vmin, 900px);
+    filter: blur(30px) brightness(0.7);
+    transform: none;
     z-index: -1;
 }
 img {
@@ -40,7 +46,7 @@ img {
     display: block;
 }
 a {
-    color: var(--brand-green);
+    color: var(--brand-blue);
     text-decoration: none;
 }
 a:hover {
@@ -49,12 +55,16 @@ a:hover {
 
 /* Header and navigation */
 header {
-    background-color: var(--brand-green-100);
+    background: linear-gradient(90deg, var(--brand-blue-100), var(--brand-green-100));
     padding: 12px 20px;
     display: flex;
     align-items: center;
     gap: 12px;
-    --brand-size: clamp(24px, 2.8vw, 40px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 .logo {
     height: var(--brand-size);
@@ -72,7 +82,7 @@ header nav {
 nav a {
     padding: 8px 10px;
     border-radius: 6px;
-    color: var(--brand-green);
+    color: var(--brand-blue);
     font-weight: 600;
 }
 nav a.active, nav a:hover {
@@ -83,7 +93,7 @@ nav a.active, nav a:hover {
 
 .nav-toggle {
     display: none;
-    background: var(--brand-green);
+    background: var(--brand-blue);
     border: none;
     color: #ffffff;
     padding: 8px 12px;
@@ -94,6 +104,8 @@ nav a.active, nav a:hover {
 /* Content */
 main {
     padding: 24px 20px;
+    padding-top: calc(var(--header-height) + 16px);
+    padding-bottom: calc(var(--footer-height) + 16px);
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -103,12 +115,12 @@ main {
 .section-title {
     font-size: 28px;
     margin: 0 0 12px 0;
-    color: var(--brand-green-700);
+    color: var(--brand-blue-700);
 }
 
 /* Hero */
 .hero {
-    background: linear-gradient(135deg, var(--brand-green-100), #f5fff8);
+    background: linear-gradient(135deg, var(--brand-blue-100), var(--brand-green-100));
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 32px 24px;
@@ -129,13 +141,13 @@ main {
     border-radius: 8px;
     border: 1px solid var(--border);
     background: #ffffff;
-    color: var(--brand-green);
+    color: var(--brand-blue);
     font-weight: 700;
 }
 .btn.primary {
-    background: var(--brand-green);
+    background: var(--brand-blue);
     color: #ffffff;
-    border-color: var(--brand-green);
+    border-color: var(--brand-blue);
     margin-right: 8px;
 }
 .btn:hover {
@@ -166,7 +178,7 @@ main {
 }
 .event-card h2 {
     margin-top: 0;
-    color: var(--brand-green-700);
+    color: var(--brand-blue-700);
 }
 
 /* Cards and grids */
@@ -184,7 +196,7 @@ main {
 .card h3 {
     margin-top: 0;
     margin-bottom: 8px;
-    color: var(--brand-green-700);
+    color: var(--brand-blue-700);
 }
 .muted {
     color: var(--muted-text);
@@ -228,11 +240,19 @@ textarea {
 
 /* Footer */
 footer {
-    padding: 20px;
+    padding: 16px 20px;
     border-top: 1px solid var(--border);
-    background: #fafdfb;
-    margin-top: 24px;
+    background: linear-gradient(90deg, var(--brand-green-100), var(--brand-blue-100));
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--footer-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Responsive navigation */
