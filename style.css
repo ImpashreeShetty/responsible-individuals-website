@@ -20,11 +20,20 @@ body {
     padding: 0;
     line-height: 1.6;
     background-color: #ffffff;
+    position: relative;
+}
+html, body { height: 100%; }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
     background-image: url('RESPONSIBLE.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
     background-size: cover;
+    filter: blur(6px) brightness(0.85);
+    transform: scale(1.06);
+    z-index: -1;
 }
 img {
     max-width: 100%;
@@ -132,6 +141,32 @@ main {
 .btn:hover {
     filter: brightness(0.98);
     text-decoration: none;
+}
+
+/* Inauguration event card */
+.event-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    max-width: 960px;
+    margin: 16px auto;
+}
+.event-card .event-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+.event-card .event-body {
+    padding: 16px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+.event-card h2 {
+    margin-top: 0;
+    color: var(--brand-green-700);
 }
 
 /* Cards and grids */
