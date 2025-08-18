@@ -21,12 +21,19 @@
     box-sizing: border-box;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 1.6; /* between 1.5 and 1.7 as requested */
     background-color: #ffffff;
-    color: var(--text-color);
+    color: #222222;
+}
+/* Base typography sizes */
+p, li, input, textarea, select {
+    font-size: clamp(16px, 1.6vw, 18px);
+}
+small, .caption {
+    font-size: 14px;
 }
 img {
     max-width: 100%;
@@ -60,8 +67,9 @@ header {
     flex-shrink: 0;
 }
 header h1 {
-    /* Keep title readable while logo is larger */
-    font-size: clamp(22px, 2.4vw, 34px);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3.4vw, 48px);
     margin: 0;
 }
 header nav {
@@ -71,7 +79,8 @@ nav a {
     padding: 8px 10px;
     border-radius: 6px;
     color: var(--brand-blue);
-    font-weight: 600;
+    font-weight: 700;
+    font-size: clamp(16px, 1.6vw, 18px);
 }
 nav a.active, nav a:hover {
     background: #ffffff;
@@ -90,7 +99,9 @@ main {
     margin: 32px 0;
 }
 .section-title {
-    font-size: 28px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 2.6vw, 32px);
     margin: 0 0 12px 0;
     color: var(--brand-blue-700);
 }
@@ -105,7 +116,7 @@ main {
 }
 .hero p {
     margin: 0;
-    font-size: 18px;
+    font-size: clamp(16px, 1.6vw, 18px);
     color: var(--muted-text);
 }
 
@@ -118,6 +129,7 @@ main {
     background: #ffffff;
     color: var(--brand-blue);
     font-weight: 700;
+    font-size: clamp(16px, 1.6vw, 18px);
 }
 .btn.primary {
     background: var(--brand-blue);
@@ -150,6 +162,7 @@ main {
     padding: 16px;
     max-height: 260px;
     overflow-y: auto;
+    line-height: 1.6;
 }
 .event-card h2 {
     margin-top: 0;
@@ -172,6 +185,9 @@ main {
     margin-top: 0;
     margin-bottom: 8px;
     color: var(--brand-blue-700);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 2.2vw, 26px);
 }
 .muted {
     color: var(--muted-text);
