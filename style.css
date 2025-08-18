@@ -13,7 +13,7 @@
     --border: #e6e9e7;
     /* Logo size increased by 25% */
     --brand-size: clamp(77.5px, 9.375vw, 100px);
-    --header-height: calc(var(--brand-size) + 36px);
+    --header-height: calc(var(--brand-size) + 56px);
 }
 
 /* Reset and base */
@@ -45,6 +45,14 @@ header {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+header .brand .muted {
+    margin: 2px 0 0 0;
 }
 .logo {
     height: var(--brand-size);
