@@ -11,8 +11,8 @@
     --bg: #ffffff;
     --surface: #f7faf8;
     --border: #e6e9e7;
-    /* Logo slightly smaller; title will be more prominent */
-    --brand-size: clamp(40px, 4.5vw, 64px);
+    /* Logo slightly larger; title smaller */
+    --brand-size: clamp(48px, 5.2vw, 72px);
     --header-height: calc(var(--brand-size) + 36px);
 }
 
@@ -50,7 +50,7 @@ header {
 header h1 {
     font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 800;
-    font-size: clamp(36px, 4.2vw, 64px);
+    font-size: clamp(28px, 3.2vw, 56px);
     margin: 0;
 }
 /* Mobile menu toggle button and hamburger icon */
