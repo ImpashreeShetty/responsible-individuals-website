@@ -1,35 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Responsible Individuals - Home</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <h1>Responsible Individuals</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="mission.html">Mission</a>
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-
-    <main>
-        <h1>Welcome to Responsible Individuals</h1>
-<!--         <p>Empowering communities through action and compassion.</p> -->
-        <p>Touching Lives!</p>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
-    </footer>
-</body>
-</html>
+(cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF'
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -1,35 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Responsible Individuals - Home</title>
+-    <link rel="stylesheet" href="style.css">
+-</head>
+-<body>
+-    <header>
+-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
+-        
+-        <h1>Responsible Individuals</h1>
+-        <nav>
+-            <a href="index.html">Home</a>
+-            <a href="about.html">About</a>
+-            <a href="mission.html">Mission</a>
+-            <a href="events.html">Events</a>
+-            <a href="projects.html">Projects</a>
+-            <a href="involved.html">Get Involved</a>
+-            <a href="gallery.html">Gallery</a>
+-            <a href="contact.html">Contact</a>
+-        </nav>
+-    </header>
+-
+-    <main>
+-        <h1>Welcome to Responsible Individuals</h1>
+-<!--         <p>Empowering communities through action and compassion.</p> -->
+-        <p>Touching Lives!</p>
+-    </main>
+-
+-    <footer>
+-        <p>&copy; 2025 Responsible Individuals</p>
+-    </footer>
+-</body>
+-</html>
+EOF
+)
