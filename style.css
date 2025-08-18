@@ -45,7 +45,6 @@ header {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    font-family: 'Montserrat', Arial, sans-serif;
 }
 .logo {
     height: var(--brand-size);
@@ -92,6 +91,7 @@ header.nav-open .hamburger span:nth-child(2) { opacity: 0; }
 header.nav-open .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 header nav { margin-left: auto; }
+header nav, header nav a { font-family: 'Montserrat', Arial, sans-serif; }
 nav a {
     padding: 8px 10px;
     border-radius: 6px;
