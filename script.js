@@ -11,8 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.addEventListener('click', function () {
             headerEl.classList.toggle('nav-open');
             setExpanded();
+            if (toggle.getAttribute('aria-expanded') === 'true') {
+                toggle.setAttribute('aria-label', 'Close navigation');
+            } else {
+                toggle.setAttribute('aria-label', 'Open navigation');
+            }
         });
         setExpanded();
+        toggle.setAttribute('aria-label', 'Open navigation');
     }
 
     // Mark active nav link
