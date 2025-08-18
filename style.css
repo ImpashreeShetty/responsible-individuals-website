@@ -11,8 +11,8 @@
     --bg: #ffffff;
     --surface: #f7faf8;
     --border: #e6e9e7;
-    /* Increased logo size */
-    --brand-size: clamp(62px, 7.5vw, 80px);
+    /* Logo size increased by 25% */
+    --brand-size: clamp(77.5px, 9.375vw, 100px);
     --header-height: calc(var(--brand-size) + 36px);
 }
 
