@@ -57,6 +57,7 @@ header h1 {
     font-weight: 800;
     font-size: clamp(30.6px, 1.02vw, 42.5px);
     margin: 0;
+    white-space: nowrap;
 }
 /* Mobile menu toggle button and hamburger icon */
 .nav-toggle {
