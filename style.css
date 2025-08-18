@@ -154,13 +154,7 @@ h3 {
     margin-bottom: 8px;
     color: var(--brand-blue-700);
 }
-.section-title {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 700;
-    font-size: clamp(20px, 2.4vw, 30px); /* H2 reduced ~2px */
-    margin: 0 0 12px 0;
-    color: var(--brand-blue-700);
-}
+/* .section-title styles are redundant with base h2 and have been removed */
 
 /* Hero */
 .hero {
@@ -217,10 +211,7 @@ h3 {
     overflow-y: auto;
     line-height: 1.6;
 }
-.event-card h2 {
-    margin-top: 0;
-    color: var(--brand-blue-700);
-}
+/* .event-card h2 styles are redundant with base h2 and have been removed */
 
 /* Cards and grids */
 .grid {
@@ -234,14 +225,7 @@ h3 {
     border-radius: 12px;
     padding: 16px;
 }
-.card h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: var(--brand-blue-700);
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 700;
-    font-size: clamp(20px, 2.0vw, 24px); /* H3 reduced ~2px */
-}
+/* .card h3 styles are redundant with base h3 and have been removed */
 .muted { color: var(--muted-text); }
 
 /* Gallery */
