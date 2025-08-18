@@ -49,12 +49,9 @@ header {
 }
 header h1 {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 800;
+    font-weight: 400;
     font-size: clamp(18px, 0.6vw, 25px);
     margin: 0;
-}
-.home header h1 {
-    font-weight: 400;
 }
 /* Mobile menu toggle button and hamburger icon */
 .nav-toggle {
