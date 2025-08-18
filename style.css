@@ -11,9 +11,9 @@
     --bg: #ffffff;
     --surface: #f7faf8;
     --border: #e6e9e7;
-    /* Enlarged logo */
-    --brand-size: clamp(48px, 5vw, 84px);
-    --header-height: calc(var(--brand-size) + 40px);
+    /* Adjusted logo larger than before but keep title prominent */
+    --brand-size: clamp(56px, 6vw, 96px);
+    --header-height: calc(var(--brand-size) + 44px);
 }
 
 /* Reset and base */
@@ -44,13 +44,13 @@ header {
 .logo {
     height: var(--brand-size);
     width: auto;
-    margin-right: 12px;
+    margin-right: 16px;
     flex-shrink: 0;
 }
 header h1 {
     font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 800;
-    font-size: clamp(26px, 3.2vw, 46px); /* reduced ~2px overall */
+    font-size: clamp(32px, 3.8vw, 54px);
     margin: 0;
 }
 /* Mobile menu toggle button and hamburger icon */
@@ -272,7 +272,7 @@ footer {
         transition: max-height 200ms ease, opacity 150ms ease, transform 150ms ease, visibility 0s linear 200ms;
     }
     header.nav-open nav {
-        max-height: 60vh;
+        max-height: 80vh;
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
