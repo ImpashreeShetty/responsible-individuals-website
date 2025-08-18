@@ -11,13 +11,17 @@
     --bg: #ffffff;
     --surface: #f7faf8;
     --border: #e6e9e7;
-    /* Logo slightly smaller; title will be more prominent */
-    --brand-size: clamp(50px, 6.0vw, 64px);
+    /* Logo size increased by 25% */
+    --brand-size: clamp(77.5px, 9.375vw, 100px);
     --header-height: calc(var(--brand-size) + 36px);
 }
 
 /* Reset and base */
 * { box-sizing: border-box; }
+html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+}
 body {
     font-family: 'Lato', Arial, sans-serif;
     margin: 0;
@@ -25,6 +29,7 @@ body {
     line-height: 1.6; /* between 1.5 and 1.7 */
     background-color: var(--bg);
     color: var(--text-color);
+    font-synthesis: none;
 }
 img { max-width: 100%; display: block; }
 a { color: var(--brand-blue); text-decoration: none; }
@@ -49,8 +54,8 @@ header {
 }
 header h1 {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 800;
-    font-size: clamp(36px, 1.2vw, 50px);
+    font-weight: 400;
+    font-size: clamp(18px, 0.6vw, 25px);
     margin: 0;
 }
 /* Mobile menu toggle button and hamburger icon */
@@ -86,6 +91,7 @@ header.nav-open .hamburger span:nth-child(2) { opacity: 0; }
 header.nav-open .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 header nav { margin-left: auto; }
+header nav, header nav a { font-family: 'Montserrat', Arial, sans-serif; }
 nav a {
     padding: 8px 10px;
     border-radius: 6px;
@@ -138,13 +144,28 @@ main {
     margin: 0 auto;
 }
 .section { margin: 32px 0; }
-.section-title {
+/* Standardize main H1 font family to match header */
+h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+}
+/* Standardize subsection heading styles */
+h2 {
     font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 700;
-    font-size: clamp(20px, 2.4vw, 30px); /* H2 reduced ~2px */
+    font-size: clamp(20px, 2.4vw, 30px);
     margin: 0 0 12px 0;
     color: var(--brand-blue-700);
 }
+h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2.0vw, 24px);
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--brand-blue-700);
+}
+/* .section-title styles are redundant with base h2 and have been removed */
 
 /* Hero */
 .hero {
@@ -201,10 +222,7 @@ main {
     overflow-y: auto;
     line-height: 1.6;
 }
-.event-card h2 {
-    margin-top: 0;
-    color: var(--brand-blue-700);
-}
+/* .event-card h2 styles are redundant with base h2 and have been removed */
 
 /* Cards and grids */
 .grid {
@@ -218,14 +236,7 @@ main {
     border-radius: 12px;
     padding: 16px;
 }
-.card h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: var(--brand-blue-700);
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 700;
-    font-size: clamp(20px, 2.0vw, 24px); /* H3 reduced ~2px */
-}
+/* .card h3 styles are redundant with base h3 and have been removed */
 .muted { color: var(--muted-text); }
 
 /* Gallery */
