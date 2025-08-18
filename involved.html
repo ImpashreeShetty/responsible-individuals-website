@@ -1,1 +1,74 @@
-<html><head><title>Get Involved</title><link rel='stylesheet' href='style.css'></head><body><h1>Get Involved</h1><p>Join us as a volunteer, donor, or partner to make a difference.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsible Individuals - Get Involved</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
+        
+        <h1>Responsible Individuals</h1>
+        <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mission.html">Mission</a>
+            <a href="events.html">Events</a>
+            <a href="projects.html">Projects</a>
+            <a href="involved.html">Get Involved</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1>Get Involved</h1>
+            <p class="muted">Join us as a volunteer, donor, or partner to make a difference.</p>
+        </section>
+
+        <section class="section" id="volunteer">
+            <h2 class="section-title">Volunteer</h2>
+            <div class="card">
+                <p>Share your time and skills. We welcome mentors, event helpers, designers, and more.</p>
+                <p><a class="btn" href="mailto:contact@responsibleindividuals.org?subject=Volunteer%20Signup">Email us to volunteer</a></p>
+                <form action="mailto:contact@responsibleindividuals.org" method="post" enctype="text/plain">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name" type="text" required>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel">
+                    <label for="interest">How would you like to help?</label>
+                    <textarea id="interest" name="interest" placeholder="Tutoring, events, design, fundraising..."></textarea>
+                    <button class="btn primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section" id="donate">
+            <h2 class="section-title">Donate</h2>
+            <div class="card">
+                <p>Your contribution funds education kits, health camps, and skill-building programs.</p>
+                <p class="muted">Bank/UPI details coming soon. Email us for sponsorship or in-kind support.</p>
+            </div>
+        </section>
+
+        <section class="section" id="partner">
+            <h2 class="section-title">Partner</h2>
+            <div class="card">
+                <p>Schools, NGOs, and companies can collaborate with us on CSR and community programs.</p>
+                <p><a class="btn" href="mailto:contact@responsibleindividuals.org?subject=Partnership%20Inquiry">Propose a partnership</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Responsible Individuals</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
