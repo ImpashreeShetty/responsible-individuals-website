@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     var headerEl = document.querySelector('header');
     var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    function setExpanded() {
+        if (toggle && headerEl) {
+            toggle.setAttribute('aria-expanded', headerEl.classList.contains('nav-open') ? 'true' : 'false');
+        }
+    }
     if (toggle && headerEl) {
         toggle.addEventListener('click', function () {
             headerEl.classList.toggle('nav-open');
+            setExpanded();
         });
+        setExpanded();
     }
 
     // Mark active nav link
@@ -16,6 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
             link.classList.add('active');
         }
     });
+
+    if (nav) {
+        nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (headerEl && headerEl.classList.contains('nav-open')) {
+                    headerEl.classList.remove('nav-open');
+                    setExpanded();
+                }
+            });
+        });
+    }
 
     // Smooth scroll for on-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
