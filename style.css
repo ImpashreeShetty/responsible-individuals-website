@@ -98,6 +98,37 @@ nav a.active, nav a:hover {
     text-decoration: none;
     box-shadow: 0 0 0 1px var(--border) inset;
 }
+/* Mobile menu toggle button and hamburger icon */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.hamburger {
+    display: inline-block;
+    width: 24px;
+    height: 18px;
+    position: relative;
+}
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+header.nav-open .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+header.nav-open .hamburger span:nth-child(2) { opacity: 0; }
+header.nav-open .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* Content */
 main {
@@ -221,10 +252,32 @@ footer {
     .nav-toggle { display: inline-block; margin-left: auto; }
     header nav { margin-left: 0; }
     nav {
-        display: none; width: 100%; flex-direction: column; gap: 8px;
-        background: #ffffff; border: 1px solid var(--border); border-radius: 8px;
-        margin-top: 8px; padding: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-top: 8px;
+        padding: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(-6px);
+        transition: max-height 200ms ease, opacity 150ms ease, transform 150ms ease, visibility 0s linear 200ms;
     }
-    header.nav-open nav { display: flex; }
+    header.nav-open nav {
+        max-height: 60vh;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition: max-height 250ms ease, opacity 150ms ease, transform 150ms ease, visibility 0s;
+    }
     nav a { padding: 10px 12px; }
 }
