@@ -247,6 +247,20 @@ h3 {
 /* Gallery */
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
 .gallery img { width: 100%; height: 160px; object-fit: cover; border: 2px solid #ccc; border-radius: 8px; }
+.gallery-section.hidden {
+    display: none;
+  }
+  .gallery-section {
+    margin-top: 1em;
+    transition: all 0.3s ease-in-out;
+  }
+  .feature-card {
+    cursor: pointer;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1em;
+  }
 
 /* Forms */
 form { display: grid; gap: 12px; max-width: 640px; }
