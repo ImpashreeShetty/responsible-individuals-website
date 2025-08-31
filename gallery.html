@@ -77,29 +77,45 @@
   <div class="feature-card-grid grid">
 
     <!-- Launch Event -- #launch -->
-      <img
+    <div class="feature-card" onclick="toggleGallery('launch')">  
+    <img
         id="cover-launch"
         src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2756.jpeg">
       <h3>Launch Event</h3>
       <p class="muted">Moments from our launch at GHPS School and community celebrations.</p>
-    
-    </a>
+      <div id="launch" class="gallery-section hidden">
+        <h4>Gallery</h4>
+        <div class="gallery" data-gallery="launch"></div>
+      </div>
+    </div>
 
     <!-- Office Photos -->
+    <div class="feature-card" onclick="toggleGallery('office')">
     <img
       id="cover-office"
       src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Office/IMG_2753.jpeg">
       <h3>Office</h3>
       <p class="muted">Day‑to‑day at Responsible Individuals.</p>
-    </a>
+      <div id="office" class="gallery-section hidden">
+        <h4>Gallery</h4>
+        <div class="gallery" data-gallery="office"></div>
+      </div>
+    </div>
 
     <!-- Ground Visit to Rural Government Schools -->
+    <div class="feature-card" onclick="toggleGallery('groundvisit')">
     <img
       id="cover-ground"
       src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2766.jpeg">
       <h3>Ground Visit to Rural Government Schools</h3>
       <p class="muted">Community outreach and school engagements</p>
-    </a>
+    <div id="groundvisit" class="gallery-section hidden">
+        <h4>Gallery</h4>
+        <div class="gallery" data-gallery="ground"></div>
+      </div>
+    </div>
+
+  </div>
 
   </div>
 </section>
