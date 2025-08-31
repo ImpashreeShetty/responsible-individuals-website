@@ -1,6 +1,5 @@
 //-- JS: nav toggle + GitHub images + lightbox -->
-  <script>
-    // Mobile nav toggle (matches your CSS)
+     // Mobile nav toggle (matches your CSS)
     (function(){
       const header = document.getElementById('site-header');
       const btn = header.querySelector('.nav-toggle');
@@ -42,7 +41,7 @@
 
 
     function renderGallery(name, urls) {
-      const root = document.querySelector(`.gallery[data-gallery="\${name}"]`);
+      const root = document.querySelector(`.gallery[data-gallery="${name}"]`);
       if (!root) return;
       root.innerHTML = urls.map((src, i) => `
         <figure class="ri-tile">
@@ -122,6 +121,7 @@ function toggleGallery(id) {
 }
 
 </script>
+
 
 
 
