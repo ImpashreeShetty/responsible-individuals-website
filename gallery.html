@@ -179,6 +179,7 @@
       const items = await res.json();
       return items
         .filter(x => x.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(x.name))
+        .filter(x => !/^readme(\..+)?$/i.test(x.name))
         .sort((a,b) => a.name.localeCompare(b.name))
         .map(x => x.download_url);
     }
