@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>Responsible Individuals – Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Uses your site stylesheet -->
+  <!-- Your site stylesheet -->
   style.css
   <meta name="description" content="A glimpse of our activities and community moments." />
 
@@ -74,7 +74,6 @@
       <div class="feature-card-grid grid">
         <!-- Launch Event -->
         #launch
-          <!-- JS sets this src from the folder -->
           <img id="cover-launch" alt="Launch event collage" />
           <h3>Launch Event</h3>
           <p class="muted">Highlights from our inaugural event</p>
@@ -158,10 +157,10 @@
       });
     })();
 
-    // Repo configuration
+    // Repo configuration (default branch is main)
     const OWNER  = "ImpashreeShetty";
     const REPO   = "responsible-individuals-website";
-    const BRANCH = "main"; // confirmed
+    const BRANCH = "main";
 
     const FOLDERS = {
       launch: "Launchphotos",
@@ -181,7 +180,6 @@
         .map(x => x.download_url);
     }
 
-    // Render a gallery into .gallery[data-gallery="name"]
     function renderGallery(name, urls) {
       const root = document.querySelector(\`.gallery[data-gallery="\${name}"]\`);
       if (!root) return;
