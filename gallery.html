@@ -4,15 +4,44 @@
   <meta charset="utf-8" />
   <title>Responsible Individuals – Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- If your file is “style (1).css”, change the href below -->
+  <!-- Uses your site stylesheet -->
   style.css
   <meta name="description" content="A glimpse of our activities and community moments." />
+
+  <!-- Minimal gallery-only styles (works with your theme) -->
+  <style>
+    /* Feature cards: reuse your .grid + .card */
+    .feature-card-grid .feature-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: var(--surface, #f7faf8);
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .feature-card { transition: transform .18s ease, box-shadow .18s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+    .feature-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
+
+    /* Lightbox using <dialog> */
+    dialog#ri-lightbox {
+      width: min(95vw, 1200px);
+      border: none; padding: 0; border-radius: 12px; overflow: hidden; background: #000;
+    }
+    dialog#ri-lightbox::backdrop { background: rgba(0,0,0,.75); }
+    #ri-lightbox .lb-wrap { position: relative; background: #000; }
+    #ri-lightbox .lb-img  { display: block; max-width: 100%; max-height: 85vh; margin: 0 auto; }
+    #ri-lightbox .lb-close{
+      position: absolute; inset: 12px 12px auto auto;
+      background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.25);
+      padding: .4rem .65rem; border-radius: 999px; cursor: pointer; backdrop-filter: blur(6px);
+    }
+  </style>
 </head>
 <body>
-  <!-- ===== Header & Nav (uses your CSS classes) ===== -->
+  <!-- ===== Header & Nav (your theme) ===== -->
   <header id="site-header">
-    <!-- Optional logo image -->
-    <!-- <img src="assets/logo.png" alt="Responsible Individuals Logo" class="logo"als</h1>
+    <div class="brand">
+      <h1>Responsible Individuals</h1>
       <div class="muted">Touching Lives!</div>
     </div>
 
@@ -24,7 +53,7 @@
 
     <nav aria-label="Primary">
       index.htmlHome</a>
-      <a href="aboutt</a>
+      about.htmlAbout</a>
       events.htmlEvents</a>
       projects.htmlProjects</a>
       involved.htmlGet Involved</a>
@@ -34,17 +63,18 @@
   </header>
 
   <main>
-    <!-- Hero-ish intro using your base styles -->
+    <!-- Intro -->
     <section class="hero section">
-      <h2 class="section-title" style="margin-top:0;">Gallery</h2>
+      <h2 style="margin-top:0;">Gallery</h2>
       <p>A glimpse of our activities and community moments.</p>
     </section>
 
-    <!-- ===== Top: 3 feature cards (uses your .grid + .card) ===== -->
+    <!-- ===== Top: 3 feature cards ===== -->
     <section class="section" aria-label="Gallery Sections">
       <div class="feature-card-grid grid">
         <!-- Launch Event -->
         #launch
+          <!-- JS sets this src from the folder -->
           <img id="cover-launch" alt="Launch event collage" />
           <h3>Launch Event</h3>
           <p class="muted">Highlights from our inaugural event</p>
@@ -58,7 +88,8 @@
         </a>
 
         <!-- Ground Visit -->
-        <a class="card feature-card" href="#groundvisit" ariaound visit collage" />
+        #groundvisit
+          <img id="cover-ground" alt="Ground visit collage" />
           <h3>Ground Visit to Rural Government Schools</h3>
           <p class="muted">Outreach and field visits</p>
         </a>
@@ -107,7 +138,7 @@
     <footer>© 2025 Responsible Individuals</footer>
   </main>
 
-  <!-- ===== Lightbox (minimal markup) ===== -->
+  <!-- Lightbox -->
   <dialog id="ri-lightbox" aria-label="Image preview">
     <div class="lb-wrap">
       <button class="lb-close" aria-label="Close preview">✕</button>
@@ -115,9 +146,9 @@
     </div>
   </dialog>
 
-  <!-- ===== JS: nav toggle + GitHub images + lightbox ===== -->
+  <!-- JS: nav toggle + GitHub images + lightbox -->
   <script>
-    // Mobile nav toggle (matches your CSS behavior)
+    // Mobile nav toggle (matches your CSS)
     (function(){
       const header = document.getElementById('site-header');
       const btn = header.querySelector('.nav-toggle');
@@ -130,7 +161,7 @@
     // Repo configuration
     const OWNER  = "ImpashreeShetty";
     const REPO   = "responsible-individuals-website";
-    const BRANCH = "main"; // change if your default branch differs
+    const BRANCH = "main"; // confirmed
 
     const FOLDERS = {
       launch: "Launchphotos",
@@ -138,7 +169,7 @@
       ground: "Photos/Groundvisit"
     };
 
-    // Fetch images from a GitHub folder via Contents API
+    // Fetch images from GitHub folder via Contents API
     async function fetchImages(folderPath) {
       const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(folderPath)}?ref=${encodeURIComponent(BRANCH)}`;
       const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
@@ -156,7 +187,9 @@
       if (!root) return;
       root.innerHTML = urls.map((src, i) => `
         <figure class="ri-tile">
-          <img loading="lazy" decoding="  `).join('');
+          \${src}
+        </figure>
+      `).join('');
     }
 
     function setCover(imgId, urls) {
@@ -195,7 +228,7 @@
       }
     })();
 
-    // Lightbox behavior
+    // Lightbox
     (function(){
       const lb = document.getElementById('ri-lightbox');
       const imgEl = lb.querySelector('.lb-img');
@@ -210,13 +243,11 @@
       });
 
       closeBtn.addEventListener('click', () => lb.close());
-
       lb.addEventListener('click', (e) => {
         const rect = imgEl.getBoundingClientRect();
         const outside = e.clientY < rect.top || e.clientY > rect.bottom || e.clientX < rect.left || e.clientX > rect.right;
         if (outside) lb.close();
       });
-
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.open) lb.close(); });
     })();
   </script>
