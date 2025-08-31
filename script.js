@@ -23,19 +23,26 @@
 
     // Fetch images from GitHub folder via Contents API
     async function fetchImages(folderPath) {
-      const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(folderPath)}?ref=${encodeURIComponent(BRANCH)}`;
-      const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
-      if (!res.ok) throw new Error(\`GitHub API \${res.status} for \${folderPath}\`);
-      const items = await res.json();
-      return items
-        .filter(x => x.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(x.name))
-        .filter(x => !/^readme(\..+)?$/i.test(x.name))
-        .sort((a,b) => a.name.localeCompare(b.name))
-        .map(x => x.download_url);
-    }
+  const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(folderPath)}?ref=${encodeURIComponent(BRANCH)}`;
+  
+  const res = await fetch(url, {
+    headers: { 'Accept': 'application/vnd.github.v3+json' }
+  });
+
+  if (!res.ok) throw new Error(`GitHub API ${res.status} for ${folderPath}`);
+
+  const items = await res.json();
+
+  return items
+    .filter(x => x.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(x.name))
+    .filter(x => !/^readme(\..+)?$/i.test(x.name))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(x => x.download_url);
+}
+
 
     function renderGallery(name, urls) {
-      const root = document.querySelector(\`.gallery[data-gallery="\${name}"]\`);
+      const root = document.querySelector(`.gallery[data-gallery="\${name}"]`);
       if (!root) return;
       root.innerHTML = urls.map((src, i) => `
         <figure class="ri-tile">
@@ -104,9 +111,16 @@
     })();
 
 //Gallery 
-  function toggleGallery(id) {
-    const gallery = document.getElementById(id);
+  
+function toggleGallery(id) {
+  const gallery = document.getElementById(id);
+  if (gallery) {
     gallery.classList.toggle('hidden');
+  } else {
+    console.error("Gallery not found:", id);
   }
+}
+
 </script>
+
 
