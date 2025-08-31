@@ -46,7 +46,7 @@
       if (!root) return;
       root.innerHTML = urls.map((src, i) => `
         <figure class="ri-tile">
-          \${src}
+          ${src}
         </figure>
       `).join('');
     }
@@ -122,5 +122,6 @@ function toggleGallery(id) {
 }
 
 </script>
+
 
 
