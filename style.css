@@ -185,6 +185,25 @@ h3 {
     font-size: clamp(14px, 1.4vw, 16px); /* reduced ~2px */
     color: var(--muted-text);
 }
+/* Social Media Logo Alignment*/
+
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+.social-icons .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* space between icons */
+    margin-top: 10px;
+}
+.social-icons img {
+    width: 30px;
+    transition: transform 0.3s ease;
+}
+.social-icons img:hover {
+    transform: scale(1.2); /* hover zoom effect */
+}
 
 /* Buttons */
 .btn {
