@@ -22,7 +22,7 @@
   .ngo-home a { color: var(--brand); text-decoration: none; }
   .ngo-home img { max-width: 100%; display: block; border-radius: 10px; }
   .ngo-home .container { max-width: 1120px; margin: 0 auto; padding: 0 1rem; }
-  .ngo-home .section { padding: clamp(48px, 7vw, 96px) 0; }
+  .ngo-home .section { padding: clamp(28px, 4vw, 60px) 0; }
   .ngo-home .section--alt { background: var(--bg-alt); }
   .ngo-home .section__title { font-size: clamp(1.6rem, 2.4vw, 2.2rem); margin: 0 0 0.5rem; letter-spacing: -0.02em; }
   .ngo-home .section__subtitle { color: var(--muted); margin: 0 0 2rem; }
