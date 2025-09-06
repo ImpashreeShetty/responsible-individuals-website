@@ -38,33 +38,194 @@
         </nav>
     </header>
 
-    <main>
-        <article class="event-card" aria-label="Inauguration Event">
-            <img class="event-image" src="IMG_2675.png" alt="Inauguration Event Banner">
-            <div class="event-body">
-                <h2>Inauguration Event</h2>
-                <p>
-                    Join us for the inauguration of our NGO initiative at GHPS School. We are organizing a Sports Day for government school children to encourage
-                    participation, teamwork, and joy. Together, we aim to create memorable experiences and foster a spirit of community and responsibility.
-                </p>
-                <p>
-                    Date: 19th July<br>
-                    Venue: GHPS School Grounds<br>
-                    Time: 9:30 AM onwards
-                </p>
-                <p>
-                    Volunteers are welcome to help with event setup, coordination, and cheering on the participants. Your support makes a difference!
-                </p>
-                <p>
-                    Highlights include track events, fun games, and a closing ceremony with refreshments. Scroll within this card to read more details as they
-                    are added.
-                </p>
-                <p>
-                    For sponsorships or partnerships, please reach out via the contact information below.
-                </p>
-            </div>
+    <main id="main-content" class="ngo-home" aria-label="NGO Homepage">
+
+  <!-- ================= HERO (Top Banner) ================= -->
+  <section id="hero" class="hero section" aria-label="Hero section">
+    <div class="container hero__grid">
+      <div>
+        <div class="hero__badges" aria-hidden="true">
+          <span class="badge">Non‑profit • 80G Eligible</span>
+          <span class="badge">Community‑led</span>
+        </div>
+        <h1>Empowering Communities, Changing Futures</h1>
+        <p>Together we improve access to education, health, and livelihoods for underserved communities. Your support turns intent into impact.</p>
+        <div class="hero__ctas" role="group" aria-label="Key actions">
+          #donateDonate Now</a>
+          #helpVolunteer</a>
+        </div>
+      </div>
+
+      <div class="hero__media" aria-hidden="true">
+        <!-- Replace with your image or thumbnail of your work -->
+        https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=1200&auto=format&fit=crop
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= IMPACT HIGHLIGHTS ================= -->
+  <section id="impact" class="section section--alt" aria-label="Impact highlights">
+    <div class="container">
+      <h2 class="section__title">Our Impact</h2>
+      <p class="section__subtitle">We measure what matters—lives improved and opportunities created.</p>
+
+      <div class="grid grid--4">
+        <div class="card stat">
+          <div class="stat__value">12,400+</div>
+          <div class="stat__label">Children educated</div>
+        </div>
+        <div class="card stat">
+          <div class="stat__value">3,100+</div>
+          <div class="stat__label">Women skilled</div>
+        </div>
+        <div class="card stat">
+          <div class="stat__value">85+</div>
+          <div class="stat__label">Villages reached</div>
+        </div>
+        <div class="card stat">
+          <div class="stat__value">92%</div>
+          <div class="stat__label">Programs sustained</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMS / WHAT WE DO ================= -->
+  <section id="programs" class="section" aria-label="Programs and initiatives">
+    <div class="container">
+      <h2 class="section__title">What We Do</h2>
+      <p class="section__subtitle">Focused, high‑impact programs designed with communities.</p>
+
+      <div class="grid grid--3">
+        <article class="card program">
+          <div class="program__icon" aria-hidden="true">📚</div>
+          <h3 class="program__title">Education Access</h3>
+          <p class="program__desc">After‑school learning centers, teacher training, and scholarships for first‑generation learners.</p>
+          /programs/educationLearn more →</a>
         </article>
-    </main>
+
+        <article class="card program">
+          <div class="program__icon" aria-hidden="true">🩺</div>
+          <h3 class="program__title">Community Health</h3>
+          <p class="program__desc">Health camps, maternal care, and awareness workshops in remote locations.</p>
+          /programs/healthLearn more →</a>
+        </article>
+
+        <article class="card program">
+          <div class="program__icon" aria-hidden="true">💼</div>
+          <h3 class="program__title">Livelihoods</h3>
+          <p class="program__desc">Skilling, micro‑enterprise support, and job‑readiness for youth and women.</p>
+          /programs/livelihoodsLearn more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW YOU CAN HELP ================= -->
+  <section id="help" class="section section--alt" aria-label="How you can help">
+    <div class="container">
+      <h2 class="section__title">How You Can Help</h2>
+      <p class="section__subtitle">Every contribution—time, funds, or skills—makes a real difference.</p>
+
+      <div class="grid grid--3 help">
+        <div id="donate" class="card help__item">
+          <h4>Donate</h4>
+          <p>Power our programs with a one‑time or monthly gift. Tax‑deductions available (India 80G).</p>
+          /donateGive Now</a>
+        </div>
+
+        <div class="card help__item">
+          <h4>Volunteer</h4>
+          <p>Mentor, teach, design, or help with events and outreach—on‑site or remote.</p>
+          /volunteerSign Up</a>
+        </div>
+
+        <div class="card help__item">
+          <h4>Partner with Us</h4>
+          <p>CSR collaborations, program sponsorships, and payroll giving for sustained impact.</p>
+          <a href="/partner"R</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS / STORIES ================= -->
+  <section id="testimonials" class="section" aria-label="Testimonials and stories">
+    <div class="container">
+      <h2 class="section__title">Stories of Change</h2>
+      <p class="section__subtitle">Real voices from the communities and our supporters.</p>
+
+      <div class="grid grid--3 testimonials">
+        <figure class="card quote">
+          <blockquote>“My daughter is the first in our family to finish school. The center gave her confidence and mentoring.”</blockquote>
+          <figcaption class="quote__person" src="">
+            <div>
+              <strong>Rukmini Devi</strong><br>
+              <span class="news__meta">Parent, Chikkaballapur</span>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="card quote">
+          <blockquote>“Volunteering on weekends has been incredibly rewarding. The team is organized and impact‑driven.”</blockquote>
+          <figcaption class="quote__person">
+            <img class="avatar" src="https://images.unsplash.com/photo-=80&w=200&auto=format&fit=crop">
+            <div>
+              <strong>Aditya Rao</strong><br>
+              <span class="news__meta">Volunteer Mentor</span>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="card quote">
+          <blockquote>“Our CSR partnership improved learning outcomes across three districts within a year.”</blockquote>
+          <figcaption class="quote__person">
+            https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=200&auto=format&fit=crop
+            <div>
+              <strong>Anita Menon</strong><br>
+              <span class="news__meta">CSR Lead, TechCorp</span>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS & UPDATES / BLOG ================= -->
+  <section id="news" class="section section--alt" aria-label="News and updates">
+    <div class="container">
+      <h2 class="section__title">News and Updates</h2>
+      <p class="section__subtitle">Highlights from our field work, events, and blog.</p>
+
+      <div class="news__list">
+        <article class="news__item">
+          https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=400&auto=format&fit=crop
+          <div>
+            <h4>/blog/annual-health-campAnnual Health Camp reaches 1,200 beneficiaries</a></h4>
+            <div class="news__meta">Aug 12, 2025 • Programs</div>
+          </div>
+        </article>
+
+        <article class="news__item">
+          <ttps://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=400&auto=format&fit=crop
+          <div>
+            <h4>/blog/digital-literacy-cohortDigital Literacy Cohort graduates 80 youth</a></h4>
+            <div class="news__meta">Jul 28, 2025 • Education</div>
+          </div>
+        </article>
+
+        <article class="news__item">
+          <ttps://images.unsplash.com/photo-1593113598332-cc1ab9442d34?q=80&w=400&auto=format&fit=crop
+          <div>
+            <h4>/blog/volunteer-day-bengaluruVolunteer Day: 300 trees planted in Bengaluru</a></h4>
+            <div class="news__meta">Jun 15, 2025 • Environment</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
 
     <footer>
         <p>
@@ -75,3 +236,4 @@
     </footer>
 </body>
 </html>
+
