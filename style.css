@@ -16,6 +16,98 @@
     --header-height: calc(var(--brand-size) + 56px);
 }
 
+* { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", sans-serif; line-height:1.55; }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .container { width:min(1100px, 92vw); margin-inline:auto; }
+    header.site-header {
+      position: sticky; top:0; z-index: 20; backdrop-filter: saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 80%, white 20%);
+      border-bottom:1px solid #eaeef3;
+    }
+    .nav {
+      display:flex; align-items:center; gap:16px; padding:14px 0;
+    }
+    .nav img.logo { height:40px; width:auto; }
+    .nav .brand { font-weight:700; letter-spacing:.2px; }
+    .spacer { flex:1 }
+    .nav a.link { padding:8px 10px; border-radius:8px; color:var(--text); }
+    .nav a.link[aria-current="page"] { color:var(--brand); font-weight:600; }
+
+    /* Hero bar (small) */
+    .page-hero { padding:36px 0 18px; background:linear-gradient(180deg, #ffffff 0%, #fafcff 100%); }
+    .page-hero h1 { margin:0 0 6px; font-size: clamp(24px, 3.2vw, 34px); }
+    .page-hero p { margin:0; color:var(--muted); }
+
+    /* RISE Feature */
+    .rise { padding: 32px 0 10px; }
+    .rise-card {
+      display:grid; grid-template-columns: 110px 1fr; gap:20px;
+      background: radial-gradient(1200px 500px at -10% -50%, #e8f3ff 0%, transparent 60%), var(--card);
+      border:1px solid #e8eef5; border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px; align-items:center;
+    }
+    .rise-logo { width: 90px; height: 90px; border-radius: 14px; object-fit: contain; background:#fff; border:1px solid #e6edf4; padding:10px; }
+    .rise-content h2 { margin:0; font-size: clamp(20px, 2.2vw, 26px); }
+    .rise-sub { margin:6px 0 12px; color:var(--muted); }
+    .rise-text { margin: 0 0 14px; max-width: 68ch; }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px; border:0; border-radius:12px;
+      padding: 12px 16px; font-weight:600; cursor:pointer; text-decoration:none;
+      background: var(--brand); color:#fff; box-shadow: 0 6px 16px rgba(10,102,194,.22);
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); background: var(--brand-600); box-shadow: 0 10px 22px rgba(10,102,194,.28); }
+    .btn.secondary { background: #111827; box-shadow: 0 6px 16px rgba(17,24,39,.18); }
+    .btn.secondary:hover { background:#0f172a; }
+
+    /* Projects Grid */
+    section#projects { padding: 14px 0 60px; }
+    .cards {
+      margin-top: 18px;
+      display:grid; gap:16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .card {
+      background:var(--card); border:1px solid #e8eef5; border-radius: var(--radius);
+      padding:18px; box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(0,0,0,.09); }
+    .card h3 { margin:0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color:var(--muted); }
+
+    /* Footer */
+    footer { border-top:1px solid #eaeef3; padding:20px 0 40px; color:var(--muted); }
+
+    /* Animations (fade-up on scroll) */
+    .reveal { opacity: 0; transform: translateY(10px); }
+    .reveal.in-view { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+
+    /* Responsive tweaks */
+    @media (max-width: 560px) {
+      .rise-card { grid-template-columns: 1fr; text-align:center; }
+      .rise-logo { margin: 0 auto; }
+      .rise-actions { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --bg:#0b1020; --bg-soft:#0f162e; --text:#e8eef5; --muted:#aab3c2;
+        --card:#121a34; --brand:#5aa7ff; --brand-600:#4998f6; --accent:#32d4ad;
+        --shadow: 0 10px 20px rgba(0,0,0,.35);
+      }
+      .rise-card, .card { border-color: #1f2b4b; }
+      header.site-header { background: color-mix(in oklab, var(--bg) 85%, black 15%); border-bottom-color:#1e2745; }
+      .nav a.link { color: var(--text); }
+    }
+
   /* ===== NGO Home Scoped Styles ===== */
   .ngo-home { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; color: var(--text); line-height: 1.6; }
   .ngo-home * { box-sizing: border-box; }
