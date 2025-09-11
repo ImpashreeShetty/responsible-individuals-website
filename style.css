@@ -360,13 +360,7 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, select {
 }
 textarea { min-height: 120px; resize: vertical; }
 
-/* Footer (scrolls with page) */
-footer {
-    padding: 16px 20px;
-    border-top: 1px solid var(--border);
-    background: linear-gradient(90deg, var(--brand-green-100), var(--brand-blue-100));
-    text-align: center;
-}
+
 
 
   /* ===== RISE Scoped Styles (namespaced) ===== */
@@ -437,4 +431,10 @@ footer {
     .ri-card { border-color: #1f2b4b; }
   }
 
-
+/* Footer (scrolls with page) */
+footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(90deg, var(--brand-green-100), var(--brand-blue-100));
+    text-align: center;
+}
