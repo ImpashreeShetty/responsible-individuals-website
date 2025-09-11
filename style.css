@@ -473,7 +473,7 @@ dialog#ri-lightbox::backdrop {
 
 .program-content { flex: 1 1 auto; }
 .program-title   { margin: 0 0 8px; font-size: 1.25rem; color: #0a66c2; }
-.program-text    { margin: 0; font-size: 1rem;  line-height: 1.55; }
+.program-text    { margin: 0; font-size: 1rem; font-color: #0f4c5c; line-height: 1.55; }
 
 /* Optional: make logo a bit smaller on very small screens */
 @media (max-width: 420px) {
