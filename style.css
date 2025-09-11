@@ -447,8 +447,11 @@ dialog#ri-lightbox::backdrop {
   backdrop-filter: blur(6px);
 }
 /*RISE*/
+ /* put logo + text side-by-side */
 .program-box {
   display: flex;
+  flex-direction:row !important;
+  flex-wrap:nowrap;
   align-items: flex-start;
   gap: 12px;
   background: #fff;
