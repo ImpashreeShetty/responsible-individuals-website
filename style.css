@@ -500,11 +500,6 @@ dialog#ri-lightbox::backdrop {
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.05s ease;
 }
 
-.btn-explore {
-  background: #0b57d0;              /* accessible blue */
-  color: #fff;
-}
-
 .btn-explore:hover,
 .btn-explore:focus-visible {
   background: #0846a8;
