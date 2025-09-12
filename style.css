@@ -464,8 +464,8 @@ dialog#ri-lightbox::backdrop {
 }
 
 .program-logo {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   flex: 0 0 auto;
   border-radius: 8px;       /* optional: soften edges if your logo is square */
