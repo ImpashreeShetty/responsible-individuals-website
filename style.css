@@ -457,7 +457,7 @@ dialog#ri-lightbox::backdrop {
   background: #fff;
   border: 1px solid #e5eaf0;
   border-radius: 12px;
-  padding: 45px;
+  padding: 35px;
   box-shadow: 0 6px 18px rgba(0,0,0,.06);
   max-width: 900px;         /* optional: contain the width */
   margin: 16px auto;        /* optional: center on the page */
