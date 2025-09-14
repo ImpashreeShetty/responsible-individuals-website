@@ -79,7 +79,7 @@
   .ngo-home .avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: #e5e7eb; }
 
   /* News */
-  .ngo-home .news__list { display: grid; gap: 26px; }
+  .ngo-home .news__list { display: grid; gap: 46px; }
   .ngo-home .news__item { display: grid; grid-template-columns: 100px 1fr; gap: 14px; align-items: center; border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px; background: #fff; }
   .ngo-home .news__item h4 { margin: 0 0 4px; font-size: 0.9rem; color: var(--muted);}
   .ngo-home .news__meta { color: var(--muted); font-size: 0.9rem; }
