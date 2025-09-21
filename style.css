@@ -680,4 +680,176 @@ dialog#ri-lightbox::backdrop {
 
 @media (max-width: 768px) {
     .nav-toggle {
-        display: inline
+        display: inline-block;
+        margin-left: auto;
+    }
+    
+    header nav {
+        margin-left: 0;
+    }
+    
+    nav {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-top: 8px;
+        padding: 8px;
+        box-shadow: var(--shadow);
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(-6px);
+        transition: max-height 200ms ease, opacity 150ms ease, transform 150ms ease, visibility 0s linear 200ms;
+    }
+    
+    header.nav-open nav {
+        max-height: 80vh;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition: max-height 250ms ease, opacity 150ms ease, transform 150ms ease, visibility 0s;
+    }
+    
+    nav a {
+        padding: 10px 12px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .grid--3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .section__title {
+        font-size: 1.75rem;
+    }
+    
+    .news__item {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 5px;
+    }
+    
+    .section__title {
+        font-size: 1.5rem;
+    }
+    
+    .hero__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+    
+    .btn-inline {
+        width: auto;
+        display: inline-flex;
+    }
+    
+    .program-logo {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 40px 0;
+    }
+    
+    .hero {
+        padding: 16px;
+    }
+    
+    .card {
+        padding: 12px;
+    }
+    
+    .news__item h4 {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .nav-toggle,
+    nav {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    .hero {
+        background: none;
+        border: 1px solid #000;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-contrast: high) {
+    .btn,
+    input,
+    textarea {
+        border: 2px solid;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--brand-green);
+    outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
