@@ -16,7 +16,359 @@
     --header-height: calc(var(--brand-size) + 56px);
 }
 
+/* Mobile Responsive CSS - Add to your existing CSS file or create mobile.css */
+/* Uses your existing brand color variables */
 
+/* Viewport and Box Model Reset */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Container and Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+/* Images and Media */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Flexible Grid System */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+    min-width: 0;
+}
+
+/* Navigation - Mobile First */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--brand-green);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-toggle:hover {
+    background-color: var(--brand-green-100);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover {
+    background-color: var(--brand-green-100);
+    color: var(--brand-green-700);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    line-height: 1.4;
+    background-color: var(--brand-green);
+    color: var(--bg);
+}
+
+.btn:hover {
+    background-color: var(--brand-green-700);
+}
+
+.btn-secondary {
+    background-color: var(--brand-blue);
+    color: var(--bg);
+}
+
+.btn-secondary:hover {
+    background-color: var(--brand-blue-700);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--brand-green);
+    border: 2px solid var(--brand-green);
+}
+
+.btn-outline:hover {
+    background-color: var(--brand-green);
+    color: var(--bg);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    background-color: var(--bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 3px rgba(44, 165, 141, 0.1);
+}
+
+/* Tables */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* TABLET STYLES */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .row {
+        margin: 0 -10px;
+    }
+    
+    .col {
+        padding: 0 10px;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .col-tablet-50 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    /* Typography adjustments */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    
+    /* Navigation adjustments */
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border: 1px solid var(--border);
+        border-top: none;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-item {
+        margin: 0;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 5px;
+    }
+    
+    /* Stack all columns on mobile */
+    .col,
+    .col-tablet-50 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Buttons full width on mobile */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .btn-inline {
+        width: auto;
+        display: inline-block;
+    }
+    
+    /* Typography for mobile */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    /* Padding/margin adjustments */
+    .section {
+        padding: 40px 0;
+    }
+    
+    /* Touch-friendly elements */
+    .nav-link,
+    .btn,
+    button {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* CROSS-BROWSER COMPATIBILITY */
+
+/* Flexbox fallbacks */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* IE10+ flexbox fix */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .row {
+        display: table;
+        width: 100%;
+    }
+    
+    .col {
+        display: table-cell;
+        float: none;
+    }
+}
+
+/* Safari specific fixes */
+@supports (-webkit-appearance: none) {
+    input[type="search"] {
+        -webkit-appearance: textfield;
+    }
+    
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+}
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+    input, textarea {
+        line-height: normal;
+    }
+}
+
+/* Smooth scrolling for all browsers */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+    .nav-toggle,
+    .nav-menu {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn,
+    input,
+    textarea {
+        border: 2px solid;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    /* Add your dark mode styles here if needed */
+}
+/* Mobile Responsive Ends here - 21/sep*/
 
   /* ===== NGO Home Scoped Styles ===== */
   .ngo-home { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; color: var(--text); line-height: 1.6; }
