@@ -864,3 +864,7 @@ textarea:focus {
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
 }
+.nav-toggle {
+    display: block !important;
+    background: red !important; /* temporary - makes it obvious */
+}
