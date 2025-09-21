@@ -107,6 +107,7 @@ header .brand .muted {
     border-radius: 6px;
     cursor: pointer;
     margin-left: auto;
+    z-index: 1001;
 }
 
 .hamburger {
@@ -668,6 +669,16 @@ dialog#ri-lightbox::backdrop {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+
+/* Force show hamburger on smaller screens */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: block !important;
+        position: relative;
+        z-index: 1001;
+    }
+}
+
 @media (max-width: 900px) {
     .grid--4 {
         grid-template-columns: repeat(2, 1fr);
@@ -680,7 +691,7 @@ dialog#ri-lightbox::backdrop {
 
 @media (max-width: 768px) {
     .nav-toggle {
-        display: inline-block;
+        display: block !important;
         margin-left: auto;
     }
     
