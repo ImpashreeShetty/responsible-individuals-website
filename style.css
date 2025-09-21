@@ -13,6 +13,7 @@
     --border: #e6e9e7;
     --brand-size: clamp(77.5px, 9.375vw, 100px);
     --header-height: calc(var(--brand-size) + 56px);
+    --mobile-header-height: 60px; /* Fixed mobile header height */
     --card: #ffffff;
     --shadow: 0 6px 20px rgba(0,0,0,0.06);
     --radius: 12px;
@@ -163,6 +164,13 @@ main {
     padding-top: calc(var(--header-height) + 16px);
     max-width: 1100px;
     margin: 0 auto;
+}
+
+/* Mobile main adjustment */
+@media (max-width: 768px) {
+    main {
+        padding-top: calc(var(--mobile-header-height) + 16px);
+    }
 }
 
 /* ===== NGO HOME SPECIFIC STYLES ===== */
@@ -677,6 +685,40 @@ dialog#ri-lightbox::backdrop {
         position: relative;
         z-index: 1001;
     }
+    
+    /* Fix header layout on mobile */
+    header {
+        flex-wrap: nowrap;
+        padding: 8px 15px;
+        align-items: center;
+    }
+    
+    .logo {
+        height: 50px; /* Smaller logo on mobile */
+        margin-right: 8px;
+    }
+    
+    .brand {
+        flex: 1;
+        min-width: 0; /* Allows text to shrink */
+    }
+    
+    header h1 {
+        font-size: clamp(18px, 4vw, 24px); /* Much smaller on mobile */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    header .brand .muted {
+        font-size: 12px;
+        margin: 0;
+    }
+    
+    .nav-toggle {
+        flex-shrink: 0; /* Prevent hamburger from shrinking */
+        margin-left: 8px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -783,6 +825,29 @@ dialog#ri-lightbox::backdrop {
         width: 48px;
         height: 48px;
     }
+    
+    /* Additional mobile fixes */
+    header {
+        padding: 6px 10px;
+    }
+    
+    .logo {
+        height: 40px;
+        margin-right: 6px;
+    }
+    
+    header h1 {
+        font-size: clamp(16px, 3.5vw, 20px);
+    }
+    
+    header .brand .muted {
+        font-size: 10px;
+    }
+    
+    main {
+        padding: 16px 10px;
+        padding-top: calc(60px + 16px); /* Smaller header height on mobile */
+    }
 }
 
 @media (max-width: 480px) {
@@ -863,8 +928,4 @@ textarea:focus {
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
-}
-.nav-toggle {
-    display: block !important;
-    background: red !important; /* temporary - makes it obvious */
 }
