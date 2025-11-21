@@ -2,78 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Events</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Responsible Individuals — Events</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+        <div class="header__inner">
+            <div class="brand">
+                <img src="IMG_2675.png" alt="Responsible Individuals logo" class="logo">
+                <div>
+                    <h1>Responsible Individuals</h1>
+                    <p class="muted">Touching Lives!</p>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav id="site-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html" class="active">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header__cta" href="involved.html#donate">Donate</a>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
     <main>
-        <section class="section">
-            <h1>Events</h1>
-            <p class="muted">Join us at our upcoming activities and programs.</p>
-        </section>
-
-
-         <section class="section">
-            <h2 class="section-title">Upcoming Events</h2>
-            <div class="card">
-                <p class="muted">Educational & Community Engagement Drive</p>
-                <p><strong>Month:</strong> September & October 2025</p>
-                <p><strong>Activity:</strong>organizing a comprehensive educational and community engagement drive across 25 Government Schools in the Bachenahatti Cluster (Magadi Taluk) and Ramasandra Cluster (Bangalore South).
-                The initiative is beyond distributing stationery and study materials—it is a celebration of learning, creativity, and awareness. 
-                <p><strong>Activities include:</strong>
-                <p><strong>Creative Competitions:</strong> Drawing, Debate, and Quiz contests to spark curiosity and confidence among students.</p>
-                <p><strong>Sports & Games Day:</strong> Encouraging teamwork, fitness, and fun.</p>
-                <p><strong>Health & Hygiene Awareness:</strong> Sessions promoting well-being and healthy habits.</p>
-                <p><strong>Environmental Initiatives:</strong> Tree plantation and sapling distribution to nurture a greener tomorrow.</p>
-                <p><strong>Digital Literacy:</strong> Awareness sessions on digital learning platforms to bridge the technology gap.</p>
-                <p><strong>Sustainability Workshops:</strong> Paper bag and paper pen making, along with discussions on the impact of single-use plastics.</p>
-                            </div>
-                        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Past Events</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Inauguration at GHPS School</h3>
-                    <p class="muted">Sports Day for government school children.</p>
-                    <p><strong>Date:</strong> 19 July 2025</p>
-                    <p><strong>Location:</strong> GHPS School</p>
+        <section class="hero reveal" aria-label="Events hero">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__eyebrow">Events & activations</span>
+                    <h1>Every gathering is a gateway</h1>
+                    <p class="hero__copy">From school festivals to livelihood hackathons, our events are immersive experiences that inspire action.</p>
+                </div>
+                <div class="hero__media" aria-hidden="true">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2762.jpeg" alt="">
                 </div>
             </div>
         </section>
 
-       
+        <section class="section reveal">
+            <div class="section__eyebrow">Upcoming</div>
+            <h2 class="section__title">Educational & community engagement drive</h2>
+            <article class="glass-card">
+                <p><strong>Window:</strong> September — October 2025</p>
+                <p><strong>Where:</strong> 25 Government Schools across Bachenahatti (Magadi Taluk) and Ramasandra (Bengaluru South)</p>
+                <div class="grid grid--2" style="margin-top:1.5rem;">
+                    <div>
+                        <p class="tag">Highlights</p>
+                        <ul class="program-card__list">
+                            <li>Creative competitions in art, debate, and quiz</li>
+                            <li>Sports & games day to drive teamwork</li>
+                            <li>Health & hygiene learning circles</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="tag">Sustainability</p>
+                        <ul class="program-card__list">
+                            <li>Tree plantation & sapling distribution</li>
+                            <li>Digital literacy pit-stops</li>
+                            <li>Paper pen & bag workshops</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="section section--alt reveal">
+            <div class="section__eyebrow">Field diary</div>
+            <h2 class="section__title">Recent moments</h2>
+            <div class="grid grid--2">
+                <article class="program-card">
+                    <p class="tag">19 Jul 2025</p>
+                    <h3>Inauguration at GHPS School</h3>
+                    <p>Launch ceremony led by Lalitha Indrakanti with sports day for government school children.</p>
+                </article>
+                <article class="program-card">
+                    <p class="tag">June 2025</p>
+                    <h3>Responsible classrooms</h3>
+                    <p>Creative learning festival across four clusters with debates, STEM showcases, and wellness sessions.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="section__eyebrow">Stay in the loop</div>
+            <h2 class="section__title">Host, volunteer, or collaborate</h2>
+            <div class="grid grid--3">
+                <article class="glass-card">
+                    <h3>Co-host an event</h3>
+                    <p>Bring your workplace, school, or college to partner on our upcoming drives.</p>
+                    <a class="btn btn--outline" href="contact.html">Talk to us</a>
+                </article>
+                <article class="glass-card">
+                    <h3>Volunteer squad</h3>
+                    <p>Lead creative competitions, manage logistics, or capture stories.</p>
+                    <a class="btn btn--outline" href="involved.html#volunteer">Sign up</a>
+                </article>
+                <article class="glass-card">
+                    <h3>Fund an experience</h3>
+                    <p>Support kits, transport, meals, and learning materials for students.</p>
+                    <a class="btn btn--outline" href="involved.html#donate">Sponsor kits</a>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+        <p>theresponsibleindividuals@gmail.com · (+91) 9964004113 · (+91) 7899277968</p>
+        <p class="footer__meta">&copy; <span id="year">2025</span> Responsible Individuals. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <a class="floating-cta" href="involved.html">Get Involved</a>
 </body>
 </html>

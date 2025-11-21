@@ -1,181 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Essential Mobile Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- SEO and Social Media -->
-    <meta name="description" content="Empowering Communities, Changing Futures - Non-profit organization improving access to education, health, and livelihoods for underserved communities">
-    <meta name="keywords" content="ngo, non-profit, education, health, community, responsible individuals, 80g eligible">
-    <meta name="author" content="Responsible Individuals">
-    
-    <!-- Open Graph for Social Media -->
-    <meta property="og:title" content="Responsible Individuals - Empowering Communities">
-    <meta property="og:description" content="Community-led non-profit improving access to education, health, and livelihoods">
+    <meta name="description" content="Responsible Individuals is a community-led NGO focused on education, health, and dignified livelihoods.">
+    <meta name="keywords" content="responsible individuals, ngo, education, health, community, nonprofit, india, 80g">
+    <meta property="og:title" content="Responsible Individuals">
+    <meta property="og:description" content="Empowering communities with education, health, and livelihood programs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://responsibleindividuals.org">
-    <meta property="og:image" content="https://responsibleindividuals.org/assets/og-image.jpg">
-    
-    <!-- Mobile Web App Meta Tags -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Responsible Individuals">
-    <meta name="theme-color" content="#2ca58d">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="IMG_2675.png" />
-    
-    <title>Responsible Individuals - Home</title>
-    
-    <!-- Fonts -->
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2760.jpeg">
+    <link rel="icon" href="IMG_2675.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Scripts -->
+    <title>Responsible Individuals — Touching Lives</title>
     <script defer src="script.js"></script>
 </head>
 <body class="home">
     <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+        <div class="header__inner">
+            <div class="brand">
+                <img src="IMG_2675.png" alt="Responsible Individuals logo" class="logo">
+                <div>
+                    <h1>Responsible Individuals</h1>
+                    <p class="muted">Touching Lives!</p>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                ☰
+            </button>
+            <nav id="site-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header__cta" href="involved.html#donate">Donate</a>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
-    <main id="main-content" class="ngo-home" aria-label="NGO Homepage">
-        <!-- HERO SECTION -->
-        <section id="hero" class="hero section" aria-label="Hero section">
-            <div class="container hero__grid">
+    <main id="main-content">
+        <section id="hero" class="hero reveal" aria-label="Responsible Individuals hero">
+            <div class="hero__grid">
                 <div>
-                    <div class="hero__badges" aria-hidden="true">
-                        <span class="badge">Non‑profit • 80G Eligible</span>
-                        <span class="badge">Community‑led</span>
+                    <span class="hero__eyebrow">Community-led • 80G eligible</span>
+                    <h1>Empowering communities, changing futures</h1>
+                    <p class="hero__copy">We take bold, empathetic action so every child learns, every family thrives, and every community leads with dignity.</p>
+                    <div class="hero__actions">
+                        <a href="#impact" class="btn btn--primary">See our impact</a>
+                        <a href="involved.html" class="btn btn--ghost">Join the movement</a>
                     </div>
-                    <h1>Empowering Communities, Changing Futures</h1>
-                    <p>Together we improve access to education, health, and livelihoods for underserved communities. Your support turns intent into impact.</p>
+                    <div class="hero__metrics" aria-label="Impact snapshot">
+                        <div class="metric">
+                            <span class="metric__value" data-count="1500">0</span>
+                            <span class="metric__label">Students supported</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric__value" data-count="780">0</span>
+                            <span class="metric__label">Women skilled</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric__value" data-count="32">0</span>
+                            <span class="metric__label">Villages partnered</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="hero__media" aria-hidden="true">
-                    <img id="home-pageimg" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2760.jpeg">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2760.jpeg" alt="">
                 </div>
             </div>
         </section>
 
-        <!-- IMPACT HIGHLIGHTS -->
-        <section id="impact" class="section section--alt" aria-label="Impact highlights">
-            <div class="container">
-                <h2 class="section__title">Our Impact</h2>
-                <p class="section__subtitle">We measure what matters—lives improved and opportunities created.</p>
-                <div class="grid grid--4">
-                    <div class="card stat">
-                        <div class="stat__value">Insights coming soon</div>
-                        <div class="stat__label">Children educated</div>
-                    </div>
-                    <div class="card stat">
-                        <div class="stat__value">Insights coming soon</div>
-                        <div class="stat__label">Women skilled</div>
-                    </div>
-                    <div class="card stat">
-                        <div class="stat__value">Insights coming soon</div>
-                        <div class="stat__label">Villages reached</div>
-                    </div>
-                    <div class="card stat">
-                        <div class="stat__value">Insights coming soon</div>
-                        <div class="stat__label">Programs sustained</div>
-                    </div>
+        <section id="impact" class="section section--alt reveal" aria-label="Impact highlights">
+            <div class="section__eyebrow">Impact</div>
+            <h2 class="section__title">Measured outcomes with heart</h2>
+            <p class="section__subtitle">Numbers inspire us, stories guide us. Here’s what your support fuels.</p>
+            <div class="stat-grid" role="list">
+                <article class="stat-card" role="listitem">
+                    <p class="tag">Education</p>
+                    <p class="stat__value" data-count="25">0</p>
+                    <p class="stat__label">Learning labs launched</p>
+                </article>
+                <article class="stat-card" role="listitem">
+                    <p class="tag">Health</p>
+                    <p class="stat__value" data-count="18">0</p>
+                    <p class="stat__label">Community health camps</p>
+                </article>
+                <article class="stat-card" role="listitem">
+                    <p class="tag">Livelihoods</p>
+                    <p class="stat__value" data-count="420">0</p>
+                    <p class="stat__label">Entrepreneurs mentored</p>
+                </article>
+                <article class="stat-card" role="listitem">
+                    <p class="tag">Sustainability</p>
+                    <p class="stat__value" data-count="1200">0</p>
+                    <p class="stat__label">Saplings nurtured with schools</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="programs" class="section reveal" aria-label="Programs and initiatives">
+            <div class="section__eyebrow">Programs</div>
+            <h2 class="section__title">We design radical care with communities</h2>
+            <p class="section__subtitle">Every initiative blends local wisdom, technology, and human-centered design.</p>
+            <div class="grid grid--3">
+                <article class="program-card">
+                    <div class="program-card__icon" aria-hidden="true">📚</div>
+                    <h3>Education Access</h3>
+                    <p>Learning labs, STEM clubs, and mentorship for first-generation learners.</p>
+                    <ul class="program-card__list">
+                        <li>RISE STEM playbooks</li>
+                        <li>Digital bridge toolkits</li>
+                        <li>Leadership mentoring</li>
+                    </ul>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__icon" aria-hidden="true">🩺</div>
+                    <h3>Community Health</h3>
+                    <p>Preventive care, menstrual health, and emergency response chains.</p>
+                    <ul class="program-card__list">
+                        <li>School health audits</li>
+                        <li>Mobile screening clinics</li>
+                        <li>Nutrition fellowships</li>
+                    </ul>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__icon" aria-hidden="true">💼</div>
+                    <h3>Dignified Livelihoods</h3>
+                    <p>Women- and youth-led enterprises powered by design thinking.</p>
+                    <ul class="program-card__list">
+                        <li>Micro-maker studios</li>
+                        <li>Career readiness pods</li>
+                        <li>Responsible tech labs</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="journey" class="section reveal" aria-label="Journey timeline">
+            <div class="section__eyebrow">Journey</div>
+            <h2 class="section__title">Built with love, shaped by listening</h2>
+            <div class="timeline">
+                <article class="timeline__item">
+                    <span class="timeline__tag">2023</span>
+                    <h3>Conversations to collective</h3>
+                    <p>A circle of friends committed to “showing up” formed Responsible Individuals.</p>
+                </article>
+                <article class="timeline__item">
+                    <span class="timeline__tag">2024</span>
+                    <h3>Launch & community labs</h3>
+                    <p>Sports days, creative competitions, and health awareness drives across government schools.</p>
+                </article>
+                <article class="timeline__item">
+                    <span class="timeline__tag">2025+</span>
+                    <h3>RISE and beyond</h3>
+                    <p>Scaling STEM, sustainability, and livelihood programs with partners and volunteers.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="stories" class="section section--alt reveal" aria-label="Stories slider">
+            <div class="section__eyebrow">Stories</div>
+            <h2 class="section__title">Voices that keep us accountable</h2>
+            <div class="stories">
+                <div class="stories__track" data-slider-track>
+                    <article class="stories__card">
+                        <p class="tag">Volunteer</p>
+                        <h3>“We solve problems shoulder-to-shoulder.”</h3>
+                        <p>“RI helped me facilitate design sessions for girls in Magadi. Their confidence is contagious.”</p>
+                        <p class="muted">— Ananya, Volunteer Coach</p>
+                    </article>
+                    <article class="stories__card">
+                        <p class="tag">School Partner</p>
+                        <h3>“Students now dream bigger.”</h3>
+                        <p>“From STEM clubs to sports, Responsible Individuals brought consistency and joy to our school calendar.”</p>
+                        <p class="muted">— Mr. Prakash, Headmaster</p>
+                    </article>
+                    <article class="stories__card">
+                        <p class="tag">Youth Leader</p>
+                        <h3>“We create with purpose.”</h3>
+                        <p>“The livelihood pods turned our craft skills into micro-businesses that support our families.”</p>
+                        <p class="muted">— Sana, Artisan Entrepreneur</p>
+                    </article>
+                </div>
+                <div class="stories__nav" aria-hidden="true">
+                    <button class="stories__btn" data-slider-prev aria-label="Previous story">‹</button>
+                    <button class="stories__btn" data-slider-next aria-label="Next story">›</button>
                 </div>
             </div>
         </section>
 
-        <!-- PROGRAMS -->
-        <section id="programs" class="section" aria-label="Programs and initiatives">
-            <div class="container">
-                <h2 class="section__title">What We Do</h2>
-                <p class="section__subtitle">Focused, high‑impact programs designed with communities.</p>
-                <div class="grid grid--3">
-                    <article class="card program">
-                        <div class="program__icon" aria-hidden="true">📚</div>
-                        <h3 class="program__title">Education Access</h3>
-                        <p class="program__desc">From notebooks to mentorship—everything a child needs to learn confidently.</p>
-                    </article>
-                    <article class="card program">
-                        <div class="program__icon" aria-hidden="true">🩺</div>
-                        <h3 class="program__title">Community Health</h3>
-                        <p class="program__desc">Empowering communities with Periodic health camps, preventive care, and community blood donation initiatives.</p>
-                    </article>
-                    <article class="card program">
-                        <div class="program__icon" aria-hidden="true">💼</div>
-                        <h3 class="program__title">Livelihoods</h3>
-                        <p class="program__desc">Skilling, micro‑enterprise support, and job‑readiness for youth and women.</p>
-                    </article>
-                </div>
+        <section id="news" class="section reveal" aria-label="Updates">
+            <div class="section__eyebrow">Field notes</div>
+            <h2 class="section__title">Latest updates</h2>
+            <div class="news__list">
+                <article class="news__item">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/news_1.jpg" alt="">
+                    <div>
+                        <h3>Responsible Individuals launched</h3>
+                        <p>Lalitha Indrakanti, CEO of Jaguar Land Rover TBSI, inaugurated RI with community leaders and schools across Bangalore.</p>
+                    </div>
+                </article>
+                <article class="news__item">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2766.jpeg" alt="">
+                    <div>
+                        <h3>School engagement drive</h3>
+                        <p>25 government schools hosted creative competitions, sports days, digital literacy lessons, and sapling drives.</p>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- HOW YOU CAN HELP -->
-        <section id="help" class="section section--alt" aria-label="How you can help">
-            <div class="container">
-                <h2 class="section__title">How You Can Help</h2>
-                <p class="section__subtitle">Every contribution—time, funds, or skills—makes a real difference.</p>
-                <div class="grid grid--3 help">
-                    <div id="donate" class="card help__item">
-                        <h4>Donate</h4>
-                        <p>Power our programs with a one‑time or monthly gift. Tax‑deductions available (India 80G).</p>
-                    </div>
-                    <div class="card help__item">
-                        <h4>Volunteer</h4>
-                        <p>Mentor, teach, design, or help with events and outreach—on‑site or remote.</p>
-                    </div>
-                    <div class="card help__item">
-                        <h4>Partner with Us</h4>
-                        <p>CSR collaborations, program sponsorships, and payroll giving for sustained impact.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEWS & UPDATES -->
-        <section id="news" class="section section--alt" aria-label="News and updates">
-            <div class="container">
-                <h2 class="section__title">News and Updates</h2>
-                <p class="section__subtitle">Highlights from our field work, events, and blog.</p>
-                <div class="news__list">
-                    <article class="news__item">
-                        <img id="news-article" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/news_1.jpg" width="500" height="100">
-                        <div>
-                            <h4>A new volunteer organization named Responsible Individuals, founded with the aim of working for the betterment of society, was inaugurated on July 19 in a grand ceremony. The event was graced by Lalitha Indrakanti, CEO of Jaguar Land Rover Technology and Business Services India, who officially launched the initiative. Driven by a shared vision of social responsibility, a group of like-minded friends came together to establish this organization.</h4>
-                        </div>
-                    </article>
-                </div>
+        <section class="cta-banner reveal" aria-label="Call to action">
+            <h3>Ready to turn intent into impact?</h3>
+            <p>Tutor kids, run workshops, host a fundraiser, or back a program. We’ll co-design the experience with you.</p>
+            <div class="hero__actions" style="justify-content:center;margin-top:1.5rem;">
+                <a href="involved.html#volunteer" class="btn btn--primary">Volunteer with us</a>
+                <a href="contact.html" class="btn btn--outline">Talk to our team</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>
-            Contact us: <a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a> ·
-            Phone: <a href="tel:+919964004113">(+91) 9964004113</a> | <a href="tel:+917899277968">(+91) 7899277968</a>
-        </p>
-        <p>&copy; 2025 Responsible Individuals. All rights reserved.</p>
+        <p>theresponsibleindividuals@gmail.com · (+91) 9964004113 · (+91) 7899277968</p>
+        <p class="footer__meta">&copy; <span id="year">2025</span> Responsible Individuals. All rights reserved.</p>
     </footer>
+
+    <a class="floating-cta" href="involved.html">Get Involved</a>
 </body>
 </html>

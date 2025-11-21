@@ -2,61 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Contact</title>
+    <title>Responsible Individuals — Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+        <div class="header__inner">
+            <div class="brand">
+                <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
+                <div>
+                    <h1>Responsible Individuals</h1>
+                    <p class="muted">Touching Lives!</p>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav id="site-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <a class="header__cta" href="mailto:theresponsibleindividuals@gmail.com">Email us</a>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
     <main>
-        <section class="section">
-            <h1>Contact Us</h1>
-            <p class="muted">We'd love to hear from you.</p>
-        </section>
-
-        <section class="section">
-            <div class="grid">
-                <div class="card">
-                    <h3>Email</h3>
-                    <p><a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a></p>
+        <section class="hero reveal" aria-label="Contact hero">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__eyebrow">Get in touch</span>
+                    <h1>We’re always a message away</h1>
+                    <p class="hero__copy">Share a partnership idea, ask about volunteering, or say hi. We respond within 48 hours.</p>
                 </div>
-                <div class="card">
-                    <h3>Social</h3>
-                    <p><a href="https://www.linkedin.com/company/responsible-individuals/" > 
-                        <img border="0" alt="LinkedIn" src="linkedin.png" width="50" height="50"></a></p>
-                    <p><a href="https://www.facebook.com/share/18ih4dG8YX/" > 
-                        <img border="0" alt="Facebook" src="facebook.png" width="50" height="50"></a></p>
+                <div class="hero__media" aria-hidden="true">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Rise_Logo.png" alt="">
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Send a Message</h2>
-            <div class="card">
+        <section class="section section--alt reveal">
+            <div class="section__eyebrow">Reach us</div>
+            <h2 class="section__title">Direct channels</h2>
+            <div class="grid grid--3">
+                <article class="glass-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a></p>
+                </article>
+                <article class="glass-card">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919964004113">(+91) 9964004113</a><br><a href="tel:+917899277968">(+91) 7899277968</a></p>
+                </article>
+                <article class="glass-card">
+                    <h3>Social</h3>
+                    <p><a href="https://www.linkedin.com/company/responsible-individuals/">LinkedIn</a><br><a href="https://www.facebook.com/share/18ih4dG8YX/">Facebook</a></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="section__eyebrow">Message us</div>
+            <h2 class="section__title">Send a note</h2>
+            <div class="glass-card">
                 <form action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
                     <label for="c-name">Full Name</label>
                     <input id="c-name" name="name" type="text" required>
@@ -66,15 +80,16 @@
                     <input id="c-subject" name="subject" type="text">
                     <label for="c-message">Message</label>
                     <textarea id="c-message" name="message" required></textarea>
-                    <button class="btn primary" type="submit">Send</button>
+                    <button class="btn btn--primary" type="submit">Send message</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+        <p>theresponsibleindividuals@gmail.com · (+91) 9964004113 · (+91) 7899277968</p>
+        <p class="footer__meta">&copy; <span id="year">2025</span> Responsible Individuals. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <a class="floating-cta" href="mailto:theresponsibleindividuals@gmail.com">Say hello</a>
 </body>
 </html>

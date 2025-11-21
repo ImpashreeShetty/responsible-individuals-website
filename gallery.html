@@ -1,177 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Responsible Individuals – Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Your site stylesheet --
-  style.css
-  <meta name="description" content="A glimpse of our activities and community moments." />
-
-  <!-- Minimal gallery-only styles (works with your theme) -->
-  <style>
-    /* Feature cards: reuse your .grid + .card */
-    .feature-card-grid .feature-card img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      background: var(--surface, #f7faf8);
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    .feature-card { transition: transform .18s ease, box-shadow .18s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
-    .feature-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
-
-    /* Lightbox using <dialog> */
-    dialog#ri-lightbox {
-      width: min(95vw, 1200px);
-      border: none; padding: 0; border-radius: 12px; overflow: hidden; background: #000;
-    }
-    dialog#ri-lightbox::backdrop { background: rgba(0,0,0,.75); }
-    #ri-lightbox .lb-wrap { position: relative; background: #000; }
-    #ri-lightbox .lb-img  { display: block; max-width: 100%; max-height: 85vh; margin: 0 auto; }
-    #ri-lightbox .lb-close{
-      position: absolute; inset: 12px 12px auto auto;
-      background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.25);
-      padding: .4rem .65rem; border-radius: 999px; cursor: pointer; backdrop-filter: blur(6px);
-    }
-  </style>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- ===== Header & Nav (your theme) ===== -->
   <header>
+    <div class="header__inner">
+      <div class="brand">
         <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+        <div>
+          <h1>Responsible Individuals</h1>
+          <p class="muted">Touching Lives!</p>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="projects.html">Projects</a>
+        <a href="involved.html">Get Involved</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="header__cta" href="involved.html#volunteer">Volunteer</a>
+    </div>
+  </header>
 
   <main>
-    <!-- Intro -->
-    <section class="hero section">
-      <h2 style="margin-top:0;">Gallery</h2>
-      <p>A glimpse of our activities and community moments.</p>
-    </section>
-
-    <!-- ===== Top: 3 feature cards ===== -->
-    <section class="section" aria-label="Gallery Sections">
-  <div class="feature-card-grid grid">
-
-    <!-- Launch Event -- #launch -->
-    <div class="feature-card" onclick="toggleGallery('launch')">  
-    <img
-        id="cover-launch"
-        src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2756.jpeg">
-      <h3>Launch Event</h3>
-      <p class="muted">Moments from our launch at GHPS School and community celebrations.</p>
-      <div id="launch" class="gallery-section hidden">
-        <h4>Gallery</h4>
-        <div class="gallery" data-gallery="launch"></div>
-      </div>
-    </div>
-
-   <!-- Ground Visit to Rural Government Schools -->
-    <div class="feature-card" onclick="toggleGallery('groundvisit')">
-    <img
-      id="cover-ground"
-      src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2766.jpeg">
-      <h3>Ground Visit to Rural Government Schools</h3>
-      <p class="muted">Community outreach and school engagements</p>
-    <div id="groundvisit" class="gallery-section hidden">
-        <h4>Gallery</h4>
-        <div class="gallery" data-gallery="ground"></div>
-      </div>
-    </div>
-
-   <!-- Office Photos -->
-    <div class="feature-card" onclick="toggleGallery('office')">
-    <img
-      id="cover-office"
-      src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Office/IMG_2753.jpeg">
-      <h3>Office</h3>
-      <p class="muted">Day‑to‑day at Responsible Individuals.</p>
-      <div id="office" class="gallery-section hidden">
-        <h4>Gallery</h4>
-        <div class="gallery" data-gallery="office"></div>
-      </div>
-    </div>
-
-  </div>
-
-  </div>
-</section>
-
-
-    <!-- ===== Galleries ===== 
-    <section id="launch" class="section" aria-label="Launch Event Gallery">
-      <h2>Launch Event</h2>
-      <p class="muted">Moments from our launch at GHPS School and community celebrations.</p>
-      <div class="gallery" data-gallery="launch"></div>
-    </section>
-
-    <section id="office" class="section" aria-label="Office Photos Gallery">
-      <h2>Office Photos</h2>
-      <p class="muted">Day‑to‑day at Responsible Individuals.</p>
-      <div class="gallery" data-gallery="office"></div>
-    </section>
-
-    <section id="groundvisit" class="section" aria-label="Ground Visit Gallery">
-      <h2>Ground Visit to Rural Government Schools</h2>
-      <p class="muted">Community outreach and school engagements.</p>
-      <div class="gallery" data-gallery="ground"></div>
-    </section> -->
-
-    <!-- ===== Recent Events (moved below) ===== -->
-    <section id="recent" class="section" aria-label="Recent Events">
-      <h2>Recent Events</h2>
-      <article class="event-card">
-        <img src="" alt="" id="recent-banner" class="event-image" style="display:none;" />
-        <div class="event-body">
-          <h3>Inauguration Event</h3>
-          <p class="muted">July 19th, 2025</p>
-          <p>
-            Our NGO initiative was officially inaugurated at GHPS School with a successful Sports Day
-            for government school children. The event encouraged participation, teamwork, and joy
-            among the students, fostering community spirit and responsibility among all participants.
-          </p>
-          <p><strong>Highlights:</strong> Track events, fun games, and a closing ceremony with refreshments.</p>
-          <p><strong>Impact:</strong> Created memorable experiences for children and established the foundation for our ongoing
-            community development programs.</p>
+    <section class="hero reveal" aria-label="Gallery intro">
+      <div class="hero__grid">
+        <div>
+          <span class="hero__eyebrow">Gallery</span>
+          <h1>Joy, grit, and community in motion</h1>
+          <p class="hero__copy">Swipe through our launch, ground visits, and day-to-day action.</p>
         </div>
+        <div class="hero__media" aria-hidden="true">
+          <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2756.jpeg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-label="Gallery Sections">
+      <div class="feature-card-grid grid">
+        <article class="feature-card" onclick="toggleGallery('launch')">
+          <img id="cover-launch" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2756.jpeg" alt="">
+          <h3>Launch Event</h3>
+          <p class="muted">GHPS School inauguration & celebrations.</p>
+          <div id="launch" class="gallery-section hidden">
+            <h4>Gallery</h4>
+            <div class="gallery" data-gallery="launch"></div>
+          </div>
+        </article>
+
+        <article class="feature-card" onclick="toggleGallery('groundvisit')">
+          <img id="cover-ground" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2766.jpeg" alt="">
+          <h3>Ground Visits</h3>
+          <p class="muted">Rural school engagements & outreach.</p>
+          <div id="groundvisit" class="gallery-section hidden">
+            <h4>Gallery</h4>
+            <div class="gallery" data-gallery="ground"></div>
+          </div>
+        </article>
+
+        <article class="feature-card" onclick="toggleGallery('office')">
+          <img id="cover-office" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Office/IMG_2753.jpeg" alt="">
+          <h3>Everyday Moments</h3>
+          <p class="muted">Behind-the-scenes at Responsible Individuals.</p>
+          <div id="office" class="gallery-section hidden">
+            <h4>Gallery</h4>
+            <div class="gallery" data-gallery="office"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="recent" class="section section--alt reveal" aria-label="Recent Events">
+      <div class="section__eyebrow">Recent highlight</div>
+      <h2 class="section__title">Inauguration Event</h2>
+      <article class="glass-card">
+        <img src="" alt="" id="recent-banner" style="display:none;border-radius:16px;margin-bottom:1rem;">
+        <p class="muted">July 19, 2025 · GHPS School</p>
+        <p>Sports day, creative showcases, and mentorship circles with Lalitha Indrakanti and community leaders.</p>
       </article>
     </section>
-
-    <footer>© 2025 Responsible Individuals</footer>
   </main>
 
-  <!-- Lightbox -->
+  <footer>
+    <p>theresponsibleindividuals@gmail.com · (+91) 9964004113 · (+91) 7899277968</p>
+    <p class="footer__meta">&copy; <span id="year">2025</span> Responsible Individuals. All rights reserved.</p>
+  </footer>
+
+  <a class="floating-cta" href="involved.html">Join us</a>
+
   <dialog id="ri-lightbox" aria-label="Image preview">
     <div class="lb-wrap">
       <button class="lb-close" aria-label="Close preview">✕</button>
       <img class="lb-img" alt="">
     </div>
   </dialog>
-
-  <!-- Link to your JavaScript file -->
-  <script src="script.js"></script> 
 </body>
 </html>

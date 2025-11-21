@@ -1,23 +1,31 @@
 // ===== MOBILE NAVIGATION TOGGLE =====
 (function() {
     const header = document.querySelector('header');
+    if (!header) return;
+
     const navToggle = header.querySelector('.nav-toggle');
-    
-    if (navToggle) {
+    const siteNav = header.querySelector('nav');
+
+    if (navToggle && siteNav) {
         navToggle.addEventListener('click', function() {
             const isOpen = header.classList.toggle('nav-open');
             navToggle.setAttribute('aria-expanded', String(isOpen));
         });
-        
-        // Close menu when clicking outside
+
+        siteNav.addEventListener('click', function(event) {
+            if (event.target.matches('a')) {
+                header.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
         document.addEventListener('click', function(e) {
             if (!header.contains(e.target)) {
                 header.classList.remove('nav-open');
                 navToggle.setAttribute('aria-expanded', 'false');
             }
         });
-        
-        // Close menu on escape key
+
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && header.classList.contains('nav-open')) {
                 header.classList.remove('nav-open');
@@ -180,23 +188,19 @@ function initializeLightbox() {
 
 // ===== SCROLL REVEAL ANIMATION =====
 function initializeScrollReveal() {
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    const revealElements = document.querySelectorAll('.reveal');
+    if (!revealElements.length) return;
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-    // Observe elements with reveal class
-    document.querySelectorAll('.reveal').forEach(function(element) {
-        observer.observe(element);
-    });
+    revealElements.forEach(el => observer.observe(el));
 }
 
 // ===== SMOOTH SCROLLING FOR ANCHOR LINKS =====
@@ -255,20 +259,73 @@ function initializeViewportFix() {
     });
 }
 
+// ===== COUNTER ANIMATION =====
+function initializeCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+
+    const animateCounter = (element) => {
+        const target = Number(element.dataset.count);
+        if (!Number.isFinite(target)) return;
+
+        const duration = 1500;
+        const start = performance.now();
+        const initial = Number(element.textContent.replace(/,/g, '')) || 0;
+
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const value = Math.floor(initial + (target - initial) * progress);
+            element.textContent = value.toLocaleString();
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    counters.forEach(counter => observer.observe(counter));
+}
+
+// ===== STORIES SLIDER =====
+function initializeStoriesSlider() {
+    const track = document.querySelector('[data-slider-track]');
+    const prevBtn = document.querySelector('[data-slider-prev]');
+    const nextBtn = document.querySelector('[data-slider-next]');
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const scrollAmount = () => track.clientWidth * 0.8;
+
+    prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+}
+
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
     initializeGallery();
     initializeLightbox();
     initializeScrollReveal();
     initializeSmoothScrolling();
+    initializeCounters();
+    initializeStoriesSlider();
     enhanceForms();
     initializeViewportFix();
     
-    // Add loaded class for CSS animations
     document.documentElement.classList.add('js-loaded');
     
-    // Set current year in footer if element exists
     const yearElement = document.getElementById('year');
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();

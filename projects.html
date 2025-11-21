@@ -2,81 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Projects</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Responsible Individuals — Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+        <div class="header__inner">
+            <div class="brand">
+                <img src="IMG_2675.png" alt="Responsible Individuals logo" class="logo">
+                <div>
+                    <h1>Responsible Individuals</h1>
+                    <p class="muted">Touching Lives!</p>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav id="site-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header__cta" href="involved.html#donate">Donate</a>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
     <main>
-        <section class="section">
-            <h1>Our Projects</h1>
-            <p class="muted">We focus on high-impact, community-driven initiatives.</p>
+        <section class="hero reveal" aria-label="Projects hero">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__eyebrow">Programs</span>
+                    <h1>Designing radical care</h1>
+                    <p class="hero__copy">Our portfolio translates empathy into blueprints—education, health, and livelihoods crafted with communities.</p>
+                </div>
+                <div class="hero__media" aria-hidden="true">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Office/IMG_2753.jpeg" alt="">
+                </div>
+            </div>
         </section>
 
-   <div class="program-box">
-  <img src="Photos/Rise_Logo.png" alt="RISE Logo" class="program-logo">
-
-  <div class="program-content">
-    <h2 class="program-title">Responsible Individuals in STEM Education</h2>
-    <p class="program-text">
-      Our new initiative, <strong>RISE</strong>, empowers students through hands-on STEM learning,
-      ethical tech use, and mentorship—helping them innovate responsibly.
-    </p>
-  </div>
-     <!-- Bottom-right action area -->
-  <div class="program-actions">
-    <a href="rise.html">Explore More</a>
-    
-  </div>
-</div>
-
-
-        <section class="section">
-            <div class="grid">
-                <div class="card">
-                    <h3>Education Kits</h3>
-                    <p class="muted">From notebooks to mentorship—everything a child needs to learn confidently.</p>
+        <section class="section reveal">
+            <div class="section__eyebrow">Flagship</div>
+            <h2 class="section__title">RISE — Responsible Individuals in STEM Education</h2>
+            <article class="glass-card">
+                <div class="grid grid--2">
+                    <div>
+                        <p>RISE demystifies STEM through hands-on, values-based experiences—a blend of maker spaces, ethical tech conversations, and mentor pods.</p>
+                        <ul class="program-card__list">
+                            <li>Community STEM carts & pop-up labs</li>
+                            <li>Mentorship pairing with women in tech</li>
+                            <li>Open-source curriculum toolkits</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="tag">Need support?</p>
+                        <p>We’re building RISE across more school clusters. Sponsor a kit, mentor, or host a hack-lab.</p>
+                        <a class="btn btn--outline" href="contact.html">Collaborate</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Health Camps</h3>
-                    <p class="muted">Empowering communities with Periodic health camps, preventive care, and community blood donation initiatives.</p>
-                </div>
-                <div class="card">
-                    <h3>Skills Training</h3>
-                    <p class="muted">Vocational and soft-skills training for youth and Women.</p>
-                </div>
+            </article>
+        </section>
+
+        <section class="section section--alt reveal">
+            <div class="section__eyebrow">Portfolio</div>
+            <h2 class="section__title">High-impact initiatives</h2>
+            <div class="grid grid--3">
+                <article class="program-card">
+                    <div class="program-card__icon">🎒</div>
+                    <h3>Learning Continuity Kits</h3>
+                    <p>Notebooks, art supplies, reading plans, and mentorship check-ins for first-generation learners.</p>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__icon">🩺</div>
+                    <h3>Community Health Labs</h3>
+                    <p>Periodic health camps, menstrual health sessions, and emergency response networks.</p>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__icon">🌱</div>
+                    <h3>Sustainable Futures</h3>
+                    <p>Tree stewardship, waste-to-art studios, and green entrepreneurship challenges.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="section__eyebrow">Inside a project</div>
+            <h2 class="section__title">Blueprint for impact</h2>
+            <div class="timeline">
+                <article class="timeline__item">
+                    <span class="timeline__tag">Discover</span>
+                    <p>Context walks, student councils, and community listening circles.</p>
+                </article>
+                <article class="timeline__item">
+                    <span class="timeline__tag">Co-design</span>
+                    <p>Rapid prototyping with teachers, volunteers, and local experts.</p>
+                </article>
+                <article class="timeline__item">
+                    <span class="timeline__tag">Deploy & learn</span>
+                    <p>Run pilots, gather feedback, and publish open playbooks.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-banner reveal" aria-label="Call to collaborate">
+            <h3>Have an idea or initiative in mind?</h3>
+            <p>Let’s co-build projects that center dignity and measurable change.</p>
+            <div class="hero__actions" style="justify-content:center;margin-top:1.5rem;">
+                <a class="btn btn--primary" href="involved.html#partner">Partner with us</a>
+                <a class="btn btn--outline" href="contact.html">Share your idea</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+        <p>theresponsibleindividuals@gmail.com · (+91) 9964004113 · (+91) 7899277968</p>
+        <p class="footer__meta">&copy; <span id="year">2025</span> Responsible Individuals. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <a class="floating-cta" href="involved.html">Get Involved</a>
 </body>
 </html>

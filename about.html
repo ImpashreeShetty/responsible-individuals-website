@@ -2,84 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - About</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Responsible Individuals — About</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+        <div class="header__inner">
+            <div class="brand">
+                <img src="IMG_2675.png" alt="Responsible Individuals logo" class="logo">
+                <div>
+                    <h1>Responsible Individuals</h1>
+                    <p class="muted">Touching Lives!</p>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav id="site-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header__cta" href="involved.html#donate">Donate</a>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
     <main>
-        <section class="section">
-            <h1>Our Story</h1>
-            <p class="muted">Responsible Individuals began with a simple belief: that small, consistent actions can create big change. A group of like-minded people came together, united by a shared vision of a better world—one where education opens doors, health empowers lives, the environment thrives, and communities rise together.
-What started as conversations and small initiatives soon grew into a movement. Today, we are a community-driven NGO dedicated to making a lasting impact through education, health, environmental care, and empowerment programs.
-Every project we take on is rooted in the idea that change doesn’t happen overnight—it happens when people come together, take responsibility, and act with purpose. We are those people. We are Responsible Individuals.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Our Vision</h2>
-            <div class="card">
-                <p>To create a world where every life we
-touch is empowered, nurtured, and
-inspired to thrive. We believe that
-true change begins with compassion
-and responsibility. Our vision is to be
-a catalyst for positive impact, thereby
-igniting waves of change.</p>
+        <section class="hero reveal" aria-label="About Responsible Individuals">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__eyebrow">Who we are</span>
+                    <h1>Small acts, bold futures</h1>
+                    <p class="hero__copy">Responsible Individuals began as a promise between friends: keep showing up for communities with empathy, creativity, and accountability.</p>
+                </div>
+                <div class="hero__media" aria-hidden="true">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2767.jpeg" alt="">
+                </div>
             </div>
         </section>
 
-         <section class="section">
-            <h2 class="section-title">Our Mission</h2>
-            <div class="card">
-                <p>Build a platform that brings together
-passionate volunteers who believe in
-giving back to the community. Through
-collaboration and shared purpose, we
-aim to inspire one another and nurture
-a culture of responsibility—
-transforming every individual into a
-Responsible Individual.</p>
+        <section class="section reveal">
+            <div class="section__eyebrow">Our why</div>
+            <h2 class="section__title">Story, vision, mission</h2>
+            <div class="grid grid--3">
+                <article class="glass-card">
+                    <p class="tag">Story</p>
+                    <p>What began as conversations and small weekend drives is now a collective designing education, health, and livelihood programs with communities.</p>
+                </article>
+                <article class="glass-card">
+                    <p class="tag">Vision</p>
+                    <p>Every person we meet feels empowered, nurtured, and inspired to thrive. Our impact is measured by dignity, not just numbers.</p>
+                </article>
+                <article class="glass-card">
+                    <p class="tag">Mission</p>
+                    <p>Build a platform for volunteers, educators, and partners to co-create interventions that make responsibility a shared culture.</p>
+                </article>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Our Values</h2>
-            <div class="grid">
-                <div class="card"><h3>Integrity</h3><p class="muted">Transparent, accountable, and community-first.</p></div>
-                <div class="card"><h3>Empathy</h3><p class="muted">Listening deeply and acting with compassion.</p></div>
-                <div class="card"><h3>Action</h3><p class="muted">Turning intent into measurable outcomes.</p></div>
+        <section class="section section--alt reveal">
+            <div class="section__eyebrow">Values</div>
+            <h2 class="section__title">What guides every interaction</h2>
+            <div class="grid grid--3">
+                <article class="program-card">
+                    <div class="program-card__icon">🤝</div>
+                    <h3>Integrity</h3>
+                    <p>Transparent decisions, open books, and courageous conversations with the communities we serve.</p>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__icon">💚</div>
+                    <h3>Empathy</h3>
+                    <p>We listen before we launch, ensuring lived experiences shape program design.</p>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__icon">🚀</div>
+                    <h3>Action</h3>
+                    <p>Ideas become pilots, pilots become playbooks. We measure and evolve quickly.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="section__eyebrow">How we work</div>
+            <h2 class="section__title">Principles in the field</h2>
+            <div class="timeline">
+                <article class="timeline__item">
+                    <span class="timeline__tag">Co-create</span>
+                    <p>Communities co-design interventions, from sports days to livelihood labs.</p>
+                </article>
+                <article class="timeline__item">
+                    <span class="timeline__tag">Design for dignity</span>
+                    <p>Every touchpoint respects time, culture, and aspiration.</p>
+                </article>
+                <article class="timeline__item">
+                    <span class="timeline__tag">Build to share</span>
+                    <p>We capture toolkits, templates, and learnings so partners can replicate.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-banner reveal" aria-label="Join us">
+            <h3>Let’s co-create the next chapter</h3>
+            <p>Whether you’re a volunteer, educator, funder, or school partner—we’d love to work with you.</p>
+            <div class="hero__actions" style="justify-content:center;margin-top:1.5rem;">
+                <a class="btn btn--primary" href="projects.html">Explore programs</a>
+                <a class="btn btn--outline" href="involved.html">Partner with us</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+        <p>theresponsibleindividuals@gmail.com · (+91) 9964004113 · (+91) 7899277968</p>
+        <p class="footer__meta">&copy; <span id="year">2025</span> Responsible Individuals. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <a class="floating-cta" href="involved.html">Get Involved</a>
 </body>
 </html>
