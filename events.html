@@ -2,78 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsible Individuals &middot; Events</title>
+    <meta name="description" content="Follow Responsible Individuals events, field visits, and community programmes.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-<body>
-    <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+<body class="site" data-page="events">
+    <header class="site-header">
+        <div class="shell site-header__bar">
+            <a class="brand" href="index.html">
+                <img class="brand__mark" src="IMG_2675.png" alt="Responsible Individuals logo">
+                <div class="brand__text">
+                    <p class="brand__title">Responsible Individuals</p>
+                    <p class="brand__tagline">Grassroots action for shared futures</p>
+                </div>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+                <span class="nav-toggle__line"></span>
+            </button>
+            <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="section">
-            <h1>Events</h1>
-            <p class="muted">Join us at our upcoming activities and programs.</p>
-        </section>
-
-
-         <section class="section">
-            <h2 class="section-title">Upcoming Events</h2>
-            <div class="card">
-                <p class="muted">Educational & Community Engagement Drive</p>
-                <p><strong>Month:</strong> September & October 2025</p>
-                <p><strong>Activity:</strong>organizing a comprehensive educational and community engagement drive across 25 Government Schools in the Bachenahatti Cluster (Magadi Taluk) and Ramasandra Cluster (Bangalore South).
-                The initiative is beyond distributing stationery and study materials—it is a celebration of learning, creativity, and awareness. 
-                <p><strong>Activities include:</strong>
-                <p><strong>Creative Competitions:</strong> Drawing, Debate, and Quiz contests to spark curiosity and confidence among students.</p>
-                <p><strong>Sports & Games Day:</strong> Encouraging teamwork, fitness, and fun.</p>
-                <p><strong>Health & Hygiene Awareness:</strong> Sessions promoting well-being and healthy habits.</p>
-                <p><strong>Environmental Initiatives:</strong> Tree plantation and sapling distribution to nurture a greener tomorrow.</p>
-                <p><strong>Digital Literacy:</strong> Awareness sessions on digital learning platforms to bridge the technology gap.</p>
-                <p><strong>Sustainability Workshops:</strong> Paper bag and paper pen making, along with discussions on the impact of single-use plastics.</p>
-                            </div>
-                        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Past Events</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Inauguration at GHPS School</h3>
-                    <p class="muted">Sports Day for government school children.</p>
-                    <p><strong>Date:</strong> 19 July 2025</p>
-                    <p><strong>Location:</strong> GHPS School</p>
+    <main class="page page--events">
+        <section class="section hero reveal">
+            <div class="shell">
+                <div class="hero__card">
+                    <div>
+                        <p class="section__eyebrow">Events &amp; activations</p>
+                        <h1 class="hero__heading">Every gathering has a purpose.</h1>
+                        <p class="hero__intro">From school-based sports days to health camps and creative showcases, our events keep responsibility joyful and collaborative.</p>
+                    </div>
+                    <div class="hero__media">
+                        <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2754.jpeg" alt="Students at a Responsible Individuals event">
+                        <div class="hero__meta">Planned &amp; run by volunteers and teachers</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-       
+        <section class="section section--tint reveal" aria-label="Upcoming events">
+            <div class="shell">
+                <p class="section__eyebrow">Next up</p>
+                <div class="event-card">
+                    <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2766.jpeg" alt="Students participating in creative sessions">
+                    <div class="event-body">
+                        <h2 class="section__title" style="margin-bottom:0.6rem;">Educational &amp; Community Engagement Drive</h2>
+                        <p class="story-card__meta">September &ndash; October 2025 &middot; Bachenahatti &amp; Ramasandra clusters</p>
+                        <p>We are co-creating a 6-week journey across 25 government schools featuring creative competitions, sports leagues, health and hygiene workshops, and sustainability bootcamps. Volunteers will facilitate digital literacy sessions, tree plantations, and paper pen making labs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal" aria-label="Past highlights">
+            <div class="shell">
+                <p class="section__eyebrow">Highlights</p>
+                <div class="story-grid">
+                    <article class="story-card">
+                        <p class="story-card__meta">19 July 2025 &middot; GHPS School</p>
+                        <h3>Launch &amp; Sports Day Festival</h3>
+                        <p>A celebration that blended inauguration rituals with inclusive sports, debate clubs, and parent pledges.</p>
+                    </article>
+                    <article class="story-card">
+                        <p class="story-card__meta">August 2025 &middot; Bengaluru</p>
+                        <h3>Community blood drive</h3>
+                        <p>Volunteers partnered with health workers to bridge urgent shortages while spreading awareness.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="site-footer__grid">
+                <div>
+                    <p><strong>Responsible Individuals</strong></p>
+                    <p>A volunteer-powered NGO strengthening education, health, and livelihood opportunities in Karnataka.</p>
+                </div>
+                <div>
+                    <p><strong>Reach us</strong></p>
+                    <ul class="info-list">
+                        <li>
+                            <strong>Email</strong>
+                            <a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            <a href="tel:+919964004113">(+91) 99640 04113</a> &middot; <a href="tel:+917899277968">(+91) 78992 77968</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Social</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/responsible-individuals/" aria-label="LinkedIn">
+                            <img src="linkedin.png" alt="LinkedIn icon">
+                        </a>
+                        <a href="https://www.facebook.com/share/18ih4dG8YX/" aria-label="Facebook">
+                            <img src="facebook.png" alt="Facebook icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

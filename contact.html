@@ -2,79 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsible Individuals &middot; Contact</title>
+    <meta name="description" content="Reach the Responsible Individuals team for collaborations, volunteering, or questions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-<body>
-    <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+<body class="site" data-page="contact">
+    <header class="site-header">
+        <div class="shell site-header__bar">
+            <a class="brand" href="index.html">
+                <img class="brand__mark" src="IMG_2675.png" alt="Responsible Individuals logo">
+                <div class="brand__text">
+                    <p class="brand__title">Responsible Individuals</p>
+                    <p class="brand__tagline">Grassroots action for shared futures</p>
+                </div>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+                <span class="nav-toggle__line"></span>
+            </button>
+            <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="section">
-            <h1>Contact Us</h1>
-            <p class="muted">We'd love to hear from you.</p>
-        </section>
-
-        <section class="section">
-            <div class="grid">
-                <div class="card">
-                    <h3>Email</h3>
-                    <p><a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a></p>
-                </div>
-                <div class="card">
-                    <h3>Social</h3>
-                    <p><a href="https://www.linkedin.com/company/responsible-individuals/" > 
-                        <img border="0" alt="LinkedIn" src="linkedin.png" width="50" height="50"></a></p>
-                    <p><a href="https://www.facebook.com/share/18ih4dG8YX/" > 
-                        <img border="0" alt="Facebook" src="facebook.png" width="50" height="50"></a></p>
+    <main class="page page--contact">
+        <section class="section hero reveal">
+            <div class="shell">
+                <div class="hero__card">
+                    <div>
+                        <p class="section__eyebrow">Let's talk</p>
+                        <h1 class="hero__heading">We respond to every note and idea.</h1>
+                        <p class="hero__intro">Whether you're planning a CSR collaboration, volunteering with your team, or simply curious about our work, send us a message. We reply within two working days.</p>
+                    </div>
+                    <div class="hero__media">
+                        <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Office/IMG_2753.jpeg" alt="Team collaborating">
+                        <div class="hero__meta">Email, phone, or direct message &mdash; we're listening.</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Send a Message</h2>
-            <div class="card">
-                <form action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
-                    <label for="c-name">Full Name</label>
-                    <input id="c-name" name="name" type="text" required>
-                    <label for="c-email">Email</label>
-                    <input id="c-email" name="email" type="email" required>
-                    <label for="c-subject">Subject</label>
-                    <input id="c-subject" name="subject" type="text">
-                    <label for="c-message">Message</label>
-                    <textarea id="c-message" name="message" required></textarea>
-                    <button class="btn primary" type="submit">Send</button>
-                </form>
+        <section class="section section--tint reveal" aria-label="Contact options">
+            <div class="shell">
+                <div class="card-grid card-grid--three">
+                    <article class="content-card">
+                        <h3>Email</h3>
+                        <p><a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a></p>
+                    </article>
+                    <article class="content-card">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+919964004113">(+91) 99640 04113</a><br><a href="tel:+917899277968">(+91) 78992 77968</a></p>
+                    </article>
+                    <article class="content-card">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/company/responsible-individuals/" aria-label="LinkedIn">
+                                <img src="linkedin.png" alt="LinkedIn icon">
+                            </a>
+                            <a href="https://www.facebook.com/share/18ih4dG8YX/" aria-label="Facebook">
+                                <img src="facebook.png" alt="Facebook icon">
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal" aria-label="Contact form">
+            <div class="shell">
+                <p class="section__eyebrow">Message us</p>
+                <h2 class="section__title">Share an idea, request, or opportunity.</h2>
+                <div class="content-card">
+                    <form class="form-grid" action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
+                        <div>
+                            <label for="c-name">Full name</label>
+                            <input id="c-name" name="name" type="text" required>
+                        </div>
+                        <div>
+                            <label for="c-email">Email</label>
+                            <input id="c-email" name="email" type="email" required>
+                        </div>
+                        <div>
+                            <label for="c-phone">Phone</label>
+                            <input id="c-phone" name="phone" type="tel" placeholder="Optional">
+                        </div>
+                        <div>
+                            <label for="c-subject">Subject</label>
+                            <input id="c-subject" name="subject" type="text" placeholder="Sponsorship, volunteering, school support">
+                        </div>
+                        <div>
+                            <label for="c-message">Message</label>
+                            <textarea id="c-message" name="message" required></textarea>
+                        </div>
+                        <button class="btn" type="submit">Send my message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="site-footer__grid">
+                <div>
+                    <p><strong>Responsible Individuals</strong></p>
+                    <p>A volunteer-powered NGO strengthening education, health, and livelihood opportunities in Karnataka.</p>
+                </div>
+                <div>
+                    <p><strong>Reach us</strong></p>
+                    <ul class="info-list">
+                        <li>
+                            <strong>Email</strong>
+                            <a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            <a href="tel:+919964004113">(+91) 99640 04113</a> &middot; <a href="tel:+917899277968">(+91) 78992 77968</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Social</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/responsible-individuals/" aria-label="LinkedIn">
+                            <img src="linkedin.png" alt="LinkedIn icon">
+                        </a>
+                        <a href="https://www.facebook.com/share/18ih4dG8YX/" aria-label="Facebook">
+                            <img src="facebook.png" alt="Facebook icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

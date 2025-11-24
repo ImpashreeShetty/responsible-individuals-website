@@ -2,81 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsible Individuals &middot; Projects</title>
+    <meta name="description" content="Discover the flagship programmes run by Responsible Individuals.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-<body>
-    <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+<body class="site" data-page="projects">
+    <header class="site-header">
+        <div class="shell site-header__bar">
+            <a class="brand" href="index.html">
+                <img class="brand__mark" src="IMG_2675.png" alt="Responsible Individuals logo">
+                <div class="brand__text">
+                    <p class="brand__title">Responsible Individuals</p>
+                    <p class="brand__tagline">Grassroots action for shared futures</p>
+                </div>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+                <span class="nav-toggle__line"></span>
+            </button>
+            <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="section">
-            <h1>Our Projects</h1>
-            <p class="muted">We focus on high-impact, community-driven initiatives.</p>
+    <main class="page page--projects">
+        <section class="section hero reveal">
+            <div class="shell">
+                <div class="hero__card">
+                    <div>
+                        <p class="section__eyebrow">Programmes</p>
+                        <h1 class="hero__heading">Projects shaped by responsibility.</h1>
+                        <p class="hero__intro">We build lean pilots, document outcomes, and replicate what works. Explore our flagship initiatives.</p>
+                    </div>
+                    <div class="hero__media">
+                        <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2756.jpeg" alt="Student learning with the RI team">
+                        <div class="hero__meta">Each project is volunteer-powered.</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-   <div class="program-box">
-  <img src="Photos/Rise_Logo.png" alt="RISE Logo" class="program-logo">
-
-  <div class="program-content">
-    <h2 class="program-title">Responsible Individuals in STEM Education</h2>
-    <p class="program-text">
-      Our new initiative, <strong>RISE</strong>, empowers students through hands-on STEM learning,
-      ethical tech use, and mentorship—helping them innovate responsibly.
-    </p>
-  </div>
-     <!-- Bottom-right action area -->
-  <div class="program-actions">
-    <a href="rise.html">Explore More</a>
-    
-  </div>
-</div>
-
-
-        <section class="section">
-            <div class="grid">
-                <div class="card">
-                    <h3>Education Kits</h3>
-                    <p class="muted">From notebooks to mentorship—everything a child needs to learn confidently.</p>
+        <section id="rise" class="section section--tint reveal" aria-label="RISE">
+            <div class="shell">
+                <div class="content-card" style="display:flex; flex-direction:column; gap:1rem;">
+                    <div>
+                        <p class="section__eyebrow">Flagship</p>
+                        <h2 class="section__title" style="margin-bottom:0.4rem;">RISE &middot; Responsible Individuals in STEM Education</h2>
+                        <p class="section__intro">Hands-on STEM labs, ethical tech conversations, and mentorship bridging rural classrooms with future-ready skills.</p>
+                    </div>
+                    <div class="card-grid card-grid--three">
+                        <article class="content-card">
+                            <h3>Hands-on science</h3>
+                            <p>Simple experiments and maker kits encourage curiosity beyond textbooks.</p>
+                        </article>
+                        <article class="content-card">
+                            <h3>Ethical tech</h3>
+                            <p>Dialogues on digital citizenship, AI basics, and using technology responsibly.</p>
+                        </article>
+                        <article class="content-card">
+                            <h3>Mentorship</h3>
+                            <p>Industry mentors support students with career storytelling and project reviews.</p>
+                        </article>
+                    </div>
+                    <div>
+                        <a class="btn" href="mailto:theresponsibleindividuals@gmail.com?subject=RISE%20collaboration">Support RISE</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Health Camps</h3>
-                    <p class="muted">Empowering communities with Periodic health camps, preventive care, and community blood donation initiatives.</p>
-                </div>
-                <div class="card">
-                    <h3>Skills Training</h3>
-                    <p class="muted">Vocational and soft-skills training for youth and Women.</p>
+            </div>
+        </section>
+
+        <section class="section reveal" aria-label="Other programmes">
+            <div class="shell">
+                <div class="card-grid card-grid--three">
+                    <article class="content-card">
+                        <h3>Education Kits</h3>
+                        <p>From notebooks to mentorship&mdash;everything a child needs to learn confidently.</p>
+                    </article>
+                    <article class="content-card">
+                        <h3>Health Camps</h3>
+                        <p>Periodic health camps, preventive care, and community blood donation initiatives.</p>
+                    </article>
+                    <article class="content-card">
+                        <h3>Skills Training</h3>
+                        <p>Vocational and soft-skills training for youth and women.</p>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="site-footer__grid">
+                <div>
+                    <p><strong>Responsible Individuals</strong></p>
+                    <p>A volunteer-powered NGO strengthening education, health, and livelihood opportunities in Karnataka.</p>
+                </div>
+                <div>
+                    <p><strong>Reach us</strong></p>
+                    <ul class="info-list">
+                        <li>
+                            <strong>Email</strong>
+                            <a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            <a href="tel:+919964004113">(+91) 99640 04113</a> &middot; <a href="tel:+917899277968">(+91) 78992 77968</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Social</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/responsible-individuals/" aria-label="LinkedIn">
+                            <img src="linkedin.png" alt="LinkedIn icon">
+                        </a>
+                        <a href="https://www.facebook.com/share/18ih4dG8YX/" aria-label="Facebook">
+                            <img src="facebook.png" alt="Facebook icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

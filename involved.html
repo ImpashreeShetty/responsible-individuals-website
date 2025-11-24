@@ -2,81 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - Get Involved</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsible Individuals &middot; Get Involved</title>
+    <meta name="description" content="Volunteer, donate, or partner with Responsible Individuals.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-<body>
-    <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+<body class="site" data-page="involved">
+    <header class="site-header">
+        <div class="shell site-header__bar">
+            <a class="brand" href="index.html">
+                <img class="brand__mark" src="IMG_2675.png" alt="Responsible Individuals logo">
+                <div class="brand__text">
+                    <p class="brand__title">Responsible Individuals</p>
+                    <p class="brand__tagline">Grassroots action for shared futures</p>
+                </div>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+                <span class="nav-toggle__line"></span>
+            </button>
+            <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="section">
-            <h1>Get Involved</h1>
-            <p class="muted">Join us as a volunteer, donor, or partner to make a difference.</p>
-        </section>
-
-        <section class="section" id="volunteer">
-            <h2 class="section-title">Volunteer</h2>
-            <div class="card">
-                <p>Share your time and skills. We welcome mentors, event helpers, designers, and more.</p>
-                <p><a class="btn" href="mailto:theresponsibleindividuals@gmail.com?subject=Volunteer%20Signup">Email us to volunteer</a></p>
-                <form action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
-                    <label for="name">Full Name</label>
-                    <input id="name" name="name" type="text" required>
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" required>
-                    <label for="phone">Phone</label>
-                    <input id="phone" name="phone" type="tel">
-                    <label for="interest">How would you like to help?</label>
-                    <textarea id="interest" name="interest" placeholder="Tutoring, events, design, fundraising..."></textarea>
-                    <button class="btn primary" type="submit">Submit</button>
-                </form>
+    <main class="page page--involved">
+        <section class="section hero reveal">
+            <div class="shell">
+                <div class="hero__card">
+                    <div>
+                        <p class="section__eyebrow">Ways to help</p>
+                        <h1 class="hero__heading">Every hour, rupee, and idea counts.</h1>
+                        <p class="hero__intro">Pick the path that fits you&mdash;mentor a student, underwrite a programme, or bring your organisation on board.</p>
+                    </div>
+                    <div class="hero__media">
+                        <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2767.jpeg" alt="Volunteers planting trees">
+                        <div class="hero__meta">Volunteer-powered &amp; donor-backed</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="donate">
-            <h2 class="section-title">Donate</h2>
-            <div class="card">
-                <p>Your contribution funds education kits, health camps, and skill-building programs.</p>
-                <p class="muted">Bank/UPI details coming soon. Email us for sponsorship or in-kind support.</p>
+        <section class="section section--tint reveal" aria-label="Get involved options">
+            <div class="shell">
+                <div class="card-grid card-grid--three">
+                    <article class="content-card" id="volunteer">
+                        <div class="content-card__icon" aria-hidden="true">🤲</div>
+                        <h3>Volunteer</h3>
+                        <p>Mentor learners, support events, design curriculum, or document impact stories.</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Volunteer%20with%20RI">Email to volunteer</a>
+                    </article>
+                    <article class="content-card" id="donate">
+                        <div class="content-card__icon" aria-hidden="true">🎁</div>
+                        <h3>Donate</h3>
+                        <p>Your contribution funds education kits, health camps, and livelihood pilots.</p>
+                        <p class="story-card__meta">Bank &amp; UPI details coming soon&mdash;write to us for interim support.</p>
+                    </article>
+                    <article class="content-card" id="partner">
+                        <div class="content-card__icon" aria-hidden="true">🏢</div>
+                        <h3>Partner</h3>
+                        <p>Schools, NGOs, and companies can collaborate on CSR projects and community programmes.</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=CSR%20collaboration">Start a CSR conversation</a>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="partner">
-            <h2 class="section-title">Partner</h2>
-            <div class="card">
-                <p>Schools, NGOs, and companies can collaborate with us on CSR and community programs.</p>
-                <p><a class="btn" href="mailto:theresponsibleindividuals@gmail.com?subject=Partnership%20Inquiry">Propose a partnership</a></p>
+        <section class="section reveal" aria-label="Volunteer form">
+            <div class="shell">
+                <div class="content-card">
+                    <p class="section__eyebrow">Tell us about you</p>
+                    <h2 class="section__title" style="margin-bottom:0.6rem;">Volunteer interest form</h2>
+                    <form class="form-grid" action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
+                        <div>
+                            <label for="name">Full name</label>
+                            <input id="name" name="name" type="text" required>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" type="tel">
+                        </div>
+                        <div>
+                            <label for="interest">How would you like to help?</label>
+                            <textarea id="interest" name="interest" placeholder="Tutoring, events, design, fundraising..."></textarea>
+                        </div>
+                        <button class="btn" type="submit">Submit details</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="site-footer__grid">
+                <div>
+                    <p><strong>Responsible Individuals</strong></p>
+                    <p>A volunteer-powered NGO strengthening education, health, and livelihood opportunities in Karnataka.</p>
+                </div>
+                <div>
+                    <p><strong>Reach us</strong></p>
+                    <ul class="info-list">
+                        <li>
+                            <strong>Email</strong>
+                            <a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            <a href="tel:+919964004113">(+91) 99640 04113</a> &middot; <a href="tel:+917899277968">(+91) 78992 77968</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Social</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/responsible-individuals/" aria-label="LinkedIn">
+                            <img src="linkedin.png" alt="LinkedIn icon">
+                        </a>
+                        <a href="https://www.facebook.com/share/18ih4dG8YX/" aria-label="Facebook">
+                            <img src="facebook.png" alt="Facebook icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

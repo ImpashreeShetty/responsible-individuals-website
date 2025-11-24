@@ -2,84 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsible Individuals - About</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsible Individuals &middot; About Us</title>
+    <meta name="description" content="Meet the volunteers, values, and origin story of Responsible Individuals.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-<body>
-    <header>
-        <img src="IMG_2675.png" alt="Responsible Individuals Logo" class="logo">
-        
-        <div class="brand">
-            <h1>Responsible Individuals</h1>
-            <p class="muted">Touching Lives!</p>
+<body class="site" data-page="about">
+    <header class="site-header">
+        <div class="shell site-header__bar">
+            <a class="brand" href="index.html">
+                <img class="brand__mark" src="IMG_2675.png" alt="Responsible Individuals logo">
+                <div class="brand__text">
+                    <p class="brand__title">Responsible Individuals</p>
+                    <p class="brand__tagline">Grassroots action for shared futures</p>
+                </div>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+                <span class="nav-toggle__line"></span>
+            </button>
+            <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="projects.html">Projects</a>
+                <a href="involved.html">Get Involved</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-            <span class="hamburger"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="involved.html">Get Involved</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="section">
-            <h1>Our Story</h1>
-            <p class="muted">Responsible Individuals began with a simple belief: that small, consistent actions can create big change. A group of like-minded people came together, united by a shared vision of a better world—one where education opens doors, health empowers lives, the environment thrives, and communities rise together.
-What started as conversations and small initiatives soon grew into a movement. Today, we are a community-driven NGO dedicated to making a lasting impact through education, health, environmental care, and empowerment programs.
-Every project we take on is rooted in the idea that change doesn’t happen overnight—it happens when people come together, take responsibility, and act with purpose. We are those people. We are Responsible Individuals.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Our Vision</h2>
-            <div class="card">
-                <p>To create a world where every life we
-touch is empowered, nurtured, and
-inspired to thrive. We believe that
-true change begins with compassion
-and responsibility. Our vision is to be
-a catalyst for positive impact, thereby
-igniting waves of change.</p>
+    <main class="page page--about">
+        <section class="section hero reveal">
+            <div class="shell">
+                <div class="hero__card">
+                    <div>
+                        <p class="section__eyebrow">Our story</p>
+                        <h1 class="hero__heading">Small, consistent acts &ndash; amplified together.</h1>
+                        <p class="hero__intro">Responsible Individuals began as a WhatsApp group of friends who believed empathy must turn into measurable action. Those living-room conversations have grown into programs that blend design thinking, grassroots leadership, and the energy of everyday citizens.</p>
+                    </div>
+                    <div class="hero__media">
+                        <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2758.jpeg" alt="Volunteers interacting with students">
+                        <div class="hero__meta">Registered in Bengaluru &middot; Serving Karnataka clusters</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-         <section class="section">
-            <h2 class="section-title">Our Mission</h2>
-            <div class="card">
-                <p>Build a platform that brings together
-passionate volunteers who believe in
-giving back to the community. Through
-collaboration and shared purpose, we
-aim to inspire one another and nurture
-a culture of responsibility—
-transforming every individual into a
-Responsible Individual.</p>
+        <section class="section section--tint reveal" aria-label="Mission and vision">
+            <div class="shell">
+                <div class="card-grid card-grid--three">
+                    <article class="content-card">
+                        <div class="content-card__icon" aria-hidden="true">🎯</div>
+                        <h3>Vision</h3>
+                        <p>To see every life we touch empowered, nurtured, and inspired to thrive&mdash;with compassion as our catalyst for change.</p>
+                    </article>
+                    <article class="content-card">
+                        <div class="content-card__icon" aria-hidden="true">🤝</div>
+                        <h3>Mission</h3>
+                        <p>We bring together responsible citizens, professionals, and institutions to co-create education, health, and livelihood solutions.</p>
+                    </article>
+                    <article class="content-card">
+                        <div class="content-card__icon" aria-hidden="true">📈</div>
+                        <h3>Approach</h3>
+                        <p>Listen deeply, prototype quickly, measure transparently, and ensure communities lead the journeys we begin.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Our Values</h2>
-            <div class="grid">
-                <div class="card"><h3>Integrity</h3><p class="muted">Transparent, accountable, and community-first.</p></div>
-                <div class="card"><h3>Empathy</h3><p class="muted">Listening deeply and acting with compassion.</p></div>
-                <div class="card"><h3>Action</h3><p class="muted">Turning intent into measurable outcomes.</p></div>
+        <section class="section reveal" aria-label="Values">
+            <div class="shell">
+                <p class="section__eyebrow">Values we live by</p>
+                <div class="card-grid card-grid--three">
+                    <article class="content-card">
+                        <h3>Integrity</h3>
+                        <p>Transparency with donors, schools, and beneficiaries. Every rupee and every hour is accounted for.</p>
+                    </article>
+                    <article class="content-card">
+                        <h3>Empathy</h3>
+                        <p>We listen first, design second. Lived experiences guide our programming choices.</p>
+                    </article>
+                    <article class="content-card">
+                        <h3>Action</h3>
+                        <p>Intent means little without delivery. We bias towards rapid pilots, feedback, and scale.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt reveal" aria-label="Milestones">
+            <div class="shell">
+                <p class="section__eyebrow">Milestones</p>
+                <h2 class="section__title">From living-room idea to multi-cluster action.</h2>
+                <div class="story-grid">
+                    <article class="story-card">
+                        <p class="story-card__meta">2024</p>
+                        <h3>The spark</h3>
+                        <p>Friends volunteering across Bengaluru pooled their experiences into a common charter&mdash;and Responsible Individuals was born.</p>
+                    </article>
+                    <article class="story-card">
+                        <p class="story-card__meta">July 2025</p>
+                        <h3>Public launch</h3>
+                        <p>A grand launch at GHPS School brought together educators, parents, and industry leaders to kick-start our first programmes.</p>
+                    </article>
+                    <article class="story-card">
+                        <p class="story-card__meta">Today</p>
+                        <h3>Growing circles</h3>
+                        <p>We now operate across school clusters, rural visits, and online mentorship efforts&mdash;remaining volunteer-led and community-run.</p>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Responsible Individuals</p>
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="site-footer__grid">
+                <div>
+                    <p><strong>Responsible Individuals</strong></p>
+                    <p>A volunteer-powered NGO strengthening education, health, and livelihood opportunities in Karnataka.</p>
+                </div>
+                <div>
+                    <p><strong>Reach us</strong></p>
+                    <ul class="info-list">
+                        <li>
+                            <strong>Email</strong>
+                            <a href="mailto:theresponsibleindividuals@gmail.com">theresponsibleindividuals@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            <a href="tel:+919964004113">(+91) 99640 04113</a> &middot; <a href="tel:+917899277968">(+91) 78992 77968</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Social</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/responsible-individuals/" aria-label="LinkedIn">
+                            <img src="linkedin.png" alt="LinkedIn icon">
+                        </a>
+                        <a href="https://www.facebook.com/share/18ih4dG8YX/" aria-label="Facebook">
+                            <img src="facebook.png" alt="Facebook icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
