@@ -67,7 +67,7 @@ a:focus-visible { text-decoration: underline; }
     margin-inline: auto;
 }
 
-.page { flex: 1 0 auto; padding-top: 3rem; }
+.page { flex: 1 0 auto; padding-top: 1.5rem; }
 
 .section {
     padding: clamp(3rem, 6vw, 4.75rem) 0;
@@ -590,7 +590,7 @@ dialog#ri-lightbox::backdrop { background: rgba(0,0,0,0.75); }
 @media (max-width: 640px) {
     .site-header__bar { flex-wrap: wrap; }
     .brand__mark { width: 52px; height: 52px; }
-    .page { padding-top: 4.25rem; }
+    .page { padding-top: 3.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
