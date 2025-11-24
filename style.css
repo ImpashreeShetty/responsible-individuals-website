@@ -41,7 +41,7 @@ body {
     font-family: 'Lato', Arial, sans-serif;
     color: var(--text);
     line-height: 1.65;
-    background: radial-gradient(circle at top, #f2fbff 0%, #f6fbf8 45%, #fdfefe 100%);
+    background: linear-gradient(135deg, #eef8ff 0%, #f6fff9 55%, #ffffff 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -67,18 +67,18 @@ a:focus-visible { text-decoration: underline; }
     margin-inline: auto;
 }
 
-.page { flex: 1 0 auto; padding-top: 1.5rem; }
+.page { flex: 1 0 auto; padding-top: 1rem; }
 
 .section {
     padding: clamp(3rem, 6vw, 4.75rem) 0;
 }
 
 .page .section:first-of-type {
-    padding-top: 1.25rem;
+    padding-top: 0.5rem;
 }
 
-.section--tint { background: var(--surface-tint); }
-.section--alt { background: var(--surface-alt); }
+.section--tint { background: linear-gradient(180deg, rgba(230, 242, 246, 0.92), #fff); }
+.section--alt { background: linear-gradient(180deg, rgba(223, 245, 237, 0.88), #fff); }
 
 .section__eyebrow {
     text-transform: uppercase;
@@ -253,7 +253,7 @@ a:focus-visible { text-decoration: underline; }
 }
 
 .hero__card {
-    background: linear-gradient(135deg, #e7f5ff 0%, #eafcf5 55%, #ffffff 100%);
+    background: linear-gradient(130deg, rgba(47, 111, 237, 0.15), rgba(30, 138, 109, 0.18));
     border-radius: var(--radius-lg);
     padding: clamp(2.5rem, 6vw, 4rem);
     display: grid;
@@ -321,7 +321,7 @@ a:focus-visible { text-decoration: underline; }
 }
 
 .stat-card {
-    background: var(--surface);
+    background: linear-gradient(160deg, rgba(255,255,255,0.96), rgba(226,243,237,0.9));
     border-radius: var(--radius-md);
     padding: 1.5rem;
     border: 1px solid var(--border);
@@ -347,7 +347,7 @@ a:focus-visible { text-decoration: underline; }
 .card-grid--three { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
 .content-card {
-    background: var(--surface);
+    background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(236,245,242,0.92));
     border-radius: var(--radius-md);
     padding: 1.5rem;
     border: 1px solid var(--border);
@@ -594,7 +594,7 @@ dialog#ri-lightbox::backdrop { background: rgba(0,0,0,0.75); }
 @media (max-width: 640px) {
     .site-header__bar { flex-wrap: wrap; }
     .brand__mark { width: 52px; height: 52px; }
-    .page { padding-top: 3.25rem; }
+    .page { padding-top: 2.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
