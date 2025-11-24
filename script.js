@@ -17,6 +17,10 @@ const ResponsibleIndividuals = (() => {
         }
     };
 
+    const DATA_ENDPOINTS = {
+        projects: 'projects-data.json'
+    };
+
     const state = {
         header: null,
         navToggle: null,
@@ -134,6 +138,47 @@ const ResponsibleIndividuals = (() => {
         }
     }
 
+    async function hydrateProjectsContent() {
+        const statsContainer = document.querySelector('[data-project-stats]');
+        const portfolioContainer = document.querySelector('[data-project-portfolio]');
+        if (!statsContainer && !portfolioContainer) return;
+
+        try {
+            const response = await fetch(DATA_ENDPOINTS.projects, { cache: 'no-cache' });
+            if (!response.ok) {
+                throw new Error(`Projects JSON ${response.status}`);
+            }
+            const payload = await response.json();
+
+            if (statsContainer && Array.isArray(payload.stats)) {
+                statsContainer.innerHTML = payload.stats.map((stat) => `
+                    <article class="stat-card">
+                        <span class="stat-card__value">${stat.value}</span>
+                        <span class="stat-card__label">${stat.label}</span>
+                    </article>
+                `).join('');
+            }
+
+            if (portfolioContainer && Array.isArray(payload.portfolio)) {
+                portfolioContainer.innerHTML = payload.portfolio.map((program) => `
+                    <article class="content-card">
+                        <h3>${program.title}</h3>
+                        <p>${program.description}</p>
+                        ${program.meta ? `<p class="story-card__meta">${program.meta}</p>` : ''}
+                    </article>
+                `).join('');
+            }
+        } catch (error) {
+            console.warn('Unable to hydrate project content:', error);
+            if (statsContainer && !statsContainer.innerHTML.trim()) {
+                statsContainer.innerHTML = '<p class="muted">Project metrics are temporarily unavailable.</p>';
+            }
+            if (portfolioContainer && !portfolioContainer.innerHTML.trim()) {
+                portfolioContainer.innerHTML = '<p class="muted">Project portfolio will load shortly.</p>';
+            }
+        }
+    }
+
     function toggleGallerySection(id) {
         const section = document.getElementById(id);
         if (section) {
@@ -244,6 +289,7 @@ const ResponsibleIndividuals = (() => {
         highlightActiveNav();
         initNavigation();
         hydrateGalleries();
+        hydrateProjectsContent();
         initLightbox();
         initRevealObserver();
         enhanceForms();

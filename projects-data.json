@@ -1,0 +1,37 @@
+{
+  "stats": [
+    {
+      "value": "92%",
+      "label": "Funds deployed within 45 days of receipt"
+    },
+    {
+      "value": "25",
+      "label": "Schools co-designing STEM + WASH pilots"
+    },
+    {
+      "value": "400+",
+      "label": "Learners tracked with baseline and outcome tools"
+    },
+    {
+      "value": "12",
+      "label": "CSR partners contributing in-kind and grants"
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "Education Kits",
+      "description": "From notebooks to mentorship - everything a child needs to learn confidently.",
+      "meta": "Sponsor per cohort - INR 40,000"
+    },
+    {
+      "title": "Community Health Camps",
+      "description": "Periodic screenings, preventive care, and blood donation drives anchored by local doctors.",
+      "meta": "Sponsor per camp - INR 55,000"
+    },
+    {
+      "title": "Skills & Livelihood Labs",
+      "description": "Vocational and soft-skills training for youth and women transitioning into dignified work.",
+      "meta": "Sponsor per lab - INR 65,000"
+    }
+  ]
+}
