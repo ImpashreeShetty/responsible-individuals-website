@@ -70,7 +70,7 @@ a:focus-visible { text-decoration: underline; }
 .page { flex: 1 0 auto; padding-top: 1rem; }
 
 .section {
-    padding: clamp(3rem, 6vw, 4.75rem) 0;
+    padding: clamp(2.2rem, 5vw, 3.5rem) 0;
 }
 
 .page .section:first-of-type {
@@ -91,8 +91,8 @@ a:focus-visible { text-decoration: underline; }
 
 .section__title {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin: 0 0 0.75rem;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    margin: 0 0 0.65rem;
     color: var(--ink);
 }
 
@@ -264,8 +264,8 @@ a:focus-visible { text-decoration: underline; }
 
 .hero__heading {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
-    margin: 0 0 1rem;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    margin: 0 0 0.85rem;
     color: var(--ink);
 }
 
