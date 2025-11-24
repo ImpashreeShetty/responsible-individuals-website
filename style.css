@@ -73,6 +73,10 @@ a:focus-visible { text-decoration: underline; }
     padding: clamp(3rem, 6vw, 4.75rem) 0;
 }
 
+.page .section:first-of-type {
+    padding-top: 1.25rem;
+}
+
 .section--tint { background: var(--surface-tint); }
 .section--alt { background: var(--surface-alt); }
 
