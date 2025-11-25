@@ -29,13 +29,27 @@
                 <a href="about.html">About</a>
                 <a href="events.html">Events</a>
                 <a href="projects.html">Projects</a>
-                <a href="involved.html">Get Involved</a>
+                <a href="involved.html" class="active">Get Involved</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
+                <a class="nav-donate btn btn--primary" href="donate.html">Donate</a>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-tools" role="group" aria-label="Display controls">
+                <label class="language-switch">
+                    <span class="visually-hidden">Choose language</span>
+                    <select id="language-select">
+                        <option value="en">EN</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </label>
+                <div class="accessibility-buttons" role="group" aria-label="Adjust text size">
+                    <button class="font-btn" type="button" data-font="decrease">A-</button>
+                    <button class="font-btn" type="button" data-font="increase">A+</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -108,6 +122,29 @@
                 </div>
             </div>
         </section>
+
+        <section class="section reveal" aria-label="Volunteer opportunities">
+            <div class="shell">
+                <p class="section__eyebrow">Micro-volunteering board</p>
+                <div class="card-grid card-grid--three">
+                    <article class="content-card">
+                        <h3>WASH storytellers</h3>
+                        <p>Capture photos/videos after each school visit and upload them to our transparency hub.</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Volunteer%20-%20WASH%20storyteller">I can help</a>
+                    </article>
+                    <article class="content-card">
+                        <h3>Dashboard helpers</h3>
+                        <p>Support monthly data entry for education and health dashboards (2 hrs/month).</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Volunteer%20-%20Dashboard">Join data team</a>
+                    </article>
+                    <article class="content-card">
+                        <h3>Event captains</h3>
+                        <p>Lead logistics for sports days, health camps, or fundraising mixers.</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Volunteer%20-%20Event%20captain">Sign up</a>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -143,6 +180,7 @@
                 </div>
             </div>
             <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+            <p id="language-toast" class="language-toast visually-hidden" aria-live="polite"></p>
         </div>
     </footer>
 </body>

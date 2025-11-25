@@ -32,10 +32,24 @@
                 <a href="involved.html">Get Involved</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
+                <a class="nav-donate btn btn--primary" href="donate.html">Donate</a>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-tools" role="group" aria-label="Display controls">
+                <label class="language-switch">
+                    <span class="visually-hidden">Choose language</span>
+                    <select id="language-select">
+                        <option value="en">EN</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </label>
+                <div class="accessibility-buttons" role="group" aria-label="Adjust text size">
+                    <button class="font-btn" type="button" data-font="decrease">A-</button>
+                    <button class="font-btn" type="button" data-font="increase">A+</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -209,6 +223,7 @@
                 </div>
             </div>
             <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+            <p id="language-toast" class="language-toast visually-hidden" aria-live="polite"></p>
         </div>
     </footer>
 </body>

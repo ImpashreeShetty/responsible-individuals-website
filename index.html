@@ -26,17 +26,31 @@
                 <span class="nav-toggle__line"></span>
             </button>
             <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="about.html">About</a>
                 <a href="events.html">Events</a>
                 <a href="projects.html">Projects</a>
                 <a href="involved.html">Get Involved</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
+                <a class="nav-donate btn btn--primary" href="donate.html">Donate</a>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-tools" role="group" aria-label="Display controls">
+                <label class="language-switch">
+                    <span class="visually-hidden">Choose language</span>
+                    <select id="language-select">
+                        <option value="en">EN</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </label>
+                <div class="accessibility-buttons" role="group" aria-label="Adjust text size">
+                    <button class="font-btn" type="button" data-font="decrease">A-</button>
+                    <button class="font-btn" type="button" data-font="increase">A+</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -44,23 +58,47 @@
         <section class="section hero reveal" aria-label="Hero">
             <div class="shell">
                 <div class="hero__card">
-                <div>
-                    <p class="section__eyebrow">Community-first NGO</p>
-                    <h1 class="hero__heading">Empowering communities, nurturing responsible individuals.</h1>
-                    <p class="hero__intro">We convene volunteers, schools, health workers, and partners to co-create solutions around education, wellbeing, and dignified livelihoods.</p>
+                    <div>
+                        <p class="section__eyebrow">Community-first NGO</p>
+                        <h1 class="hero__heading">Empowering communities, nurturing responsible individuals.</h1>
+                        <p class="hero__intro">We convene volunteers, schools, health workers, and partners to co-create solutions around education, wellbeing, and dignified livelihoods.</p>
                         <ul class="hero__pills">
                             <li class="pill">80G eligible</li>
                             <li class="pill pill--light">Volunteer-led</li>
                             <li class="pill">Care + Action</li>
                         </ul>
                         <div class="hero__actions">
-                        <a class="btn" href="contact.html">Start a partnership</a>
-                        <a class="btn btn--ghost btn-inline" href="#programs">Explore programs</a>
+                            <a class="btn" href="contact.html">Start a partnership</a>
+                            <a class="btn btn--ghost btn-inline" href="#programs">Explore programs</a>
                         </div>
                     </div>
-                    <div class="hero__media">
+                    <div class="hero__media" aria-hidden="true">
                         <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2760.jpeg" alt="Volunteers hosting a learning circle">
                         <div class="hero__meta">Active in schools &amp; communities since 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donate" class="section section--alt reveal" aria-label="Quick donation options">
+            <div class="shell">
+                <div class="donation-highlight">
+                    <div>
+                        <p class="section__eyebrow">Quick give</p>
+                        <h2 class="section__title">Fuel a programme in under a minute.</h2>
+                        <p class="section__intro">Recurring contributions mean we can commit to more classrooms, more WASH upgrades, and more health camps without pause.</p>
+                        <div class="donation-amounts" data-donation-select>
+                            <button type="button" data-amount="1000" aria-pressed="false">₹1,000</button>
+                            <button type="button" data-amount="2500" aria-pressed="false">₹2,500</button>
+                            <button type="button" data-amount="5000" aria-pressed="false">₹5,000</button>
+                            <button type="button" data-amount="10000" aria-pressed="false">₹10,000</button>
+                        </div>
+                        <p id="donation-selection" class="muted">Prefer a custom amount? Visit our <a href="donate.html">donation page</a> for bank/UPI and CSR options.</p>
+                    </div>
+                    <div class="newsletter-card">
+                        <h3>Recurring pledges</h3>
+                        <p>Monthly gifts anchor our education kits and WASH cohorts. Select monthly on the donation page and receive quarterly impact notes.</p>
+                        <a class="btn" href="donate.html">Set up recurring support</a>
                     </div>
                 </div>
             </div>
@@ -89,10 +127,43 @@
                         <span class="stat-card__label">Women &amp; youth trained for livelihood pilots</span>
                     </article>
                 </div>
+                <div class="progress-cards" aria-label="Live programme progress">
+                    <article class="progress-card">
+                        <strong>WASH schools funded</strong>
+                        <p class="muted">7 / 10 priority campuses</p>
+                        <div class="progress-bar"><div class="progress-bar__value" style="width:70%"></div></div>
+                    </article>
+                    <article class="progress-card">
+                        <strong>STEM labs restocked</strong>
+                        <p class="muted">14 / 20 labs supported</p>
+                        <div class="progress-bar"><div class="progress-bar__value" style="width:70%"></div></div>
+                    </article>
+                    <article class="progress-card">
+                        <strong>Volunteer hours pledged</strong>
+                        <p class="muted">860 / 1200 hours</p>
+                        <div class="progress-bar"><div class="progress-bar__value" style="width:72%"></div></div>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section id="programs" class="section reveal" aria-label="Programs">
+        <section id="impact-map" class="section reveal" aria-label="Impact map">
+            <div class="shell">
+                <p class="section__eyebrow">Where we work</p>
+                <h2 class="section__title">Clusters covered so far.</h2>
+                <div class="impact-map">
+                    <div class="impact-map__grid" aria-hidden="true"></div>
+                    <p>We currently operate across Bachenahatti, Magadi, and Ramasandra clusters with new WASH pilots scoped for southern Bengaluru. Detailed GIS overlays available inside the transparency hub.</p>
+                </div>
+                <div class="impact-map__legend">
+                    <span>WASH upgrades</span>
+                    <span>STEM labs</span>
+                    <span>Health camps</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" class="section" aria-label="Programs and initiatives">
             <div class="shell">
                 <p class="section__eyebrow">Focus areas</p>
                 <h2 class="section__title">Designed with communities, delivered with care.</h2>
@@ -117,34 +188,124 @@
             </div>
         </section>
 
-        <section class="section section--alt reveal" aria-label="Stories from the field">
+        <section class="section section--alt reveal" aria-label="Testimonials">
             <div class="shell">
-                <p class="section__eyebrow">Stories from the field</p>
-                <h2 class="section__title">Care, creativity, and tangible wins.</h2>
-                <div class="story-grid">
-                    <article class="story-card">
-                        <p class="story-card__meta">GHPS Bachenahatti &middot; July 2025</p>
-                        <h3>Launch day became a mega sports fest.</h3>
-                        <p>What began as an inauguration turned into a track meet with 250 children, curated wellness talks, and a pledge wall where families committed to shared responsibility.</p>
+                <p class="section__eyebrow">Voices</p>
+                <h2 class="section__title">Why families, teachers, and partners trust us.</h2>
+                <div class="testimonial-grid">
+                    <article class="testimonial-card">
+                        <p class="muted">“Students now compete to lead the hygiene club. The Responsible Individuals team co-created everything with us.”</p>
+                        <strong>Shobha, HM &middot; GHPS Bachenahatti</strong>
                     </article>
-                    <article class="story-card">
-                        <p class="story-card__meta">Magadi cluster &middot; October 2025</p>
-                        <h3>Creative confidence through debate &amp; design.</h3>
-                        <p>Drawing marathons, debates, and sustainability workshops helped learners narrate their own solutions while we recorded baseline-to-outcome shifts.</p>
+                    <article class="testimonial-card">
+                        <p class="muted">“Our CSR dollars translate to real dashboards and audio notes from the field. Transparency is unmatched.”</p>
+                        <strong>CSR Partner, Bengaluru</strong>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="muted">“Mentoring girls in the RISE labs keeps me grounded. I can volunteer on weekends and see outcomes.”</p>
+                        <strong>Ananya, Volunteer Mentor</strong>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section reveal" aria-label="Call to action">
+        <section class="section reveal" aria-label="How you can help">
             <div class="shell">
-                <div class="cta-panel">
-                    <h2 class="section__title" style="color:#fff; margin-bottom:0.4rem;">Join one act of responsibility.</h2>
-                    <p>Your team can sponsor a learning lab, mentor youth virtually, or help us run the next health camp.</p>
-                    <div>
-                        <a class="btn btn--secondary" href="involved.html">Volunteer / Mentor</a>
-                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=CSR%20collaboration">Plan a CSR collaboration</a>
+                <p class="section__eyebrow">How You Can Help</p>
+                <h2 class="section__title">Every contribution—time, funds, or skills—makes a real difference.</h2>
+                <div class="card-grid card-grid--three help">
+                    <div id="donate-card" class="content-card help__item">
+                        <h3>Donate</h3>
+                        <p>Power our programs with a one-time or monthly gift. Tax-deductions available (India 80G).</p>
                     </div>
+                    <div class="content-card help__item">
+                        <h3>Volunteer</h3>
+                        <p>Mentor, teach, design, or help with events and outreach—on-site or remote.</p>
+                    </div>
+                    <div class="content-card help__item">
+                        <h3>Partner with Us</h3>
+                        <p>CSR collaborations, program sponsorships, and payroll giving for sustained impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal" aria-label="News and updates">
+            <div class="shell">
+                <p class="section__eyebrow">News</p>
+                <h2 class="section__title">From the field.</h2>
+                <div class="news__list">
+                    <article class="news__item">
+                        <img id="news-article" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/news_1.jpg" width="500" height="100" alt="Launch event">
+                        <div>
+                            <h3>A new volunteer organization named Responsible Individuals was inaugurated on July 19 with Lalitha Indrakanti (CEO, JLR TBSI) lighting the torch. It marked the start of our community-led movement.</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt reveal" aria-label="Partners">
+            <div class="shell">
+                <p class="section__eyebrow">Allies</p>
+                <h2 class="section__title">Grateful for every partner.</h2>
+                <div class="partner-logos">
+                    <div class="partner">Community Schools</div>
+                    <div class="partner">Health Collectives</div>
+                    <div class="partner">CSR Labs</div>
+                    <div class="partner">Volunteer Circles</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal" aria-label="Newsletter and WhatsApp">
+            <div class="shell">
+                <p class="section__eyebrow">Stay connected</p>
+                <div class="engagement-grid">
+                    <div class="newsletter-card">
+                        <h3>Field Notes Newsletter</h3>
+                        <p>Monthly roundups with programme wins, open needs, and volunteer shout-outs.</p>
+                        <form action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
+                            <input type="hidden" name="formType" value="newsletter">
+                            <label for="newsletter-email">Email</label>
+                            <input id="newsletter-email" name="email" type="email" required>
+                            <button class="btn" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="whatsapp-cta">
+                        <h3>WhatsApp updates</h3>
+                        <p>Get fortnightly updates, urgent needs, and volunteer call-outs.</p>
+                        <a class="btn" href="https://wa.me/919964004113?text=Hi%20Responsible%20Individuals%2C%20I%20want%20to%20support%20your%20programmes" target="_blank" rel="noreferrer">Join the WhatsApp list</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--tint reveal" aria-label="Extra calls to action">
+            <div class="shell">
+                <p class="section__eyebrow">Take the next step</p>
+                <div class="extra-cta">
+                    <div class="content-card">
+                        <h3>Sponsor a school</h3>
+                        <p>Pick a government school cluster and underwrite its WASH + STEM roadmap for a year.</p>
+                        <a class="btn btn--ghost" href="contact.html">Schedule a walkthrough</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>Start a fundraiser</h3>
+                        <p>Host a peer-to-peer campaign and let us equip you with stories, creatives, and tracking links.</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Community%20fundraiser">Get resources</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal" aria-label="Transparency preview">
+            <div class="shell">
+                <div class="transparency-preview">
+                    <p class="section__eyebrow">Transparency</p>
+                    <h2 class="section__title">Reports, budgets, and policies.</h2>
+                    <p class="section__intro">Download audited financials, programme decks, and safeguarding policies inside our transparency hub.</p>
+                    <a class="btn" href="transparency.html">Visit transparency hub</a>
                 </div>
             </div>
         </section>
@@ -183,6 +344,7 @@
                 </div>
             </div>
             <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+            <p id="language-toast" class="language-toast visually-hidden" aria-live="polite"></p>
         </div>
     </footer>
 </body>

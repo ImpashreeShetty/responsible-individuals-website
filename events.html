@@ -27,15 +27,29 @@
             <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="events.html">Events</a>
+                <a href="events.html" class="active">Events</a>
                 <a href="projects.html">Projects</a>
                 <a href="involved.html">Get Involved</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
+                <a class="nav-donate btn btn--primary" href="donate.html">Donate</a>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-tools" role="group" aria-label="Display controls">
+                <label class="language-switch">
+                    <span class="visually-hidden">Choose language</span>
+                    <select id="language-select">
+                        <option value="en">EN</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </label>
+                <div class="accessibility-buttons" role="group" aria-label="Adjust text size">
+                    <button class="font-btn" type="button" data-font="decrease">A-</button>
+                    <button class="font-btn" type="button" data-font="increase">A+</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -52,6 +66,40 @@
                         <img src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2754.jpeg" alt="Students at a Responsible Individuals event">
                         <div class="hero__meta">Planned &amp; run by volunteers and teachers</div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt reveal" aria-label="Calendar & sign-ups">
+            <div class="shell">
+                <p class="section__eyebrow">Automation</p>
+                <h2 class="section__title">Subscribe to our event calendar.</h2>
+                <div class="card-grid card-grid--three">
+                    <article class="content-card">
+                        <h3>Community blood drive</h3>
+                        <p class="muted">05 April 2026 &middot; Bengaluru</p>
+                        <a class="btn btn--ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Community%20Blood%20Drive&dates=20260405T040000Z/20260405T060000Z&details=Join%20Responsible%20Individuals%20for%20our%20community%20blood%20drive.&location=Bengaluru" target="_blank" rel="noreferrer">Add to calendar</a>
+                    </article>
+                    <article class="content-card">
+                        <h3>RISE lab mentor training</h3>
+                        <p class="muted">20 May 2026 &middot; Hybrid</p>
+                        <a class="btn btn--ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=RISE%20Lab%20Mentor%20Training&dates=20260520T043000Z/20260520T063000Z&details=Mentor%20training%20for%20STEM%20labs.&location=Online" target="_blank" rel="noreferrer">Add to calendar</a>
+                    </article>
+                    <article class="content-card">
+                        <h3>WASH school visit</h3>
+                        <p class="muted">15 June 2026 &middot; Magadi</p>
+                        <a class="btn btn--ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=WASH%20School%20Visit&dates=20260615T040000Z/20260615T090000Z&details=Join%20the%20ground%20team%20as%20we%20deploy%20WASH%20upgrades.&location=Magadi%2C%20Karnataka" target="_blank" rel="noreferrer">Add to calendar</a>
+                    </article>
+                </div>
+                <div class="newsletter-card" style="margin-top:1.25rem;">
+                    <h3>Subscribe for calendar invites</h3>
+                    <p>Drop your email and we will send you .ics invites and automated reminders before each event.</p>
+                    <form action="/.netlify/functions/contact" method="post" accept-charset="UTF-8">
+                        <input type="hidden" name="formType" value="event-updates">
+                        <label for="events-email">Email</label>
+                        <input id="events-email" name="email" type="email" required>
+                        <button class="btn" type="submit">Subscribe to calendar</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -122,6 +170,7 @@
                 </div>
             </div>
             <p class="site-footer__legal">&copy; 2025 Responsible Individuals. Made with intent and care.</p>
+            <p id="language-toast" class="language-toast visually-hidden" aria-live="polite"></p>
         </div>
     </footer>
 </body>

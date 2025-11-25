@@ -22,6 +22,8 @@ const ResponsibleIndividuals = (() => {
     };
 
     const THEME_STORAGE_KEY = 'ri-theme';
+    const FONT_STORAGE_KEY = 'ri-font-scale';
+    const LANGUAGE_STORAGE_KEY = 'ri-language';
 
     const state = {
         header: null,
@@ -297,6 +299,9 @@ const ResponsibleIndividuals = (() => {
         enhanceForms();
         setViewportUnit();
         initThemeToggle();
+        initFontControls();
+        initLanguageSwitcher();
+        initDonationButtons();
         document.addEventListener('click', handleDocumentClick);
         document.addEventListener('keydown', handleGlobalKeydown);
     }
@@ -330,6 +335,76 @@ const ResponsibleIndividuals = (() => {
                 toggle.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
             });
         }
+    }
+
+    function initFontControls() {
+        const buttons = document.querySelectorAll('.font-btn');
+        if (!buttons.length) return;
+
+        let currentScale = parseFloat(localStorage.getItem(FONT_STORAGE_KEY)) || 1;
+        applyFontScale(currentScale);
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const direction = button.dataset.font === 'increase' ? 0.05 : -0.05;
+                currentScale = Math.min(1.2, Math.max(0.9, parseFloat((currentScale + direction).toFixed(2))));
+                applyFontScale(currentScale);
+                localStorage.setItem(FONT_STORAGE_KEY, String(currentScale));
+            });
+        });
+
+        function applyFontScale(scale) {
+            document.documentElement.style.setProperty('--font-scale', scale);
+        }
+    }
+
+    function initLanguageSwitcher() {
+        const select = document.getElementById('language-select');
+        if (!select) return;
+
+        const toast = document.getElementById('language-toast');
+        const langLabels = { en: 'English', hi: 'हिन्दी' };
+        const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
+
+        select.value = storedLanguage;
+        setLanguage(storedLanguage);
+
+        select.addEventListener('change', () => {
+            const value = select.value;
+            setLanguage(value);
+            localStorage.setItem(LANGUAGE_STORAGE_KEY, value);
+            if (toast) {
+                toast.textContent = `Language preference set to ${langLabels[value] || value}.`;
+            }
+        });
+
+        function setLanguage(value) {
+            document.documentElement.lang = value;
+        }
+
+        if (toast) {
+            toast.textContent = '';
+        }
+    }
+
+    function initDonationButtons() {
+        const groups = document.querySelectorAll('[data-donation-select]');
+        if (!groups.length) return;
+        const status = document.getElementById('donation-selection');
+
+        groups.forEach((group) => {
+            group.querySelectorAll('button[data-amount]').forEach((button) => {
+                button.setAttribute('aria-pressed', 'false');
+
+                button.addEventListener('click', () => {
+                    group.querySelectorAll('button').forEach((peer) => peer.setAttribute('aria-pressed', 'false'));
+                    button.setAttribute('aria-pressed', 'true');
+                    if (status) {
+                        status.textContent = `Thank you! You selected ₹${button.dataset.amount} as a quick pledge.`;
+                    }
+                });
+            });
+        });
     }
 
     return {
