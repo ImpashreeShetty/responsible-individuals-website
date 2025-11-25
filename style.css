@@ -165,25 +165,25 @@ body[data-theme="dark"] .site-header {
 }
 
 .brand__mark {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
-    border: 2px solid rgba(15, 39, 62, 0.08);
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    border: 2px solid rgba(15, 39, 62, 0.1);
     padding: 0.35rem;
-    background: var(--surface);
+    background: #ffffff;
     box-shadow: var(--shadow-subtle);
 }
 
 body[data-theme="dark"] .brand__mark {
     background: #ffffff;
-    border-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .brand__text { line-height: 1.2; }
 
 .brand__title {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--ink);
     margin: 0;
