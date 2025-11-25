@@ -294,52 +294,35 @@ body[data-theme="dark"] .theme-toggle {
     margin-left: 0.75rem;
 }
 
-.language-switch select {
+.language-toggle {
     border: 1px solid rgba(17, 56, 48, 0.2);
-    border-radius: 999px;
-    padding: 0.35rem 0.75rem;
-    background: #fff;
-    font-weight: 600;
-}
-
-body[data-theme="dark"] .language-switch select {
-    background: #0c1422;
-    color: var(--text);
-    border-color: rgba(255, 255, 255, 0.25);
-}
-
-.accessibility-buttons {
-    display: inline-flex;
-    border: 1px solid rgba(17, 56, 48, 0.2);
-    border-radius: 999px;
-    overflow: hidden;
-}
-
-.font-btn {
-    border: none;
-    background: transparent;
-    padding: 0.35rem 0.55rem;
-    font-weight: 700;
-    cursor: pointer;
+    background: rgba(255, 255, 255, 0.85);
     color: var(--ink);
-}
-
-.font-btn + .font-btn {
-    border-left: 1px solid rgba(17, 56, 48, 0.2);
-}
-
-body[data-theme="dark"] .accessibility-buttons {
-    border-color: rgba(255, 255, 255, 0.25);
-}
-
-body[data-theme="dark"] .font-btn {
-    color: var(--text);
-}
-
-.nav-donate {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     margin-left: 0.5rem;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.9rem;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.language-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.language-toggle__icon {
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+body[data-theme="dark"] .language-toggle {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(10, 16, 28, 0.85);
+    color: var(--text);
 }
 
 /* -------------------- Buttons -------------------- */
@@ -953,13 +936,6 @@ dialog#ri-lightbox::backdrop { background: rgba(0,0,0,0.75); }
         width: 100%;
         justify-content: flex-end;
         flex-wrap: wrap;
-    }
-    .language-switch select {
-        width: 100px;
-    }
-    .nav-donate {
-        width: 100%;
-        justify-content: center;
     }
 }
 

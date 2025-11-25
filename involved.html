@@ -32,20 +32,11 @@
                 <a href="involved.html" class="active">Get Involved</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
-                <a class="nav-donate btn btn--primary" href="donate.html">Donate</a>
             </nav>
             <div class="header-tools" role="group" aria-label="Display controls">
-                <label class="language-switch">
-                    <span class="visually-hidden">Choose language</span>
-                    <select id="language-select">
-                        <option value="en">EN</option>
-                        <option value="hi">हिन्दी</option>
-                    </select>
-                </label>
-                <div class="accessibility-buttons" role="group" aria-label="Adjust text size">
-                    <button class="font-btn" type="button" data-font="decrease">A-</button>
-                    <button class="font-btn" type="button" data-font="increase">A+</button>
-                </div>
+                <button class="language-toggle" type="button" aria-label="Switch language">
+                    <span class="language-toggle__icon" aria-hidden="true">🌐</span>
+                </button>
                 <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
                     <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
                 </button>
@@ -142,6 +133,29 @@
                         <p>Lead logistics for sports days, health camps, or fundraising mixers.</p>
                         <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Volunteer%20-%20Event%20captain">Sign up</a>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--tint reveal" aria-label="Donate through Get Involved">
+            <div class="shell">
+                <p class="section__eyebrow">Support financially</p>
+                <div class="donation-highlight">
+                    <div>
+                        <h3>Sponsor a micro-cohort</h3>
+                        <p>Pick a quick amount and we will route it to the next education kit, WASH upgrade, or health camp.</p>
+                        <div class="donation-amounts" data-donation-select>
+                            <button type="button" data-amount="2500" aria-pressed="false">₹2,500</button>
+                            <button type="button" data-amount="5000" aria-pressed="false">₹5,000</button>
+                            <button type="button" data-amount="10000" aria-pressed="false">₹10,000</button>
+                        </div>
+                        <p class="muted" data-donation-output>Prefer payroll, CSR, or recurring support? Visit the <a href="donate.html">donation page</a>.</p>
+                    </div>
+                    <div class="newsletter-card">
+                        <h3>Talk to our donor desk</h3>
+                        <p>Plan a recurring gift, adopt a school, or set up payroll giving for your team.</p>
+                        <a class="btn btn--ghost" href="mailto:theresponsibleindividuals@gmail.com?subject=Donor%20desk%20request">Book a donor call</a>
+                    </div>
                 </div>
             </div>
         </section>

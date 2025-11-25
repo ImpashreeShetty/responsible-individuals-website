@@ -33,20 +33,11 @@
                 <a href="involved.html">Get Involved</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
-                <a class="nav-donate btn btn--primary" href="donate.html">Donate</a>
             </nav>
             <div class="header-tools" role="group" aria-label="Display controls">
-                <label class="language-switch">
-                    <span class="visually-hidden">Choose language</span>
-                    <select id="language-select">
-                        <option value="en">EN</option>
-                        <option value="hi">हिन्दी</option>
-                    </select>
-                </label>
-                <div class="accessibility-buttons" role="group" aria-label="Adjust text size">
-                    <button class="font-btn" type="button" data-font="decrease">A-</button>
-                    <button class="font-btn" type="button" data-font="increase">A+</button>
-                </div>
+                <button class="language-toggle" type="button" aria-label="Switch language">
+                    <span class="language-toggle__icon" aria-hidden="true">🌐</span>
+                </button>
                 <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
                     <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
                 </button>
@@ -93,7 +84,7 @@
                             <button type="button" data-amount="5000" aria-pressed="false">₹5,000</button>
                             <button type="button" data-amount="10000" aria-pressed="false">₹10,000</button>
                         </div>
-                        <p id="donation-selection" class="muted">Prefer a custom amount? Visit our <a href="donate.html">donation page</a> for bank/UPI and CSR options.</p>
+                        <p class="muted" data-donation-output>Prefer a custom amount? Visit our <a href="donate.html">donation page</a> for bank/UPI and CSR options.</p>
                     </div>
                     <div class="newsletter-card">
                         <h3>Recurring pledges</h3>

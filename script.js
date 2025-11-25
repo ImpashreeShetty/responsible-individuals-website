@@ -22,7 +22,6 @@ const ResponsibleIndividuals = (() => {
     };
 
     const THEME_STORAGE_KEY = 'ri-theme';
-    const FONT_STORAGE_KEY = 'ri-font-scale';
     const LANGUAGE_STORAGE_KEY = 'ri-language';
 
     const state = {
@@ -299,7 +298,6 @@ const ResponsibleIndividuals = (() => {
         enhanceForms();
         setViewportUnit();
         initThemeToggle();
-        initFontControls();
         initLanguageSwitcher();
         initDonationButtons();
         document.addEventListener('click', handleDocumentClick);
@@ -337,68 +335,71 @@ const ResponsibleIndividuals = (() => {
         }
     }
 
-    function initFontControls() {
-        const buttons = document.querySelectorAll('.font-btn');
-        if (!buttons.length) return;
-
-        let currentScale = parseFloat(localStorage.getItem(FONT_STORAGE_KEY)) || 1;
-        applyFontScale(currentScale);
-
-        buttons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const direction = button.dataset.font === 'increase' ? 0.05 : -0.05;
-                currentScale = Math.min(1.2, Math.max(0.9, parseFloat((currentScale + direction).toFixed(2))));
-                applyFontScale(currentScale);
-                localStorage.setItem(FONT_STORAGE_KEY, String(currentScale));
-            });
-        });
-
-        function applyFontScale(scale) {
-            document.documentElement.style.setProperty('--font-scale', scale);
-        }
-    }
-
     function initLanguageSwitcher() {
         const select = document.getElementById('language-select');
-        if (!select) return;
+        const buttons = document.querySelectorAll('.language-toggle');
+        if (!select && !buttons.length) return;
 
         const toast = document.getElementById('language-toast');
         const langLabels = { en: 'English', hi: 'हिन्दी' };
         const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
 
-        select.value = storedLanguage;
-        setLanguage(storedLanguage);
+        applyLanguage(storedLanguage, { quiet: true });
 
-        select.addEventListener('change', () => {
-            const value = select.value;
-            setLanguage(value);
-            localStorage.setItem(LANGUAGE_STORAGE_KEY, value);
-            if (toast) {
-                toast.textContent = `Language preference set to ${langLabels[value] || value}.`;
-            }
-        });
-
-        function setLanguage(value) {
-            document.documentElement.lang = value;
+        if (select) {
+            select.value = storedLanguage;
+            select.addEventListener('change', () => {
+                applyLanguage(select.value);
+            });
         }
 
-        if (toast) {
-            toast.textContent = '';
+        if (buttons.length) {
+            buttons.forEach((button) => {
+                updateLanguageButton(button, storedLanguage);
+                button.addEventListener('click', () => {
+                    const next = document.documentElement.lang === 'en' ? 'hi' : 'en';
+                    applyLanguage(next);
+                });
+            });
+        }
+
+        function applyLanguage(value, options = {}) {
+            const lang = value === 'hi' ? 'hi' : 'en';
+            document.documentElement.lang = lang;
+            localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+            if (select) {
+                select.value = lang;
+            }
+            buttons.forEach((button) => updateLanguageButton(button, lang));
+            if (toast) {
+                toast.textContent = options.quiet ? '' : `Language preference set to ${langLabels[lang] || lang}.`;
+            }
+        }
+
+        function updateLanguageButton(button, currentLang) {
+            const nextLang = currentLang === 'en' ? 'hi' : 'en';
+            button.setAttribute('aria-label', `Switch language to ${langLabels[nextLang] || nextLang}`);
+            const icon = button.querySelector('.language-toggle__icon');
+            if (icon) {
+                icon.textContent = currentLang === 'en' ? '🌐' : 'अ';
+            }
         }
     }
 
     function initDonationButtons() {
         const groups = document.querySelectorAll('[data-donation-select]');
         if (!groups.length) return;
-        const status = document.getElementById('donation-selection');
 
         groups.forEach((group) => {
+            const status = group.parentElement.querySelector('[data-donation-output]');
+
             group.querySelectorAll('button[data-amount]').forEach((button) => {
                 button.setAttribute('aria-pressed', 'false');
 
                 button.addEventListener('click', () => {
                     group.querySelectorAll('button').forEach((peer) => peer.setAttribute('aria-pressed', 'false'));
                     button.setAttribute('aria-pressed', 'true');
+
                     if (status) {
                         status.textContent = `Thank you! You selected ₹${button.dataset.amount} as a quick pledge.`;
                     }
