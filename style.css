@@ -47,6 +47,24 @@ body {
     flex-direction: column;
 }
 
+body[data-theme="dark"] {
+    --ink: #f5f7fb;
+    --text: #e6edf5;
+    --muted: #b7c0ce;
+    --soft-muted: #778396;
+    --surface: #101621;
+    --surface-alt: #131c2a;
+    --surface-tint: #172133;
+    --border: #1f2a3d;
+    --accent: #2ca58d;
+    --accent-soft: rgba(44, 165, 141, 0.15);
+    --accent-strong: #44d2b1;
+    --card: #1a2435;
+    --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.45);
+    --shadow-subtle: 0 6px 22px rgba(0, 0, 0, 0.4);
+    background: radial-gradient(circle at top, #0b1220 0%, #0f1a2c 45%, #141f33 100%);
+}
+
 img { max-width: 100%; height: auto; display: block; border-radius: inherit; }
 
 button,
@@ -80,6 +98,14 @@ a:focus-visible { text-decoration: underline; }
 .section--tint { background: linear-gradient(180deg, rgba(230, 242, 246, 0.92), #fff); }
 .section--alt { background: linear-gradient(180deg, rgba(223, 245, 237, 0.88), #fff); }
 
+body[data-theme="dark"] .section--tint {
+    background: linear-gradient(180deg, rgba(33, 45, 66, 0.75), rgba(16, 22, 33, 0.95));
+}
+
+body[data-theme="dark"] .section--alt {
+    background: linear-gradient(180deg, rgba(26, 45, 55, 0.75), rgba(15, 21, 33, 0.95));
+}
+
 .section__eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -112,6 +138,11 @@ a:focus-visible { text-decoration: underline; }
     box-shadow: 0 1px 0 rgba(7, 24, 48, 0.08);
 }
 
+body[data-theme="dark"] .site-header {
+    background: rgba(5, 8, 15, 0.92);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+}
+
 .site-header__bar {
     display: flex;
     align-items: center;
@@ -136,6 +167,11 @@ a:focus-visible { text-decoration: underline; }
     box-shadow: var(--shadow-subtle);
 }
 
+body[data-theme="dark"] .brand__mark {
+    background: #0f1625;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
 .brand__text { line-height: 1.2; }
 
 .brand__title {
@@ -150,6 +186,10 @@ a:focus-visible { text-decoration: underline; }
     margin: 0;
     color: var(--muted);
     font-size: 0.9rem;
+}
+
+body[data-theme="dark"] .brand__tagline {
+    color: var(--soft-muted);
 }
 
 .nav-toggle {
@@ -214,6 +254,37 @@ a:focus-visible { text-decoration: underline; }
     text-decoration: none;
 }
 
+.theme-toggle {
+    margin-left: 0.75rem;
+    border: 1px solid rgba(17, 56, 48, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--ink);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.theme-toggle__icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+body[data-theme="dark"] .theme-toggle {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(10, 16, 28, 0.85);
+    color: #fdfdfd;
+}
+
 /* -------------------- Buttons -------------------- */
 .btn {
     display: inline-flex;
@@ -260,6 +331,10 @@ a:focus-visible { text-decoration: underline; }
     gap: clamp(1.2rem, 3vw, 2rem);
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     box-shadow: var(--shadow-soft);
+}
+
+body[data-theme="dark"] .hero__card {
+    background: linear-gradient(130deg, rgba(20, 32, 66, 0.95), rgba(13, 26, 38, 0.95));
 }
 
 .hero__heading {
@@ -313,6 +388,11 @@ a:focus-visible { text-decoration: underline; }
     box-shadow: var(--shadow-subtle);
 }
 
+body[data-theme="dark"] .hero__meta {
+    background: rgba(6, 10, 20, 0.85);
+    color: var(--text);
+}
+
 /* -------------------- Cards & grids -------------------- */
 .stat-grid {
     display: grid;
@@ -326,6 +406,10 @@ a:focus-visible { text-decoration: underline; }
     padding: 1.5rem;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-subtle);
+}
+
+body[data-theme="dark"] .stat-card {
+    background: linear-gradient(160deg, rgba(24,32,48,0.95), rgba(17,24,35,0.95));
 }
 
 .stat-card span { display: block; }
@@ -355,6 +439,9 @@ a:focus-visible { text-decoration: underline; }
     min-height: 100%;
 }
 
+body[data-theme="dark"] .content-card {
+    background: linear-gradient(160deg, rgba(27,33,48,0.95), rgba(19,27,39,0.95));
+}
 .content-card__icon {
     width: 48px;
     height: 48px;

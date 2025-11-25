@@ -21,6 +21,8 @@ const ResponsibleIndividuals = (() => {
         projects: 'projects-data.json'
     };
 
+    const THEME_STORAGE_KEY = 'ri-theme';
+
     const state = {
         header: null,
         navToggle: null,
@@ -294,8 +296,40 @@ const ResponsibleIndividuals = (() => {
         initRevealObserver();
         enhanceForms();
         setViewportUnit();
+        initThemeToggle();
         document.addEventListener('click', handleDocumentClick);
         document.addEventListener('keydown', handleGlobalKeydown);
+    }
+
+    function initThemeToggle() {
+        const toggles = document.querySelectorAll('.theme-toggle');
+        if (!toggles.length) return;
+
+        const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+        setTheme(initialTheme);
+
+        toggles.forEach((toggle) => {
+            toggle.addEventListener('click', () => {
+                const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+                setTheme(nextTheme);
+                localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+            });
+        });
+
+        function setTheme(theme) {
+            document.body.dataset.theme = theme;
+            toggles.forEach((toggle) => {
+                toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+                const icon = toggle.querySelector('.theme-toggle__icon');
+                if (icon) {
+                    icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+                }
+                toggle.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+            });
+        }
     }
 
     return {
