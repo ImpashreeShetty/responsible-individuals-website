@@ -151,12 +151,13 @@ body[data-theme="dark"] .site-header {
     gap: 0.5rem;
     min-height: 88px;
     flex-wrap: nowrap;
+    width: 100%;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     text-decoration: none;
     flex-shrink: 0;
     min-width: 0;
@@ -181,16 +182,18 @@ body[data-theme="dark"] .brand__mark {
 
 .brand__title {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--ink);
     margin: 0;
+    white-space: nowrap;
 }
 
 .brand__tagline {
     margin: 0;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
 }
 
 body[data-theme="dark"] .brand__tagline {
@@ -240,15 +243,16 @@ body[data-theme="dark"] .brand__tagline {
 .site-nav {
     margin-left: auto;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 600;
     flex-wrap: nowrap;
     align-items: center;
+    font-size: 0.92rem;
 }
 
 .site-nav a {
-    padding: 0.45rem 0.75rem;
+    padding: 0.4rem 0.65rem;
     border-radius: 999px;
     color: var(--text);
     transition: background 0.2s ease, color 0.2s ease;
@@ -263,12 +267,12 @@ body[data-theme="dark"] .brand__tagline {
 }
 
 .theme-toggle {
-    margin-left: 0.35rem;
+    margin-left: 0.25rem;
     border: 1px solid rgba(17, 56, 48, 0.2);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     color: var(--ink);
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -283,7 +287,7 @@ body[data-theme="dark"] .brand__tagline {
 }
 
 .theme-toggle__icon {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1;
 }
 
@@ -296,8 +300,8 @@ body[data-theme="dark"] .theme-toggle {
 .header-tools {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    margin-left: 0.5rem;
+    gap: 0.25rem;
+    margin-left: 0.35rem;
     flex-shrink: 0;
 }
 
@@ -305,8 +309,8 @@ body[data-theme="dark"] .theme-toggle {
     border: 1px solid rgba(17, 56, 48, 0.2);
     background: rgba(255, 255, 255, 0.85);
     color: var(--ink);
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -321,7 +325,7 @@ body[data-theme="dark"] .theme-toggle {
 }
 
 .language-toggle__icon {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     line-height: 1;
 }
 
