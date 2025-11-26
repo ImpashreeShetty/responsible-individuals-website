@@ -20,6 +20,8 @@ const ResponsibleIndividuals = (() => {
     const DATA_ENDPOINTS = {
         projects: 'projects-data.json'
     };
+    const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/responsibleindividuals/';
+    const INSTAGRAM_FEED_ENDPOINT = '/.netlify/functions/instagram-feed';
 
     const THEME_STORAGE_KEY = 'ri-theme';
     const LANGUAGE_STORAGE_KEY = 'ri-language';
@@ -68,6 +70,14 @@ const ResponsibleIndividuals = (() => {
             }
         });
     }
+
+    const escapeHtml = (value = '') => value
+        .toString()
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 
     /* -------------------- Gallery helpers -------------------- */
     async function fetchGitHubImages(folderPath) {
@@ -182,6 +192,77 @@ const ResponsibleIndividuals = (() => {
         }
     }
 
+    async function hydrateInstagramFeed() {
+        const container = document.querySelector('[data-instagram-feed]');
+        if (!container) return;
+
+        const limit = Number(container.dataset.instagramLimit) || 4;
+        try {
+            const response = await fetch(`${INSTAGRAM_FEED_ENDPOINT}?limit=${limit}`, { cache: 'no-store' });
+            if (!response.ok) {
+                throw new Error(`Instagram feed HTTP ${response.status}`);
+            }
+
+            const posts = await response.json();
+            if (!Array.isArray(posts) || !posts.length) {
+                container.innerHTML = '<p class="muted">Instagram updates will appear soon.</p>';
+                return;
+            }
+
+            const renderCard = (post) => {
+                const caption = typeof post.caption === 'string' ? post.caption.trim() : '';
+                const trimmedCaption = caption.length > 120 ? `${caption.slice(0, 117)}…` : caption;
+                const fallbackAlt = 'Instagram post from Responsible Individuals';
+                const safeCaption = escapeHtml(trimmedCaption || 'View post on Instagram');
+                const permalink = typeof post.permalink === 'string' && post.permalink.startsWith('http')
+                    ? post.permalink
+                    : INSTAGRAM_PROFILE_URL;
+                const mediaUrl = typeof post.mediaUrl === 'string' && post.mediaUrl.startsWith('http')
+                    ? post.mediaUrl
+                    : '';
+                const timestamp = typeof post.timestamp === 'string' ? post.timestamp : '';
+                const formattedDate = formatInstagramDate(timestamp);
+
+                return `
+                    <article class="instagram-card">
+                        <a class="instagram-card__image" href="${permalink}" target="_blank" rel="noreferrer noopener" aria-label="Open Instagram post">
+                            ${mediaUrl ? `<img src="${mediaUrl}" alt="${escapeHtml(trimmedCaption || fallbackAlt)}" loading="lazy">` : ''}
+                        </a>
+                        <div class="instagram-card__body">
+                            <p class="instagram-card__caption">${safeCaption}</p>
+                            <div class="instagram-card__meta">
+                                ${formattedDate ? `<span>${formattedDate}</span>` : ''}
+                                <a href="${permalink}" target="_blank" rel="noreferrer noopener">View post</a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            };
+
+            container.innerHTML = posts.map((post) => renderCard(post)).join('');
+        } catch (error) {
+            console.warn('Unable to load Instagram feed:', error);
+            container.innerHTML = '<p class="muted">Instagram updates are temporarily unavailable.</p>';
+        }
+    }
+
+    function formatInstagramDate(value) {
+        if (!value) return '';
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) {
+            return '';
+        }
+        try {
+            return new Intl.DateTimeFormat(document.documentElement.lang || 'en', {
+                month: 'short',
+                day: 'numeric'
+            }).format(date);
+        } catch (error) {
+            console.warn('Intl formatting issue:', error);
+        }
+        return date.toLocaleDateString();
+    }
+
     function toggleGallerySection(id) {
         const section = document.getElementById(id);
         if (section) {
@@ -293,6 +374,7 @@ const ResponsibleIndividuals = (() => {
         initNavigation();
         hydrateGalleries();
         hydrateProjectsContent();
+        hydrateInstagramFeed();
         initLightbox();
         initRevealObserver();
         enhanceForms();
