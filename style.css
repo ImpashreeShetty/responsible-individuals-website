@@ -163,6 +163,10 @@ body[data-theme="dark"] .site-header {
     flex-shrink: 0;
     min-width: 0;
 }
+.brand:hover,
+.brand:focus-visible {
+    text-decoration: none;
+}
 
 .brand__mark {
     width: 68px;
