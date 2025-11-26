@@ -165,11 +165,11 @@ body[data-theme="dark"] .site-header {
 }
 
 .brand__mark {
-    width: 58px;
-    height: 58px;
+    width: 68px;
+    height: 68px;
     border-radius: 14px;
     border: 2px solid rgba(15, 39, 62, 0.1);
-    padding: 0.35rem;
+    padding: 0.15rem;
     background: #ffffff;
     box-shadow: var(--shadow-subtle);
 }
@@ -242,7 +242,7 @@ body[data-theme="dark"] .brand__tagline {
 .site-header.nav-open .nav-toggle__line::after { transform: translateY(-6px) rotate(-45deg); }
 
 .site-nav {
-    margin-left: clamp(0.75rem, 2vw, 1.5rem);
+    margin-left: clamp(1.25rem, 3vw, 3rem);
     display: flex;
     gap: 0.3rem;
     font-family: 'Montserrat', Arial, sans-serif;
