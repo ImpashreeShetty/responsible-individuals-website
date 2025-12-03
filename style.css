@@ -716,6 +716,11 @@ body[data-theme="dark"] .impact-map__grid {
     font-weight: 600;
 }
 
+.impact-map__credit {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
 .legend-dot {
     display: inline-flex;
     width: 12px;
