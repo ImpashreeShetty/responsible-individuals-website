@@ -663,6 +663,8 @@ const ResponsibleIndividuals = (() => {
             });
         };
 
+        let suppressNextReset = false;
+
         if (typeof L === 'undefined') {
             renderFallbackImpactMap();
             return;
@@ -700,11 +702,8 @@ const ResponsibleIndividuals = (() => {
                     permanent: false
                 });
 
-                marker.on('click', (event) => {
-                    if (event.originalEvent) {
-                        event.originalEvent.stopPropagation();
-                        event.originalEvent.preventDefault();
-                    }
+                marker.on('click', () => {
+                    suppressNextReset = true;
                     if (activeMarker) {
                         activeMarker.setStyle({ weight: 2 });
                     }
@@ -715,6 +714,10 @@ const ResponsibleIndividuals = (() => {
             });
 
             map.on('click', () => {
+                if (suppressNextReset) {
+                    suppressNextReset = false;
+                    return;
+                }
                 if (activeMarker) {
                     activeMarker.setStyle({ weight: 2 });
                     activeMarker = null;
