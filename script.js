@@ -616,11 +616,14 @@ const ResponsibleIndividuals = (() => {
             health: '#F97316'
         };
 
+        const mapClearButton = document.getElementById('impact-map-clear');
+
         const resetDetails = () => {
             detailContainer?.classList.remove('is-active');
             programmesEl.textContent = '—';
             volunteersEl.textContent = '—';
             focusEl.textContent = '—';
+            mapContainer.querySelectorAll('.impact-pin--active').forEach((pin) => pin.classList.remove('impact-pin--active'));
         };
 
         const setActiveDetails = (cluster) => {
@@ -656,17 +659,11 @@ const ResponsibleIndividuals = (() => {
                     setActiveDetails(clusterMap[pin.dataset.cluster]);
                 });
             });
-
-            mapContainer.addEventListener('mouseleave', () => {
-                pins.forEach((p) => p.classList.remove('impact-pin--active'));
-                resetDetails();
-            });
         };
-
-        let suppressNextReset = false;
 
         if (typeof L === 'undefined') {
             renderFallbackImpactMap();
+            mapClearButton?.addEventListener('click', resetDetails);
             return;
         }
 
@@ -685,6 +682,16 @@ const ResponsibleIndividuals = (() => {
 
             let activeMarker = null;
 
+            const clearSelection = () => {
+                if (activeMarker) {
+                    activeMarker.setStyle({ weight: 2 });
+                    activeMarker = null;
+                }
+                resetDetails();
+            };
+
+            mapClearButton?.addEventListener('click', clearSelection);
+
             clusters.forEach((cluster) => {
                 const marker = L.circleMarker(cluster.coords, {
                     radius: 9,
@@ -702,8 +709,9 @@ const ResponsibleIndividuals = (() => {
                     permanent: false
                 });
 
-                marker.on('click', () => {
-                    suppressNextReset = true;
+                marker.on('click', (event) => {
+                    event.originalEvent?.stopPropagation();
+                    event.originalEvent?.preventDefault();
                     if (activeMarker) {
                         activeMarker.setStyle({ weight: 2 });
                     }
@@ -712,21 +720,10 @@ const ResponsibleIndividuals = (() => {
                     setActiveDetails(cluster);
                 });
             });
-
-            map.on('click', () => {
-                if (suppressNextReset) {
-                    suppressNextReset = false;
-                    return;
-                }
-                if (activeMarker) {
-                    activeMarker.setStyle({ weight: 2 });
-                    activeMarker = null;
-                }
-                resetDetails();
-            });
         } catch (error) {
             console.warn('Leaflet map failed, switching to fallback', error);
             renderFallbackImpactMap();
+            mapClearButton?.addEventListener('click', resetDetails);
         }
     }
 
