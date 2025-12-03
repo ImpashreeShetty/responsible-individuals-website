@@ -881,9 +881,24 @@ textarea { resize: vertical; min-height: 140px; }
 
 /* -------------------- Gallery -------------------- */
 .feature-card-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+}
+
+.feature-card-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.feature-card-grid::-webkit-scrollbar-thumb {
+    background: rgba(6, 22, 40, 0.2);
+    border-radius: 999px;
+}
+
+.feature-card-grid::-webkit-scrollbar-track {
+    background: rgba(6, 22, 40, 0.08);
 }
 
 .feature-card {
@@ -893,10 +908,19 @@ textarea { resize: vertical; min-height: 140px; }
     background: var(--surface);
     box-shadow: var(--shadow-subtle);
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    flex: 0 0 clamp(260px, 32vw, 360px);
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
 }
 
 .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+
+.feature-card--active {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-soft);
+}
 
 .feature-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 0.75rem; border-radius: var(--radius-sm); }
 

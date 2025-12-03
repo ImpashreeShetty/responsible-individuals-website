@@ -320,8 +320,24 @@ const ResponsibleIndividuals = (() => {
 
     function toggleGallerySection(id) {
         const section = document.getElementById(id);
-        if (section) {
-            section.classList.toggle('hidden');
+        if (!section) return;
+
+        const sectionIsVisible = !section.classList.contains('hidden');
+
+        document.querySelectorAll('.gallery-section').forEach((panel) => {
+            panel.classList.add('hidden');
+            panel.closest('.feature-card')?.classList.remove('feature-card--active');
+        });
+
+        if (sectionIsVisible) {
+            return;
+        }
+
+        section.classList.remove('hidden');
+        const parentCard = section.closest('.feature-card');
+        if (parentCard) {
+            parentCard.classList.add('feature-card--active');
+            parentCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
     }
 
