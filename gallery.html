@@ -64,32 +64,40 @@
         <section class="section reveal" aria-label="Gallery sections">
             <div class="shell">
                 <div class="feature-card-grid">
-                    <article class="feature-card" onclick="toggleGallery('launch')">
+                    <article class="feature-card" onclick="toggleGallery('launch')" aria-controls="launch">
                         <img id="cover-launch" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2756.jpeg" alt="Launch event">
                         <h3>Launch Event</h3>
                         <p class="muted">Moments from our launch at GHPS School and community celebrations.</p>
-                        <div id="launch" class="gallery-section hidden">
-                            <div class="gallery" data-gallery="launch"></div>
-                        </div>
                     </article>
 
-                    <article class="feature-card" onclick="toggleGallery('groundvisit')">
+                    <article class="feature-card" onclick="toggleGallery('groundvisit')" aria-controls="groundvisit">
                         <img id="cover-ground" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Groundvisit/IMG_2766.jpeg" alt="Ground visit">
                         <h3>Ground Visits</h3>
                         <p class="muted">Community outreach, school engagements, and rural immersions.</p>
-                        <div id="groundvisit" class="gallery-section hidden">
-                            <div class="gallery" data-gallery="ground"></div>
-                        </div>
                     </article>
 
-                    <article class="feature-card" onclick="toggleGallery('office')">
+                    <article class="feature-card" onclick="toggleGallery('office')" aria-controls="office">
                         <img id="cover-office" src="https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Photos/Office/IMG_2753.jpeg" alt="Office scenes">
                         <h3>Office &amp; Studio</h3>
                         <p class="muted">Co-creation sessions, planning marathons, and quiet wins.</p>
-                        <div id="office" class="gallery-section hidden">
+                    </article>
+                </div>
+
+                <div id="gallery-display" class="gallery-display gallery-display--empty" aria-live="polite">
+                    <div class="gallery-placeholder">
+                        <p>Select a collection above to load photos.</p>
+                    </div>
+                    <div class="gallery-panels">
+                        <div id="launch" class="gallery-panel hidden" aria-label="Launch gallery">
+                            <div class="gallery" data-gallery="launch"></div>
+                        </div>
+                        <div id="groundvisit" class="gallery-panel hidden" aria-label="Ground visits gallery">
+                            <div class="gallery" data-gallery="ground"></div>
+                        </div>
+                        <div id="office" class="gallery-panel hidden" aria-label="Office gallery">
                             <div class="gallery" data-gallery="office"></div>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>

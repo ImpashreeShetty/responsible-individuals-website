@@ -322,23 +322,27 @@ const ResponsibleIndividuals = (() => {
         const section = document.getElementById(id);
         if (!section) return;
 
+        const display = document.getElementById('gallery-display');
         const sectionIsVisible = !section.classList.contains('hidden');
 
-        document.querySelectorAll('.gallery-section').forEach((panel) => {
-            panel.classList.add('hidden');
-            panel.closest('.feature-card')?.classList.remove('feature-card--active');
-        });
+        document.querySelectorAll('.gallery-panel').forEach((panel) => panel.classList.add('hidden'));
+        document.querySelectorAll('.feature-card').forEach((card) => card.classList.remove('feature-card--active'));
 
         if (sectionIsVisible) {
+            display?.classList.add('gallery-display--empty');
             return;
         }
 
         section.classList.remove('hidden');
-        const parentCard = section.closest('.feature-card');
+        display?.classList.remove('gallery-display--empty');
+
+        const parentCard = document.querySelector(`.feature-card[aria-controls="${id}"]`);
         if (parentCard) {
             parentCard.classList.add('feature-card--active');
             parentCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
+
+        display?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     /* -------------------- Lightbox -------------------- */
