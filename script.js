@@ -567,34 +567,70 @@ const ResponsibleIndividuals = (() => {
     }
 
     function initImpactMapPins() {
-        const map = document.querySelector('.impact-map');
-        if (!map) return;
+        const mapContainer = document.getElementById('impact-map-canvas');
+        if (!mapContainer) return;
 
         const detailContainer = document.getElementById('impact-map-details');
         const programmesEl = document.getElementById('impact-map-programmes');
         const volunteersEl = document.getElementById('impact-map-volunteers');
         const focusEl = document.getElementById('impact-map-focus');
 
-        const data = {
-            Bachenahatti: {
+        const clusters = [
+            {
+                name: 'Bachenahatti',
+                type: 'wash',
+                coords: [12.991, 77.320],
                 programmes: '2 WASH cohorts, 1 STEM lab',
                 volunteers: '18 active',
                 focus: 'Hygiene clubs, STEM mentors, weekend clinics'
             },
-            'Magadi Road': {
+            {
+                name: 'Magadi Road',
+                type: 'stem',
+                coords: [12.979, 77.470],
                 programmes: 'After-school labs, livelihood pilots',
                 volunteers: '24 active',
                 focus: 'STEM labs, livelihood readiness'
             },
-            Ramasandra: {
+            {
+                name: 'Ramasandra',
+                type: 'health',
+                coords: [12.900, 77.485],
                 programmes: 'Health camps, learning circles',
                 volunteers: '12 active',
                 focus: 'Health camps, remedial learning'
             }
+        ];
+
+        const colorMap = {
+            wash: '#1F8A6D',
+            stem: '#2563EB',
+            health: '#F97316'
         };
 
-        const pins = map.querySelectorAll('.impact-pin');
-        if (!pins.length) return;
+        const handleError = (message) => {
+            mapContainer.classList.add('impact-map__map--error');
+            mapContainer.innerHTML = `<p class="impact-map__fallback">${escapeHtml(message)}</p>`;
+        };
+
+        if (typeof L === 'undefined') {
+            handleError('Interactive map unavailable right now.');
+            return;
+        }
+
+        mapContainer.innerHTML = '';
+
+        const map = L.map(mapContainer, {
+            scrollWheelZoom: false,
+            tap: false
+        }).setView([12.97, 77.45], 11);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+        let activeMarker = null;
 
         const resetDetails = () => {
             detailContainer?.classList.remove('is-active');
@@ -603,27 +639,45 @@ const ResponsibleIndividuals = (() => {
             focusEl.textContent = '—';
         };
 
-        pins.forEach((pin) => {
-            pin.addEventListener('click', () => {
-                pins.forEach((p) => p.classList.remove('impact-pin--active'));
-                pin.classList.add('impact-pin--active');
+        const setActiveDetails = (cluster) => {
+            detailContainer?.classList.add('is-active');
+            programmesEl.textContent = cluster.programmes;
+            volunteersEl.textContent = cluster.volunteers;
+            focusEl.textContent = cluster.focus;
+        };
 
-                const placeName = pin.dataset.pin;
-                const placeData = data[placeName];
+        clusters.forEach((cluster) => {
+            const marker = L.circleMarker(cluster.coords, {
+                radius: 9,
+                color: '#ffffff',
+                weight: 2,
+                fillColor: colorMap[cluster.type] || colorMap.wash,
+                fillOpacity: 0.95
+            }).addTo(map);
 
-                if (placeData) {
-                    detailContainer?.classList.add('is-active');
-                    programmesEl.textContent = placeData.programmes;
-                    volunteersEl.textContent = placeData.volunteers;
-                    focusEl.textContent = placeData.focus;
-                } else {
-                    resetDetails();
+            marker.bindTooltip(cluster.name, {
+                direction: 'top',
+                offset: [0, -4],
+                className: 'impact-map__tooltip',
+                opacity: 0.9,
+                permanent: false
+            });
+
+            marker.on('click', () => {
+                if (activeMarker) {
+                    activeMarker.setStyle({ weight: 2 });
                 }
+                marker.setStyle({ weight: 4 });
+                activeMarker = marker;
+                setActiveDetails(cluster);
             });
         });
 
-        map.addEventListener('mouseleave', () => {
-            pins.forEach((p) => p.classList.remove('impact-pin--active'));
+        map.on('click', () => {
+            if (activeMarker) {
+                activeMarker.setStyle({ weight: 2 });
+                activeMarker = null;
+            }
             resetDetails();
         });
     }
