@@ -448,6 +448,7 @@ const ResponsibleIndividuals = (() => {
         highlightActiveNav();
         initNavigation();
         hydrateGalleries();
+        initImpactMapPins();
         hydrateProjectsContent();
         hydrateInstagramFeed();
         initLightbox();
@@ -562,6 +563,68 @@ const ResponsibleIndividuals = (() => {
                     }
                 });
             });
+        });
+    }
+
+    function initImpactMapPins() {
+        const map = document.querySelector('.impact-map');
+        if (!map) return;
+
+        const detailContainer = document.getElementById('impact-map-details');
+        const programmesEl = document.getElementById('impact-map-programmes');
+        const volunteersEl = document.getElementById('impact-map-volunteers');
+        const focusEl = document.getElementById('impact-map-focus');
+
+        const data = {
+            Bachenahatti: {
+                programmes: '2 WASH cohorts, 1 STEM lab',
+                volunteers: '18 active',
+                focus: 'Hygiene clubs, STEM mentors, weekend clinics'
+            },
+            'Magadi Road': {
+                programmes: 'After-school labs, livelihood pilots',
+                volunteers: '24 active',
+                focus: 'STEM labs, livelihood readiness'
+            },
+            Ramasandra: {
+                programmes: 'Health camps, learning circles',
+                volunteers: '12 active',
+                focus: 'Health camps, remedial learning'
+            }
+        };
+
+        const pins = map.querySelectorAll('.impact-pin');
+        if (!pins.length) return;
+
+        const resetDetails = () => {
+            detailContainer?.classList.remove('is-active');
+            programmesEl.textContent = '—';
+            volunteersEl.textContent = '—';
+            focusEl.textContent = '—';
+        };
+
+        pins.forEach((pin) => {
+            pin.addEventListener('click', () => {
+                pins.forEach((p) => p.classList.remove('impact-pin--active'));
+                pin.classList.add('impact-pin--active');
+
+                const placeName = pin.dataset.pin;
+                const placeData = data[placeName];
+
+                if (placeData) {
+                    detailContainer?.classList.add('is-active');
+                    programmesEl.textContent = placeData.programmes;
+                    volunteersEl.textContent = placeData.volunteers;
+                    focusEl.textContent = placeData.focus;
+                } else {
+                    resetDetails();
+                }
+            });
+        });
+
+        map.addEventListener('mouseleave', () => {
+            pins.forEach((p) => p.classList.remove('impact-pin--active'));
+            resetDetails();
         });
     }
 

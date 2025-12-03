@@ -142,14 +142,44 @@
             <div class="shell">
                 <p class="section__eyebrow">Where we work</p>
                 <h2 class="section__title">Clusters covered so far.</h2>
-                <div class="impact-map">
-                    <div class="impact-map__grid" aria-hidden="true"></div>
-                    <p>We currently operate across Bachenahatti, Magadi, and Ramasandra clusters with new WASH pilots scoped for southern Bengaluru. Detailed GIS overlays available inside the transparency hub.</p>
+                <div class="impact-map impact-map--interactive">
+                    <div class="impact-map__map" role="img" aria-label="Map of Bengaluru clusters">
+                        <img src="https://tiles.stadiamaps.com/tiles/stamen_toner_lite/12/2297/1477.png" alt="Bengaluru map background" loading="lazy">
+                        <button class="impact-pin impact-pin--wash" style="top:45%;left:38%" data-pin="Bachenahatti">
+                            <span class="impact-pin__dot"></span>
+                            <span class="impact-pin__label">Bachenahatti</span>
+                        </button>
+                        <button class="impact-pin impact-pin--stem" style="top:60%;left:55%" data-pin="Magadi Road">
+                            <span class="impact-pin__dot"></span>
+                            <span class="impact-pin__label">Magadi Road</span>
+                        </button>
+                        <button class="impact-pin impact-pin--health" style="top:58%;left:70%" data-pin="Ramasandra">
+                            <span class="impact-pin__dot"></span>
+                            <span class="impact-pin__label">Ramasandra</span>
+                        </button>
+                    </div>
+                    <div class="impact-map__details" id="impact-map-details">
+                        <p class="muted">Tap a pin to see programme coverage.</p>
+                        <dl>
+                            <div>
+                                <dt>Programmes</dt>
+                                <dd id="impact-map-programmes">—</dd>
+                            </div>
+                            <div>
+                                <dt>Active volunteers</dt>
+                                <dd id="impact-map-volunteers">—</dd>
+                            </div>
+                            <div>
+                                <dt>Focus</dt>
+                                <dd id="impact-map-focus">—</dd>
+                            </div>
+                        </dl>
+                    </div>
                 </div>
                 <div class="impact-map__legend">
-                    <span>WASH upgrades</span>
-                    <span>STEM labs</span>
-                    <span>Health camps</span>
+                    <span><span class="legend-dot legend-dot--wash"></span>WASH upgrades</span>
+                    <span><span class="legend-dot legend-dot--stem"></span>STEM labs</span>
+                    <span><span class="legend-dot legend-dot--health"></span>Health camps</span>
                 </div>
             </div>
         </section>
