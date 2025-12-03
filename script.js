@@ -22,6 +22,29 @@ const ResponsibleIndividuals = (() => {
     };
     const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/responsibleindividuals/';
     const INSTAGRAM_FEED_ENDPOINT = '/.netlify/functions/instagram-feed';
+    const FALLBACK_INSTAGRAM_POSTS = [
+        {
+            id: 'sample-1',
+            caption: 'Learning circle as part of our Responsible Individuals launch week.',
+            mediaUrl: 'https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2760.jpeg',
+            permalink: INSTAGRAM_PROFILE_URL,
+            timestamp: '2025-07-19T10:00:00+05:30'
+        },
+        {
+            id: 'sample-2',
+            caption: 'WASH demo with volunteers and teachers at GHPS Bachenahatti.',
+            mediaUrl: 'https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2758.jpeg',
+            permalink: INSTAGRAM_PROFILE_URL,
+            timestamp: '2025-08-05T09:00:00+05:30'
+        },
+        {
+            id: 'sample-3',
+            caption: 'STEM lab restock underway thanks to our community donors.',
+            mediaUrl: 'https://cdn.jsdelivr.net/gh/ImpashreeShetty/responsible-individuals-website@main/Launchphotos/IMG_2764.jpeg',
+            permalink: INSTAGRAM_PROFILE_URL,
+            timestamp: '2025-08-22T14:30:00+05:30'
+        }
+    ];
 
     const THEME_STORAGE_KEY = 'ri-theme';
     const LANGUAGE_STORAGE_KEY = 'ri-language';
@@ -197,6 +220,8 @@ const ResponsibleIndividuals = (() => {
         if (!container) return;
 
         const limit = Number(container.dataset.instagramLimit) || 4;
+        const renderFallback = () => renderInstagramPosts(getFallbackInstagramPosts(limit), container);
+
         try {
             const response = await fetch(`${INSTAGRAM_FEED_ENDPOINT}?limit=${limit}`, { cache: 'no-store' });
             if (!response.ok) {
@@ -205,45 +230,75 @@ const ResponsibleIndividuals = (() => {
 
             const posts = await response.json();
             if (!Array.isArray(posts) || !posts.length) {
-                container.innerHTML = '<p class="muted">Instagram updates will appear soon.</p>';
+                renderFallback();
                 return;
             }
 
-            const renderCard = (post) => {
-                const caption = typeof post.caption === 'string' ? post.caption.trim() : '';
-                const trimmedCaption = caption.length > 120 ? `${caption.slice(0, 117)}…` : caption;
-                const fallbackAlt = 'Instagram post from Responsible Individuals';
-                const safeCaption = escapeHtml(trimmedCaption || 'View post on Instagram');
-                const permalink = typeof post.permalink === 'string' && post.permalink.startsWith('http')
-                    ? post.permalink
-                    : INSTAGRAM_PROFILE_URL;
-                const mediaUrl = typeof post.mediaUrl === 'string' && post.mediaUrl.startsWith('http')
-                    ? post.mediaUrl
-                    : '';
-                const timestamp = typeof post.timestamp === 'string' ? post.timestamp : '';
-                const formattedDate = formatInstagramDate(timestamp);
-
-                return `
-                    <article class="instagram-card">
-                        <a class="instagram-card__image" href="${permalink}" target="_blank" rel="noreferrer noopener" aria-label="Open Instagram post">
-                            ${mediaUrl ? `<img src="${mediaUrl}" alt="${escapeHtml(trimmedCaption || fallbackAlt)}" loading="lazy">` : ''}
-                        </a>
-                        <div class="instagram-card__body">
-                            <p class="instagram-card__caption">${safeCaption}</p>
-                            <div class="instagram-card__meta">
-                                ${formattedDate ? `<span>${formattedDate}</span>` : ''}
-                                <a href="${permalink}" target="_blank" rel="noreferrer noopener">View post</a>
-                            </div>
-                        </div>
-                    </article>
-                `;
-            };
-
-            container.innerHTML = posts.map((post) => renderCard(post)).join('');
+            renderInstagramPosts(posts.slice(0, limit), container);
         } catch (error) {
             console.warn('Unable to load Instagram feed:', error);
-            container.innerHTML = '<p class="muted">Instagram updates are temporarily unavailable.</p>';
+            renderFallback();
         }
+    }
+
+    function renderInstagramPosts(posts, container) {
+        const normalized = posts
+            .map((post) => normaliseInstagramPost(post))
+            .filter((post) => post.mediaUrl);
+
+        if (!normalized.length) {
+            container.innerHTML = '<p class="muted">Instagram updates are temporarily unavailable.</p>';
+            return;
+        }
+
+        container.innerHTML = normalized.map((post) => renderInstagramCard(post)).join('');
+    }
+
+    const renderInstagramCard = (post) => {
+        const caption = typeof post.caption === 'string' ? post.caption.trim() : '';
+        const trimmedCaption = caption.length > 120 ? `${caption.slice(0, 117)}…` : caption;
+        const fallbackAlt = 'Instagram post from Responsible Individuals';
+        const safeCaption = escapeHtml(trimmedCaption || 'View post on Instagram');
+        const permalink = typeof post.permalink === 'string' && post.permalink.startsWith('http')
+            ? post.permalink
+            : INSTAGRAM_PROFILE_URL;
+        const mediaUrl = typeof post.mediaUrl === 'string' && post.mediaUrl.startsWith('http')
+            ? post.mediaUrl
+            : '';
+        const timestamp = typeof post.timestamp === 'string' ? post.timestamp : '';
+        const formattedDate = formatInstagramDate(timestamp);
+
+        return `
+            <article class="instagram-card">
+                <a class="instagram-card__image" href="${permalink}" target="_blank" rel="noreferrer noopener" aria-label="Open Instagram post">
+                    ${mediaUrl ? `<img src="${mediaUrl}" alt="${escapeHtml(trimmedCaption || fallbackAlt)}" loading="lazy">` : ''}
+                </a>
+                <div class="instagram-card__body">
+                    <p class="instagram-card__caption">${safeCaption}</p>
+                    <div class="instagram-card__meta">
+                        ${formattedDate ? `<span>${formattedDate}</span>` : ''}
+                        <a href="${permalink}" target="_blank" rel="noreferrer noopener">View post</a>
+                    </div>
+                </div>
+            </article>
+        `;
+    };
+
+    function normaliseInstagramPost(post = {}) {
+        const fallbackId = `instagram-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+        return {
+            id: post.id || fallbackId,
+            caption: typeof post.caption === 'string' ? post.caption : '',
+            mediaUrl: typeof post.mediaUrl === 'string'
+                ? post.mediaUrl
+                : (typeof post.media_url === 'string' ? post.media_url : (typeof post.thumbnail_url === 'string' ? post.thumbnail_url : '')),
+            permalink: typeof post.permalink === 'string' ? post.permalink : INSTAGRAM_PROFILE_URL,
+            timestamp: typeof post.timestamp === 'string' ? post.timestamp : ''
+        };
+    }
+
+    function getFallbackInstagramPosts(limit) {
+        return FALLBACK_INSTAGRAM_POSTS.slice(0, Math.max(1, limit));
     }
 
     function formatInstagramDate(value) {
