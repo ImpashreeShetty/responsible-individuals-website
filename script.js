@@ -700,7 +700,11 @@ const ResponsibleIndividuals = (() => {
                     permanent: false
                 });
 
-                marker.on('click', () => {
+                marker.on('click', (event) => {
+                    if (event.originalEvent) {
+                        event.originalEvent.stopPropagation();
+                        event.originalEvent.preventDefault();
+                    }
                     if (activeMarker) {
                         activeMarker.setStyle({ weight: 2 });
                     }
