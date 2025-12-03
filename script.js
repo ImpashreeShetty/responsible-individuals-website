@@ -579,7 +579,8 @@ const ResponsibleIndividuals = (() => {
             {
                 name: 'Bachenahatti',
                 type: 'wash',
-                coords: [12.991, 77.320],
+                coords: [12.991, 77.32],
+                pinPosition: { top: '40%', left: '38%' },
                 programmes: '2 WASH cohorts, 1 STEM lab',
                 volunteers: '18 active',
                 focus: 'Hygiene clubs, STEM mentors, weekend clinics'
@@ -587,7 +588,8 @@ const ResponsibleIndividuals = (() => {
             {
                 name: 'Magadi Road',
                 type: 'stem',
-                coords: [12.979, 77.470],
+                coords: [12.979, 77.47],
+                pinPosition: { top: '57%', left: '54%' },
                 programmes: 'After-school labs, livelihood pilots',
                 volunteers: '24 active',
                 focus: 'STEM labs, livelihood readiness'
@@ -595,42 +597,24 @@ const ResponsibleIndividuals = (() => {
             {
                 name: 'Ramasandra',
                 type: 'health',
-                coords: [12.900, 77.485],
+                coords: [12.9, 77.485],
+                pinPosition: { top: '58%', left: '72%' },
                 programmes: 'Health camps, learning circles',
                 volunteers: '12 active',
                 focus: 'Health camps, remedial learning'
             }
         ];
 
+        const clusterMap = clusters.reduce((acc, cluster) => {
+            acc[cluster.name] = cluster;
+            return acc;
+        }, {});
+
         const colorMap = {
             wash: '#1F8A6D',
             stem: '#2563EB',
             health: '#F97316'
         };
-
-        const handleError = (message) => {
-            mapContainer.classList.add('impact-map__map--error');
-            mapContainer.innerHTML = `<p class="impact-map__fallback">${escapeHtml(message)}</p>`;
-        };
-
-        if (typeof L === 'undefined') {
-            handleError('Interactive map unavailable right now.');
-            return;
-        }
-
-        mapContainer.innerHTML = '';
-
-        const map = L.map(mapContainer, {
-            scrollWheelZoom: false,
-            tap: false
-        }).setView([12.97, 77.45], 11);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors',
-            maxZoom: 18
-        }).addTo(map);
-
-        let activeMarker = null;
 
         const resetDetails = () => {
             detailContainer?.classList.remove('is-active');
@@ -640,46 +624,103 @@ const ResponsibleIndividuals = (() => {
         };
 
         const setActiveDetails = (cluster) => {
+            if (!cluster) return;
             detailContainer?.classList.add('is-active');
             programmesEl.textContent = cluster.programmes;
             volunteersEl.textContent = cluster.volunteers;
             focusEl.textContent = cluster.focus;
         };
 
-        clusters.forEach((cluster) => {
-            const marker = L.circleMarker(cluster.coords, {
-                radius: 9,
-                color: '#ffffff',
-                weight: 2,
-                fillColor: colorMap[cluster.type] || colorMap.wash,
-                fillOpacity: 0.95
+        const renderFallbackImpactMap = () => {
+            mapContainer.classList.remove('impact-map__map--error');
+            mapContainer.innerHTML = `
+                <div class="impact-map__fallback-map" role="img" aria-label="Map of Bengaluru clusters">
+                    <div class="impact-map__grid" aria-hidden="true"></div>
+                    ${clusters.map((cluster) => `
+                        <button type="button"
+                            class="impact-pin impact-pin--${cluster.type}"
+                            style="top:${cluster.pinPosition.top};left:${cluster.pinPosition.left}"
+                            data-cluster="${cluster.name}">
+                            <span class="impact-pin__dot"></span>
+                            <span class="impact-pin__label">${escapeHtml(cluster.name)}</span>
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+
+            const pins = mapContainer.querySelectorAll('.impact-pin');
+            pins.forEach((pin) => {
+                pin.addEventListener('click', () => {
+                    pins.forEach((p) => p.classList.remove('impact-pin--active'));
+                    pin.classList.add('impact-pin--active');
+                    setActiveDetails(clusterMap[pin.dataset.cluster]);
+                });
+            });
+
+            mapContainer.addEventListener('mouseleave', () => {
+                pins.forEach((p) => p.classList.remove('impact-pin--active'));
+                resetDetails();
+            });
+        };
+
+        if (typeof L === 'undefined') {
+            renderFallbackImpactMap();
+            return;
+        }
+
+        try {
+            mapContainer.innerHTML = '';
+
+            const map = L.map(mapContainer, {
+                scrollWheelZoom: false,
+                tap: false
+            }).setView([12.97, 77.45], 11);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors',
+                maxZoom: 18
             }).addTo(map);
 
-            marker.bindTooltip(cluster.name, {
-                direction: 'top',
-                offset: [0, -4],
-                className: 'impact-map__tooltip',
-                opacity: 0.9,
-                permanent: false
+            let activeMarker = null;
+
+            clusters.forEach((cluster) => {
+                const marker = L.circleMarker(cluster.coords, {
+                    radius: 9,
+                    color: '#ffffff',
+                    weight: 2,
+                    fillColor: colorMap[cluster.type] || colorMap.wash,
+                    fillOpacity: 0.95
+                }).addTo(map);
+
+                marker.bindTooltip(cluster.name, {
+                    direction: 'top',
+                    offset: [0, -4],
+                    className: 'impact-map__tooltip',
+                    opacity: 0.9,
+                    permanent: false
+                });
+
+                marker.on('click', () => {
+                    if (activeMarker) {
+                        activeMarker.setStyle({ weight: 2 });
+                    }
+                    marker.setStyle({ weight: 4 });
+                    activeMarker = marker;
+                    setActiveDetails(cluster);
+                });
             });
 
-            marker.on('click', () => {
+            map.on('click', () => {
                 if (activeMarker) {
                     activeMarker.setStyle({ weight: 2 });
+                    activeMarker = null;
                 }
-                marker.setStyle({ weight: 4 });
-                activeMarker = marker;
-                setActiveDetails(cluster);
+                resetDetails();
             });
-        });
-
-        map.on('click', () => {
-            if (activeMarker) {
-                activeMarker.setStyle({ weight: 2 });
-                activeMarker = null;
-            }
-            resetDetails();
-        });
+        } catch (error) {
+            console.warn('Leaflet map failed, switching to fallback', error);
+            renderFallbackImpactMap();
+        }
     }
 
     return {
